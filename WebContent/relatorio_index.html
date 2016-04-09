@@ -1,0 +1,308 @@
+<!DOCTYPE html> 
+<html> 
+
+<head> 
+	<title>Análise da Conversação</title> 
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+	<link href='http://fonts.googleapis.com/css?family=Maven+Pro&v1' rel='stylesheet' type='text/css'>
+
+<script src="scrollingPage.js"></script>
+<script type="text/javascript">
+
+// -------------------------------------
+// Gráficos
+// -------------------------------------
+
+
+// -------------------------------------
+// Relatório
+// -------------------------------------
+function LimparRelatorio() {
+	var relatorio = document.getElementById("relatorio");
+	while (relatorio.lastChild) {
+		relatorio.removeChild(relatorio.lastChild);
+	}
+}
+
+function RelatarMatrizAdjacencia() {
+	var relatorio = document.getElementById("relatorio");
+	var paragrafo = document.createElement("p");
+	var node = document.createTextNode("Matriz de Adjacência:");
+	paragrafo.appendChild(node);
+	relatorio.appendChild(paragrafo);
+
+	var table = document.createElement("table");
+	var header = table.createTHead();
+	var row = header.insertRow();     
+	
+	row.insertCell();
+	for (j=0; j<vertices.length; j++) {
+		var cell = row.insertCell();
+		cell.innerHTML = vertices[j];
+	}
+	
+	for (i=0; i<vertices.length; i++) {
+		//var header = table.createTHead();
+		var row = table.insertRow();     
+		var cell = row.insertCell();
+		cell.innerHTML = vertices[i];
+		for (j=0; j<vertices.length; j++) {
+			var cell = row.insertCell();
+			cell.innerHTML = MatrizAdjacencia[i][j];
+		}
+	}
+
+
+	relatorio.appendChild(table);	
+}
+
+
+
+function Relatar() {
+	var relatorio = document.getElementById("relatorio");
+	LimparRelatorio();
+	
+	var h = document.createElement("H1")
+	h.appendChild(document.createTextNode("Relatório de Análise"));
+    relatorio.appendChild(h);
+	
+	
+	var p = document.createElement("p")
+	p.appendChild(document.createTextNode("Aqui temos que produzir informações compreensíveis para tutores e alunos do ensino superior."));
+    relatorio.appendChild(p);
+	
+	RelatarMatrizAdjacencia();
+    
+    //-- Outlier values
+    var lnSep = document.createElement("BR");
+    var oPara = document.createElement("p");
+    var inOutlierNode = document.createTextNode("Grau de Entrada: Valor fora da curva - " + "Mínimo:" + inLow + "; " + "Máximo:" + inHigh);
+ 	var outOutlierNode = document.createTextNode("Grau de Saída: Valor fora da curva - " + "Mínimo:" + outLow + "; " + "Máximo:" + outHigh);
+    oPara.appendChild(inOutlierNode);
+    oPara.appendChild(lnSep);
+    oPara.appendChild(outOutlierNode);
+    relatorio.appendChild(oPara);
+
+	for (i=1; i<=30; i++) {
+		var paragrafo = document.createElement("p");
+		var node = document.createTextNode("- " + i + " -");
+		paragrafo.appendChild(node);
+		relatorio.appendChild(paragrafo);
+	}
+
+	smoothScroll("relatorio");
+	
+	
+}
+
+function ExemplificarDados() {
+	var logInput = document.getElementById("logInput");
+	logInput.value = "@Felipe	Vânia\n@Felipe	Valéria\nAna	@Felipe\nVânia	Valéria\nValéria	Paulo\nPaulo	@Felipe\nCarlos	0\nPedro\nMauro";
+	LimparRelatorio();
+}
+
+// -------------------------------------
+// Análises
+// -------------------------------------
+var MatrizAdjacencia;
+var vertices = [];
+//-- por outliers
+var arrayOutDegree;
+var arrayInDegree;
+var outMed;
+var inMed;
+var outQ1;
+var inQ1;
+var outQ3;
+var inQ3;
+var outIQR;
+var inIQR;
+var outIQR2;
+var inIQR2;
+var outLow;
+var inLow;
+var outHigh;
+var inHigh;
+var values;
+
+
+function CalcularMatrizAdjacencia() {
+	var logInput = document.getElementById("logInput");
+	var arestas = logInput.value.split("\n");
+	for (var i=0; i<arestas.length; i++) {
+		arestas[i] = arestas[i].split("	");
+		if( arestas[i].length>=1 && vertices.indexOf(arestas[i][0])==-1 )	vertices.push(arestas[i][0]); //adiciona somente se o vértice for novo, não estiver presente
+		if( arestas[i].length>=2 && vertices.indexOf(arestas[i][1])==-1 )	vertices.push(arestas[i][1]); //adiciona somente se o vértice for novo, não estiver presente
+	}
+	vertices.sort();
+	
+	vertices.push("Total");
+	
+	//cria a matriz nxn zerada
+	var n=vertices.length;
+	MatrizAdjacencia = new Array(n);
+	for (i=0;i<n;i++) {
+		MatrizAdjacencia[i] = new Array(n);
+		for (j=0;j<n;j++) {
+			MatrizAdjacencia[i][j]=0;
+		}
+	}
+	
+	//popula os valores da matriz de adjacência
+	for (i=0; i<arestas.length; i++) {
+		var posOrigem = vertices.indexOf(arestas[i][0]);
+		var posDestino = vertices.indexOf(arestas[i][1]);
+		MatrizAdjacencia[posOrigem][posDestino]++;
+	}
+
+	//Calcula o total por linha	
+	m=n-1;
+	arrayOutDegree = new Array(m);
+	values = new Array(m);
+	for (i=0;i<m;i++) {
+		x = 0;
+		for (j=0;j<m;j++) {
+			x = x + MatrizAdjacencia[i][j];
+		}
+		MatrizAdjacencia[i][m] = x;
+		arrayOutDegree[i] = x;
+	}
+	//-- Outlier Calc
+	arrayOutDegree.sort();
+	values = arrayOutDegree;
+	q1Arr = (values.length % 2 == 0) ? values.slice(0, (values.length / 2)) : values.slice(0, Math.floor(values.length / 2));
+	q2Arr =  values;
+	q3Arr = (values.length % 2 == 0) ? values.slice((values.length / 2), values.length) : values.slice(Math.ceil(values.length / 2), values.length);
+	outQ1 = medianX(q1Arr);
+	//outQ1=median;
+	outMed = medianX(q2Arr);
+	//outMed=median;
+	outQ3 = medianX(q3Arr);
+	//outQ3=median;
+	outIQR= outQ3 - outQ1;
+	outIQR2 = 1.5 * outIQR;
+	outLow = outQ1 - outIQR2;
+	outHigh = outQ3 + outIQR2;
+	//document.write(outLow);
+	//document.write("<BR>");
+	//document.write(outHigh);
+	
+	//Calcula o total por coluna
+	arrayInDegree = new Array(m);
+	for (j=0;j<m;j++) {
+		x = 0;
+		for (i=0;i<m;i++) {
+			x = x + MatrizAdjacencia[i][j];
+		}
+		MatrizAdjacencia[m][j] = x;
+		arrayInDegree[j] = x;
+	}
+	//-- Outlier Calc
+	arrayInDegree.sort();
+	values = arrayInDegree;
+	q1Arr = (values.length % 2 == 0) ? values.slice(0, (values.length / 2)) : values.slice(0, Math.floor(values.length / 2));
+	q2Arr =  values;
+	q3Arr = (values.length % 2 == 0) ? values.slice((values.length / 2), values.length) : values.slice(Math.ceil(values.length / 2), values.length);
+	inQ1 = medianX(q1Arr);
+	//outQ1=median;
+	inMed = medianX(q2Arr);
+	//outMed=median;
+	inQ3 = medianX(q3Arr);
+	//outQ3=median;
+	inIQR= inQ3 - inQ1;
+	inIQR2 = 1.5 * inIQR;
+	inLow = inQ1 - inIQR2;
+	inHigh = inQ3 + inIQR2;
+	//document.write(inLow);
+	//document.write("<BR>");
+	//document.write(inHigh);
+	
+	MatrizAdjacencia[m][m]="";
+
+}
+
+function medianX(medianArr) {
+	count = medianArr.length;
+	median = (count % 2 == 0) ? (medianArr[(medianArr.length/2) - 1] + medianArr[(medianArr.length / 2)]) / 2:medianArr[Math.floor(medianArr.length / 2)];
+	return median;
+   }
+	
+function median(values) {
+
+    values.sort( function(a,b) {return a - b;} );
+
+    var half = Math.floor(values.length/2);
+
+    if(values.length % 2)
+        return values[half];
+    else
+        return (values[half-1] + values[half]) / 2.0;
+}
+
+function Analisar() {
+	CalcularMatrizAdjacencia();
+	Relatar();
+	
+}
+
+</script>
+
+
+<style type="text/css" media="screen"> 
+* {
+	font-family: 'Maven Pro', arial, sans-serif;
+}
+
+body {
+	text-align: center;
+}
+
+#logInput {
+	font-family: verdana, arial, sans-serif;
+	width: 770px;
+}
+
+
+#relatorio h1 {
+	text-align: center;
+	padding-top: 1em;
+}
+
+#relatorio table, th, td  {
+	border: 1px solid black;
+}
+
+#relatorio table {
+	margin: 0 auto;
+    border-collapse: collapse;
+	text-align: center;
+}
+
+#relatorio td {
+    padding: 3px;
+}
+
+#relatorio th {
+	font-weight: bold;
+}
+</style>
+
+</head> 
+
+
+<body>
+<!-- Entrada de dados -->
+<p><img src="analise.jpg" width="567" height="400" alt="Análise da Conversação e da Rede Social"></p>
+<h1>Análise da Conversação e da Rede Social</h1>
+<P>Registre as associações entre os interlocutores estabelecidas pelas mensagens da conversação:</P>
+<form onsubmit="Analisar(); return false;">
+	<p><textarea id="logInput" rows="10" cols="90" name="data" placeholder="Cole os dados ou digite manualmente, e depois clique no botão 'Analisar'. Cada linha representa uma associação emissor --> receptor, separados por tabulação (obs.:para digitar tabulação, tecle: ALT+0+9). Para indicar o tutor-professor, prefixe o nome com o símbolo @. Por exemplo, '@Felipe	Vânia' significa que o professor-tutor Felipe enviou uma mensagem para Vânia. Se alguém não enviou mensagem alguma, apenas registre o nome sem um destinatário. Se alguém enviou para todos, sem um destinatário específico, registre destinatário como 0 (zero). Para ver um exemplo, clique no botão 'Exemplo de dados'" style="resize: both;"></textarea></p>
+	<p><input type="button" onclick="ExemplificarDados()" value="Exemplo de dados"> &nbsp;&nbsp;&nbsp; <input type="button" onclick="Analisar()" value="Analisar"></p>
+</form>
+
+<!-- Relatório de Análise -->
+<div id="relatorio">
+</div>
+</body>
+
+</html> 
