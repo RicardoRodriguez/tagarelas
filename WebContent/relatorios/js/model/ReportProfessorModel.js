@@ -1,7 +1,8 @@
 /**
- *  Classe que define as varáveis globais do grupo relatóros 
+ *  Classe que define o Plain Object de RelatorioProfessor
+ *  ======================================================
  */
-var ReportVariables = 
+var ReportProfessorModel = 
 	( function ($){
 		
 	 /* get / set variables */	
