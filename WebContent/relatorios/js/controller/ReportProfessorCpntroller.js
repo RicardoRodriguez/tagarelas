@@ -22,7 +22,16 @@ var ReportProfessorController =
 			var node = $(document.createTextNode("Matriz de Adjacência:"));
 			paragrafo.appendChild(node);
 			relatorio.appendChild(paragrafo);
-
+			
+			var $records = $('#json-records'),
+		    myRecords = JSON.parse($records.text());
+		    $('#my-final-table').dynatable({
+		        dataset: {
+		             records: myRecords,
+		        }
+		    });
+			
+            /*
 			var table = document.createElement("table");
 			var header = table.createTHead();
 			var row = header.insertRow();     
@@ -45,7 +54,7 @@ var ReportProfessorController =
 			}
 
 
-			relatorio.appendChild(table);	
+			relatorio.appendChild(table); */	
 			
 		};
 	
@@ -71,7 +80,7 @@ var ReportProfessorController =
 		 * Mostra o resumo após de montado a tabela
 		 * rpm = ReportProfessorModel
 		 */
-		var doMostrqrResumo =function(element,rpm){
+		var doMostrarResumo =function(element,rpm){
 			var relatorio = $(element);
 			//-- Outlier values
 		    var lnSep = $(document.createElement("BR"));
@@ -89,6 +98,14 @@ var ReportProfessorController =
 		    oPara.appendChild(outOutlierNode);
 		    relatorio.appendChild(oPara);	
 		};
+		
+		/**
+		 * Monta descricao do resuno
+		 */
+		var doShowMensagens= function(element,rpm){
+			
+		}
+		
 		/**
 		 * Executa a rotina principal do projeto
 		 */
@@ -101,7 +118,8 @@ var ReportProfessorController =
 			/* Gerar matriz Adjacencia */
 			rpm = this.doRelatarMatrizAdjacencia(element);
 			/* Apresenta resumo da MAtriz */
-			this.doMostrqrResumo (element,rpm);
+			this.doMostrarResumo (element,rpm);
+			this.doShowMensagens(element,rpm);
 		}
 		
 		
