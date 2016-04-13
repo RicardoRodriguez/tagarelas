@@ -23,6 +23,10 @@ var ReportProfessorController =
 			paragrafo.appendChild(node);
 			relatorio.appendChild(paragrafo);
 			
+			/*
+			 * Manual do dynatable: 
+			 *     https://www.dynatable.com/?sorts%5Byear%5D=-1#existing-json
+			 */
 			var $records = $('#json-records'),
 		    myRecords = JSON.parse($records.text());
 		    $('#my-final-table').dynatable({
