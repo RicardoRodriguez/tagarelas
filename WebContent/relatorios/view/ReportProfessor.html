@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Relatorio de Bate-Papo Professor</title>
+</head>
+
+<script src="../../js/jquery-2.2.3.min.js"></script>
+<script src="../../js/jquery.dynatable.js"></script>
+<script src="../js/controller/ReportProfessorController.js"></script>
+<script src="../js/model/MockDataModel.js"></script>
+<script src="../js/model/ReportProfessorMessagesModel.js"></script>
+<script src="../js/model/ReportProfessorModel.js"></script>
+
+<script>
+/** 
+ * Carrega a controller do relatorio
+ */
+function doExecute(element){
+	   reportProfessorController =
+		   	 new ReportProfessorController();
+	   reportProfessorController.doRelatarAction(element);
+};
+</script>
+<body>
+<button id="doExecuteRelatorio" 
+	onclick="javascript:doExecute('corpoPrograma');">
+Executar Relatorio
+</button>
+<div id="corpoPrograma">
+
+</div>
+</body>
+</html>
