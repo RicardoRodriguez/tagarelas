@@ -20,8 +20,9 @@ var MockDataModel =
 		
 	    /**
 	     * Perara a conversa entre alunos e professor
+	     * retorna um json com as conversas
 	     */
-		var doPreparaConversas = function(numneroAlunos){
+		var doPreparaConversas = function(turma,interacoes){
 		
 		}
 		
@@ -29,25 +30,26 @@ var MockDataModel =
 		 * Gera o bate papo. Chamar através desta função
 		 * @param numeroAlunos
 		 */
-		doGerarBatePapo = function(numeroAlunos){
+		doGerarBatePapo = function(numeroAlunos, interações){
 		    var numAlunos = numeroAlunos-0;
+		    var numInteracoes  = interacoes - 0
 		    numAlunos = (numAlunos > 15)?15:nunAlunos;
-		    this.doPreparaTurma(numAlunos)
-			
+		    this.doPreparaTurma(numAlunos);
+			return this.doPreparaConversas(interacoes);
 		};
 		
 		/**
-		 * Seleciona um professor
+		 * Seleciona um professor e inclui em turma
 		 */
 		var  getProfessorAleatorio=function(){
 			
 		};
 		
 		/**
-		 * Seleciona os alunos
+		 * Seleciona os alunos e inclui em turoma
 		 */
-		var getAlunoAleatorio=function(){
-			if (numAlunos == 15){
+		var getAlunoAleatorio=function(numAlunos){
+			if (numAlunos >= 15){
 				for (aluno in this.alunos){
 					this.turma.put[aluno];
 				}
