@@ -3,33 +3,125 @@
 <head>
 <meta charset="UTF-8">
 <title>Relatorio de Bate-Papo Professor</title>
+<!-- 
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.jqueryui.min.css">
+ -->
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
 </head>
 
 <script src="../../js/jquery-2.2.3.min.js"></script>
-<script src="../../js/jquery.dynatable.js"></script>
+<script src="../../js/jquery.dataTables.min.js"></script>
+<script src="../../js/jquery.json.min.js"></script>
+<script src="../../js/dataTables.jqueryui.min.js"> </script>
 <script src="../js/controller/ReportProfessorController.js"></script>
+<script src="../js/controller/CalculoController.js"></script>
+<script src="../js/controller/GraficoController.js"></script>
 <script src="../js/model/MockDataModel.js"></script>
 <script src="../js/model/ReportProfessorMessagesModel.js"></script>
 <script src="../js/model/ReportProfessorModel.js"></script>
+<script src="../js/model/ArrayToJSONModel.js"></script>
+<script src="../js/model/PrepareArrayDataModel.js"></script>
 
+<script type="text/javascript" 
+             src="https://www.gstatic.com/charts/loader.js"></script>
+             
 <script>
 /** 
  * Carrega a controller do relatorio
  */
 
- function doExecute(element){
-	   reportProfessorController =
-		   	 new ReportProfessorController();
-	   reportProfessorController.doMainAction(element);
-};
+ $(function() {
+	 
+	 $("#selectGraficoDiv").hide();
+	 $("#graficoBolha").hide();
+	 $("#graficoColuna").hide();
+	 $("#graficoCandelabro").hide();
+	 $("#graficoEntradaSaida").hide();
+
+	 reportProfessorController = new ReportProfessorController();;
+	 
+	 doChangeGrafico= function(e){
+	 	reportProfessorController.doShowGrafico(e.value);
+	 }
+
+	 doExecute= function (){
+	   console.log("==========================================" );
+	   console.log("Executando ReportProfessorController");
+	   console.log("===========================================" );
+	   $("#selectGraficoDiv").hide();
+	   reportProfessorController.doMainAction();
+	   $("#selectGraficoDiv").show();
+	 }
+});
+
 </script>
 <body>
+<table>
+<tr>
+    <td> Número de Alunos: </td>
+    <td> <input type="number" id="alunos" min="1" max="15" size="15"/> </td>
+</tr>
+<tr> <td colspan="2 height="8px" ></td>
+</tr>
+<tr>
+    <td> Interações: </td>
+    <td> <input type="number" id="interacoes" min="1" max="5000" size="15"/> </td>
+</tr>
+<tr> <td colspan="2 height="8px" ></td>
+</table>
+
 <button id="doExecuteRelatorio" 
-	onclick="javascript:doExecute('corpoPrograma');">
+	onclick="javascript:doExecute();">
 Executar Relatorio
 </button>
-<div id="corpoPrograma">
-
+<div id="divMain">
 </div>
+<div id="tableResultado">
+	<table id="example" class="display" cellspacing="0" width="100%">
+    </table>
+</div>
+<div id="resumo"></div>
+<div id="selectGraficoDiv">
+<br/>
+<table>
+<tr>
+    <td>Informe o Grafico Desejado.: </td>
+    <td>
+        <select id="selectGrafico" onchange="doChangeGrafico(this);" name="selectGrafico">
+            <option default value="-1">Selecione</option>
+            <option value="0">==========</option>
+            <option value="1">Bolha</option>
+            <option value="2">Colunas</option>
+            <option value="3">Candelabro</option>
+            <option value="4">Pizza</option>
+        </select>
+    </td>
+</tr>
+</table>
+<br/>
+</div>
+<div id="graficoBolha" style="border: 1px solid #ccc">
+</div>
+<div id="graficoColuna" style="border: 1px solid #ccc">
+</div>
+<div id="graficoCandelabro" style="border: 1px solid #ccc">
+</div>
+<div id="graficoEntradaSaida">
+	<table class="columns">
+      <tr>
+        <td><div id="graficoEntrada" style="border: 1px solid #ccc"></div></td>
+        <td><div id="graficoSaida"   style="border: 1px solid #ccc"></div></td>
+      </tr>
+	</table>
+</div>
+
+<div id="mensagens"></div>
 </body>
 </html>

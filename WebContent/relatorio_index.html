@@ -159,9 +159,9 @@ function CalcularMatrizAdjacencia() {
 	m=n-1;
 	arrayOutDegree = new Array(m);
 	values = new Array(m);
-	for (i=0;i<m;i++) {
+	for (i=0;i<m;i++) { // Linha
 		x = 0;
-		for (j=0;j<m;j++) {
+		for (j=0;j<m;j++) {  // coluna
 			x = x + MatrizAdjacencia[i][j];
 		}
 		MatrizAdjacencia[i][m] = x;
