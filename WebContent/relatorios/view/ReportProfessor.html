@@ -3,14 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Relatorio de Bate-Papo Professor</title>
+<!-- 
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
+
+<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
+<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.jqueryui.min.css">
+ -->
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
 </head>
 
 <script src="../../js/jquery-2.2.3.min.js"></script>
-<script src="../../js/jquery.dynatable.js"></script>
+<script src="../../js/jquery.dataTables.min.js"></script>
+<script src="../../js/jquery.json.min.js"></script>
+<script src="../../js/dataTables.jqueryui.min.js"> </script>
 <script src="../js/controller/ReportProfessorController.js"></script>
 <script src="../js/model/MockDataModel.js"></script>
 <script src="../js/model/ReportProfessorMessagesModel.js"></script>
 <script src="../js/model/ReportProfessorModel.js"></script>
+<script src="../js/model/ArrayToJSONModel.js"></script>
+<script src="../js/model/PrepareArrayDataModel.js"></script>
 
 <script>
 /** 
@@ -18,18 +33,38 @@
  */
 
  function doExecute(element){
+	   console.log("==========================================" );
+	   console.log("Executando com o parametro:" + element);
+	   console.log("===========================================" );
 	   reportProfessorController =
 		   	 new ReportProfessorController();
 	   reportProfessorController.doMainAction(element);
 };
+
 </script>
 <body>
+<table>
+<tr>
+    <td> Número de Alunos: </td>
+    <td> <input type="number" id="alunos" min="1" max="15" size="15"/> </td>
+</tr>
+<tr> <td colspan="2 height="8px" ></td>
+</tr>
+<tr>
+    <td> Interações: </td>
+    <td> <input type="number" id="interacoes" min="1" max="5000" size="15"/> </td>
+</tr>
+<tr> <td colspan="2 height="8px" ></td>
+</table>
+
 <button id="doExecuteRelatorio" 
-	onclick="javascript:doExecute('corpoPrograma');">
+	onclick="javascript:doExecute('#divMain');">
 Executar Relatorio
 </button>
-<div id="corpoPrograma">
-
+<div id="divMain">
 </div>
+<div id="tableResultado"></div>
+<table id="example" class="display" cellspacing="0" width="100%">
+</table>
 </body>
 </html>
