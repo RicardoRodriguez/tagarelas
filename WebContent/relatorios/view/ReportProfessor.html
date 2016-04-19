@@ -55,6 +55,18 @@
 	   console.log("==========================================" );
 	   console.log("Executando ReportProfessorController");
 	   console.log("===========================================" );
+	   numAlunos = $("#alunos").val()-0;
+	   interacoes = $("#interacoes").val()-0;
+
+       if (numAlunos == 0){
+          alert("Informe o numero de Alunos.");
+          return;
+       }
+
+       if (interacoes == 0){
+           alert("Informe o numero de Interacoes.");
+           return;
+        }	   
 	   $("#selectGraficoDiv").hide();
 	   reportProfessorController.doMainAction();
 	   $("#selectGraficoDiv").show();

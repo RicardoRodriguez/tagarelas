@@ -30,16 +30,26 @@ $(function() {
 			 * ---------------------------------
 			 */
 			doCreateMatrizAdjacencia: function(){
+				
+				numAlunos = $("#alunos").val()-0;
+				interacoes = $("#interacoes").val()-0;
+				
+				
+				
 				console.log("executando doCreateMatrizAdjacencia...");
 				var mockDataModel = new MockDataModel();
 				
-				var conversas = 
-					["@Felipe|Vania", "@Felipe|Valeria","Ana|@Felipe",
-					 "Vania|Valeria", "Valeria|Paulo","Paulo|@Felipe"];
-					//mockDataModel.doPreparaConversas();
+				var conversas = mockDataModel.doGerarBatePapo(numAlunos,interacoes);
 				
-				var turma = ["@Felipe","Vania", "Valeria", 
-				             "Ana","Paulo","Carlos","Pedro","Mauro" ];//mockDataModel.getTurma();
+					//****** Conversa Fixa de teste
+					//["@Felipe|Vania", "@Felipe|Valeria","Ana|@Felipe",
+					// "Vania|Valeria", "Valeria|Paulo","Paulo|@Felipe"];
+				
+				var turma = mockDataModel.getTurma();
+					
+					//**** Turma Fixa
+					//["@Felipe","Vania", "Valeria", 
+				    // "Ana","Paulo","Carlos","Pedro","Mauro" ];
 				
 				this.titColuna = new Array();
 				this.titLinha  = new Array();
@@ -177,7 +187,7 @@ $(function() {
 			doPrepareGrafico: function(){
 				console.log("executando doPrepareGrafico...");
 				this.gc = new GraficoController();
-				this.gc.doInit(this.matrix,this.titLinha);
+				this.gc.doInit(this.titLinha,this.matrix);
 			},
 			
 			doShowGrafico: function(opcao){
