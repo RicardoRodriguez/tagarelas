@@ -17,8 +17,8 @@ $(function() {
 		data.addRows(myArray);
 
 		var piechart_options = {title:'Total de Entradas',
-				width:450,
-				height:400};
+				width: 600,
+				height: 600};
 		var piechart = new google.visualization.PieChart(document.getElementById('graficoEntrada'));
 		piechart.draw(data, piechart_options);
 		
@@ -40,8 +40,8 @@ $(function() {
 		data1.addRows(saidas);
 
 		var piechart1_options = {title:'Total de Saidas',
-				width:450,
-				height:400};
+				width: 600,
+				height:600};
 		var piechart1 = new google.visualization.PieChart(document.getElementById('graficoSaida'));
 		piechart1.draw(data1, piechart1_options);
 	},

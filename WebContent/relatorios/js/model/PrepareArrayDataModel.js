@@ -27,7 +27,12 @@ $(function() {
 			var totalColuna=0;
 			for (var i=0; i< titColuna.length; ++i){
 				result[i+1] = theColumnMatrix[i];
-				totalColuna += theColumnMatrix[i];
+				
+				//Não estou somando a coluna de total
+				
+				if (i < titColuna.length-1){
+				  totalColuna += theColumnMatrix[i];
+				}
 			}
 			result[result.length-1] = totalColuna;
 			return result;

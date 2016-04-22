@@ -14,6 +14,7 @@
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
+<link rel="stylesheet" type="text/css" href="../../css/jquery.dynatable.css">
 </head>
 
 <script src="../../js/jquery-2.2.3.min.js"></script>
@@ -28,6 +29,7 @@
 <script src="../js/model/ReportProfessorModel.js"></script>
 <script src="../js/model/ArrayToJSONModel.js"></script>
 <script src="../js/model/PrepareArrayDataModel.js"></script>
+<script src="../js/model/LogConversaModel.js"></script>
 
 <script type="text/javascript" 
              src="https://www.gstatic.com/charts/loader.js"></script>
@@ -55,19 +57,22 @@
 	   console.log("==========================================" );
 	   console.log("Executando ReportProfessorController");
 	   console.log("===========================================" );
-	   numAlunos = $("#alunos").val()-0;
-	   interacoes = $("#interacoes").val()-0;
 
-       if (numAlunos == 0){
-          alert("Informe o numero de Alunos.");
-          return;
-       }
+       var arquivo = $( "#selectLog :selected" ).val();
 
-       if (interacoes == 0){
-           alert("Informe o numero de Interacoes.");
+       console.log("Arquivo Selecionado...."+arquivo);
+       
+       if (typeof(arquivo) === 'undefined' || arquivo ===''){
+    	   alert("Informe o arquivo de log desejado.");
            return;
-        }	   
+       }
+	  
 	   $("#selectGraficoDiv").hide();
+	   
+	   /*
+	   Executa a chamada do objeto principai.
+       ======================================
+	   */
 	   reportProfessorController.doMainAction();
 	   $("#selectGraficoDiv").show();
 	 }
@@ -77,16 +82,19 @@
 <body>
 <table>
 <tr>
-    <td> Número de Alunos: </td>
-    <td> <input type="number" id="alunos" min="1" max="15" size="15"/> </td>
+    <td>Informe o arquivo de Log desejado: </td>
+    <td>
+        <select id="selectLog">
+            <option default value="">Selecione</option>
+            <option value="">==========</option>
+            <option value="cderj01">CDERJ01</option>
+            <option value="cderj02">CDERJ02</option>
+            <option value="cderj03">CDERJ03</option>
+            <option value="cderj04">CDERJ04</option>
+            <option value="cderj05">CDERJ05</option>
+        </select>
+    </td>
 </tr>
-<tr> <td colspan="2 height="8px" ></td>
-</tr>
-<tr>
-    <td> Interações: </td>
-    <td> <input type="number" id="interacoes" min="1" max="5000" size="15"/> </td>
-</tr>
-<tr> <td colspan="2 height="8px" ></td>
 </table>
 
 <button id="doExecuteRelatorio" 

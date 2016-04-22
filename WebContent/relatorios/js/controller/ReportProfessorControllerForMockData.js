@@ -15,10 +15,7 @@ $(function() {
 			titColuna:null,
 			matrix:null,
 			gc: null,
-			logData: null,
-			turma: null,
-			conversas: null,
-			
+
 			/**
 			 *  Limpa o elemento de tela informado no parametro element.
 			 *  element - elemento que será removido da tela.
@@ -34,9 +31,26 @@ $(function() {
 			 */
 			doCreateMatrizAdjacencia: function(){
 				
+				numAlunos = $("#alunos").val()-0;
+				interacoes = $("#interacoes").val()-0;
 				
-				var conversas = this.conversas;
-				var turma = this.turma;
+				
+				
+				console.log("executando doCreateMatrizAdjacencia...");
+				var mockDataModel = new MockDataModel();
+				
+				var conversas = mockDataModel.doGerarBatePapo(numAlunos,interacoes);
+				
+					//****** Conversa Fixa de teste
+					//["@Felipe|Vania", "@Felipe|Valeria","Ana|@Felipe",
+					// "Vania|Valeria", "Valeria|Paulo","Paulo|@Felipe"];
+				
+				var turma = mockDataModel.getTurma();
+					
+					//**** Turma Fixa
+					//["@Felipe","Vania", "Valeria", 
+				    // "Ana","Paulo","Carlos","Pedro","Mauro" ];
+				
 				this.titColuna = new Array();
 				this.titLinha  = new Array();
 				this.doLaadVetorLinhaColuna(turma);
@@ -51,9 +65,12 @@ $(function() {
 			 * Soma os elementos do vetor
 			 */
 			doAddElementos: function(pessoas){
+				console.log("executando doAddElementos...");
 				var myX = this.doCheckPosicaoVetor(this.titLinha,pessoas[0]);
 				var myY = this.doCheckPosicaoVetor(this.titColuna,pessoas[1]);
 			    var myEndLine = this.titLinha.length-1;
+				console.log("executando doAddElementos...Posicao XY=("+myX+","+myY+")");
+				console.log("executando myEndLine.."+myEndLine);
 				this.matrix[myX][myY] = this.matrix[myX][myY] + 1;
 				this.matrix[myEndLine][myY] = this.matrix[myEndLine][myY] + 1;
 				
@@ -63,6 +80,7 @@ $(function() {
 			 * Encontra o elemento na linha ou coluna
 			 */
 			doCheckPosicaoVetor: function(tituloVetor,pessoa){
+				console.log("executando doCheckPosicaoVetor..."+tituloVetor+"..."+pessoa);
 				for (var pos = 0; pos < tituloVetor.length; ++pos ){
 					if (tituloVetor[pos]==pessoa){
 						return pos;
@@ -116,7 +134,8 @@ $(function() {
 					this.titColuna.push(turma[i]);
 				}
 				this.titLinha.push("<b>Total</b>");
-				
+				console.log("doLaadVetorLinhaColuna>>titLinha >> "+this.titLinha);
+				console.log("doLaadVetorLinhaColuna>>titColuna >> "+this.titColuna);
 			},
 
 			/**
@@ -138,7 +157,7 @@ $(function() {
 			                        { className: "dt-body-center dt-body-center" }
 			                      ],
 			         destroy: true,   
-			         paging: false,
+			         paging: true,
 			         sorting:false,
 			         columns: myColumns
 			     } );
@@ -208,21 +227,6 @@ $(function() {
 			 */
 			doMainAction: function() {
 				console.log("ReportProfessorController>>doMainAction" );
-				
-				/* Carrega o arquivo de Log */
-				console.log("ReportProfessorController>>doMainAction>>Carregando arquivo de log...." );
-				
-				logConversaModel = new LogConversaModel();
-				var arquivoLog = "logConversaModel."+$( "#selectLog :selected" ).val();
-				this.logData = eval(arquivoLog);
-				
-				/* Prepara as turmas  */
-				logConversaModel.doPrepareTurma(this.logData);
-				this.turma =logConversaModel.getTurma();	
-				
-				/* Prepara as conversas */
-				logConversaModel.doPrepareConversas(this.logData);
-				this.conversas = logConversaModel.getConversas();
 				
 				/* Carrega o cabecalho */
 				this.doLoadCabecalho("#divMain")
