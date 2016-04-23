@@ -176,10 +176,12 @@ $(function() {
 			},
 			
 			/**
-			 * Monta descricao do resuno
+			 * Monta Analise de Mensagens
 			 */
-			doShowMensagens: function(element){
-				console.log("executando doShowMensagens...");
+			doPrepareAnaliseMensagens: function(){
+				console.log("executando ReportProfessorController >> doProcessaAnaliseMensagens...");
+				var msg = new MessageController();
+				msg.doProcessAllMessages(this.titLinha,this.matrix);
 			},
 
 			/**
@@ -204,14 +206,21 @@ $(function() {
 				logConversaModel.doPrepareConversas(this.logData);
 				this.conversas = logConversaModel.getConversas();
 				
+				
 				/* Gerar matriz Adjacencia */
 				this.doCreateMatrizAdjacencia("#tableResultado");
+				
+				/* Gerar Analise de Mensagens */
+			    this.doPrepareAnaliseMensagens();
+			    
 				this.doShowMatrixAdjacente();
 			
-				/* Apresenta resumo da Matriz */
+				/* Gerar resumo da Matriz */
 				this.doPrepareResumo("#resumo");
 				
-				/* Apresenta Grafico da Matrix */
+				
+				
+				/* Gerar Grafico da Matrix */
 			    this.doPrepareGrafico();
 				/*this.doShowMensagens(relatorio,rpm);*/
 			}	

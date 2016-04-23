@@ -3,14 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Relatorio de Bate-Papo Professor</title>
-<!-- 
-<link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
-
-<link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
-<link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.jqueryui.min.css">
- -->
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
 <link rel="stylesheet" type="text/css"
@@ -20,24 +12,31 @@
 <link rel="stylesheet" type="text/css" href="../../css/menu.css">
 </head>
 
+<!--  API's Globais -->
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
 <script src="../../js/jquery.json.min.js"></script>
 <script src="../../js/dataTables.jqueryui.min.js"> </script>
+
+<!-- Controllers -->
 <script src="../js/controller/ReportProfessorController.js"></script>
 <script src="../js/controller/ScreenController.js"></script>
 <script src="../js/controller/CalculoController.js"></script>
 <script src="../js/controller/GraficoController.js"></script>
+<script src="../js/controller/MessageController.js"></script>
+
+<!-- Models -->
 <script src="../js/model/MockDataModel.js"></script>
 <script src="../js/model/ReportProfessorMessagesModel.js"></script>
-<script src="../js/model/ReportProfessorModel.js"></script>
 <script src="../js/model/ArrayToJSONModel.js"></script>
 <script src="../js/model/PrepareArrayDataModel.js"></script>
 <script src="../js/model/LogConversaModel.js"></script>
 
+<!-- Google Graphics -->
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 
+<!--  Scripts básicos da página -->
 <script>
 /** 
  * Carrega a controller do relatorio
@@ -84,12 +83,13 @@
 
 	<nav class="menu">
 		<ul class="active">
-			<li><a href="#" id="telaInicial">Tela Inicial</a></li>
-			<li><a href="#" id="processamento">Processamento</a></li>
-			<li><a href="#" id="resultado">Resultados </a></li>
-			<li><a href="#" id="analise">Analise da Produção de
+			<li><a href="#" id="telaInicial"   title="Retorna a tela Inicial">Tela Inicial</a></li>
+			<li><a href="#" id="processamento" title="Processamento de arquivos de conversas">Processamento</a></li>
+			<li><a href="#" id="resultado"     title="Apresenta a planilha de resultados">Resultados </a></li>
+			<li><a href="#" id="analise"       title="Apresenta a análise de produção de resultados">Analise da Produção de
 					Mensagens </a></li>
-			<li><a href="#" id="graficos">Gráficos</a></li>
+			<li><a href="#" id="graficos"      title="Gráficos de Resultados">Gráficos</a></li>
+			<li><a href="#" id="gerarPdf"      title="Gerar PDF com o relatório completo dos arquivos de conversas">Gerar PDF</a></li>
 		</ul>
 
 		<a class="toggle-nav" href="#">&#9776;</a>
@@ -162,27 +162,31 @@
 
 	<div id="divAnalise">
 		<h3>Análise da Produção de Mensagens</h3>
-		<div id="titMensagens">Os participantes da sessão de bate-papo
-			trocaram um total de xxx mensagens</div>
-		<br />
-		<table id="Resumo">
+		<br/>
+		<table id="tableResumoEntradasSaidas">
 			<tr>
-				<td width="50%">Cada Participante enviou a seguinte quantidade
+				<td width="45%">Cada Participante enviou a seguinte quantidade
 					de mensagens:</td>
-				<td width="50%">Cada Participante recebeu a seguinte quantidade
+				<td width="10%"></td>	
+				<td width="45%">Cada Participante recebeu a seguinte quantidade
 					de mensagens:</td>
 			</tr>
 			<tr>
 				<td>
-					<table id="entradas" class="display" cellspacing="0" width="100%">
+					<table id="tableEntradas" class="display" cellspacing="0" width="100%">
 					</table>
 				</td>
+				<td width="10%"></td>	
 				<td>
-					<table id="saidas" class="display" cellspacing="0" width="100%">
+					<table id="tableSaidas" class="display" cellspacing="0" width="100%">
 					</table>
 				</td>
 			</tr>
 		</table>
+		<br/>
+	   <div id="mensagensAnalise">Os participantes da sessão de bate-papo
+			trocaram um total de xxx mensagens</div>
+		<br />  
 	</div>
 
 	<div id="divGrafico">
