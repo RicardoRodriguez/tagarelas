@@ -120,7 +120,7 @@ $(function() {
 		  },
 		  
 		  naoEnviaramMensagem: function(){
-			  var myMsg = this.messagesModel.semParticipacao();
+			  var myMsg = this.messagesModel.semParticipacaoEnviadas();
 			  console.log("MenssageController >> naoReceberamMensagem >> naoEnviaramMensagem >> "+ this.naoEnviouMensagens);
 			  if (this.naoEnviouMensagens.isEmpty()) return false;
 			  result = this.changeParameters(myMsg,this.naoEnviouMensagens);
@@ -129,7 +129,7 @@ $(function() {
 		  },
 		  
 		  naoReceberamMensagem: function(){
-			  var myMsg = this.messagesModel.semParticipacao();
+			  var myMsg = this.messagesModel.semParticipacaoRecebidas();
 			  console.log("MenssageController >> naoReceberamMensagem >> naoReceberamMensagem >> "+ this.naoRecebeuMensagens);
 			  if (this.naoRecebeuMensagens.isEmpty()) {
 				  return false;

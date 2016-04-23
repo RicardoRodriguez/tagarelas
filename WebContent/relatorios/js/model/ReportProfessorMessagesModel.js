@@ -16,7 +16,9 @@ $(function() {
 		 	
 		 	menorParticipante: function() { return "O(s) aluno(s) {$1} obtiveram baixa participação na aula";},
 		 		
-		 	semParticipacao:  function() { return "O(s) participante(s) {$1} não enviou(aram) nenhuma mensagem !!!!";},
+		 	semParticipacaoEnviadas:  function() { return "O(s) participante(s) {$1} não enviou(aram) nenhuma mensagem !!!!";},
+		 
+		 	semParticipacaoRecebidas:  function() { return "O(s) participante(s) {$1} não recebeu(aram) nenhuma mensagem !!!!";},
 		 	
 		 	todosParticiparam: function() { return "Observamos que nenhum participante deixou de enviar mensagem na sessão." +
 		 			           " Todos participaram !!!";},
