@@ -18,7 +18,7 @@ $(function() {
 		 		
 		 	semParticipacao:  function() { return "O(s) participante(s) {$1} não enviou(aram) nenhuma mensagem !!!!";},
 		 	
-		 	todosParticiparam: function() { return "Observamos que nenhum participante deixo de enviar mensagem na sessão." +
+		 	todosParticiparam: function() { return "Observamos que nenhum participante deixou de enviar mensagem na sessão." +
 		 			           " Todos participaram !!!";},
 		 			          
 		    atencaoParticipante: function() { return "Alguém (Alguns) precisa(m) de sua atenção! " +

@@ -18,23 +18,13 @@ $(function() {
 			logData: null,
 			turma: null,
 			conversas: null,
+			cc: null,
 			
-			/**
-			 *  Limpa o elemento de tela informado no parametro element.
-			 *  element - elemento que será removido da tela.
-			 */
-			doClearElement: function(element){
-				console.log("executando doClearElement...");
-				$(element).empty();
-			},
-
 			/**
 			 * Cria a matriz para montar o json.
 			 * ---------------------------------
 			 */
 			doCreateMatrizAdjacencia: function(){
-				
-				
 				var conversas = this.conversas;
 				var turma = this.turma;
 				this.titColuna = new Array();
@@ -131,7 +121,7 @@ $(function() {
 				
 			     var myRecords =atj.doProcessArray(this.titLinha,this.titColuna,this.matrix);
 				 var myColumns = atj.doPrepareArrayColumnName(this.titColuna);
-				 this.doClearElement("#example");
+				 window.doClearElement("#example");
 			     $('#example').DataTable( {
 			         data: myRecords,
 			         columnDefs: [
@@ -149,16 +139,16 @@ $(function() {
 			 */
 			doPrepareResumo: function(element){
 				console.log("executando doShowResumo... element:"+element);
-				this.doClearElement(element);
-                var cc = new CalculoController();
-                cc.doInit(this.matrix);
-                var txt = "<p>Grau de Entrada: Valor fora da curva - " + "Mínimo:" + 
-					cc.inLow + "; " + "Máximo:" + cc.inHigh +"</p>\n" + 
-					"<p>Grau de Saída: Valor fora da curva - " + "Mínimo:" + 
-					cc.outLow + "; " + "Máximo:" + cc.outHigh + "</p>\n";
+				window.doClearElement(element);
+				this.cc = new CalculoController();
+				matriz = this.matrix
+				this.cc.doInit(matriz);
+				var txt = "<div id='listAnalise'><ol><li><p><em>Grau de Entrada: Valor fora da curva - " + "Mínimo:" + 
+				this.cc.inLow + "; " + "Máximo:" + this.cc.inHigh +"</p></em></li>\n" + 
+				"<li><p><em>Grau de Saída: Valor fora da curva - " + "Mínimo:" + 
+				this.cc.outLow + "; " + "Máximo:" + this.cc.outHigh + "</em></p></li></ol></div>\n";
 				console.log("Resultado do Calculo:\n"+txt);
 				$(element).append(txt);
-				cc=null;
 			},
 
 			/**
@@ -181,7 +171,7 @@ $(function() {
 			doPrepareAnaliseMensagens: function(){
 				console.log("executando ReportProfessorController >> doProcessaAnaliseMensagens...");
 				var msg = new MessageController();
-				msg.doProcessAllMessages(this.titLinha,this.matrix);
+				msg.doProcessAllMessages(this.titLinha,this.matrix, this.cc);
 			},
 
 			/**
@@ -206,20 +196,19 @@ $(function() {
 				logConversaModel.doPrepareConversas(this.logData);
 				this.conversas = logConversaModel.getConversas();
 				
-				
 				/* Gerar matriz Adjacencia */
 				this.doCreateMatrizAdjacencia("#tableResultado");
+
+				/* Gerar resumo da Matriz */
+				this.doPrepareResumo("#resumo");
 				
 				/* Gerar Analise de Mensagens */
 			    this.doPrepareAnaliseMensagens();
 			    
+			    /*Carrega a matriz de resultados */
 				this.doShowMatrixAdjacente();
 			
-				/* Gerar resumo da Matriz */
-				this.doPrepareResumo("#resumo");
-				
-				
-				
+
 				/* Gerar Grafico da Matrix */
 			    this.doPrepareGrafico();
 				/*this.doShowMensagens(relatorio,rpm);*/

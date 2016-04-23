@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+/* LIST listAnalise */
+#listAnalise { width:820px; }
+#listAnalise ol { font-style:italic; font-family:Georgia, Times, serif; font-size:24px; color:#415E9B;  }
+#listAnalise ol li { }
+#listAnalise ol li p { padding:12px; font-style:normal; font-family:Arial; font-size:13px; color:#415E9B; border-left: 1px solid #415E9B; }
+#listAnalise ol li p em { display:block; }

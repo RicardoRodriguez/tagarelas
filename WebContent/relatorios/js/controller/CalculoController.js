@@ -17,7 +17,9 @@ $(function() {
 			inHigh	: 0,
 			outLow  : 0,
 		    outHigh : 0,
-
+            medianaX: 0,
+            mediana:  0,
+            
 			/**
 			 * Calcua a mediana de um vetor
 			 * @param medianArr
@@ -25,24 +27,22 @@ $(function() {
 			 */
 			medianX: function(medianArr){
 				count = medianArr.length;
-				median = (count % 2 == 0) ? 
-						(medianArr[(medianArr.length/2) - 1] + 
-								medianArr[(medianArr.length / 2)]) / 2:
-									medianArr[Math.floor(medianArr.length / 2)];
-				return median;
+				medianaX = (count % 2 == 0) ? 
+						         (medianArr[(medianArr.length/2) - 1] + 
+							  	 medianArr[(medianArr.length / 2)]) / 2:
+								 medianArr[Math.floor(medianArr.length / 2)];
+				return medianaX;
 			},
 			
 			median: function(values) {
-
 			    values.sort( function(a,b) {return a - b;} );
-
 			    var half = Math.floor(values.length/2);
-
 			    if(values.length % 2){
-			        return values[half];
+			        mediana = values[half]; 
+			    	return mediana;
 			    }
-			   
-			    return (values[half-1] + values[half]) / 2.0;
+			    mediana = (values[half-1] + values[half]) / 2.0;
+			    return mediana;
 			},
 
 			/**
