@@ -56,10 +56,6 @@ $(function() {
             theMatrix: null,
             
 			doInit: function(titLinha,matriz){
-
-				if ((typeof google === 'undefined') || (typeof google.visualization === 'undefined')) {
-					google.charts.load('current', {'packages':['corechart','bar']});			 
-				}
 				
 				//this.bubbleChart(titLinha,matriz);
 				 this.pieChart(titLinha,matriz);
@@ -176,45 +172,7 @@ $(function() {
 
 			},
 
-			drawPieChart: function(titLinha,theMatrix) {
-				var data = new google.visualization.DataTable();
-				data.addColumn('string', 'Participantes');
-				data.addColumn('number', 'Entradas');
-				var myEntr  = theMatrix[theMatrix.length-1];
-				var myArray = new Array();
-				for (var linha=0; linha < theMatrix.length-1; ++linha){
-					var myLinha = [titLinha[linha],myEntry[linha]];
-					myArray.push[myLinha];
-				}
-				data.addRows(myArray);
-
-				var piechart_options = {title:'Total de Entradas',
-						width:450,
-						height:400};
-				var piechart = new google.visualization.PieChart(document.getElementById('graficoEntrada'));
-				piechart.draw(data, piechart_options);
-
-				var data1 = new google.visualization.DataTable();
-				data1.addColumn('string', 'Topping');
-				data1.addColumn('number', 'Slices');
-				data1.addRows([
-				               ['S1', 3],
-				               ['S2', 1],
-				               ['Olives', 1],
-				               ['Zucchini', 1],
-				               ['Pepperoni', 2]
-				               ]);
-
-				var piechart1_options = {title:'Total de Saidas',
-						width:450,
-						height:400};
-				var piechart1 = new google.visualization.PieChart(document.getElementById('graficoSaida'));
-				piechart1.draw(data1, piechart1_options);
-			},
-
-			columnBar: function(titLinha,theMatrix){
-				google.charts.setOnLoadCallback(this.drawColumnChart(titLinha,theMatrix));
-			},
+			
 
 
 			drawColumnChart: function(titLinha,theMatrix) {

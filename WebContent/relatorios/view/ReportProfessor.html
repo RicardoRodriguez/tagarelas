@@ -13,8 +13,11 @@
  -->
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="../../css/dataTables.jqueryui.min.css">
-<link rel="stylesheet" type="text/css" href="../../css/jquery.dynatable.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/dataTables.jqueryui.min.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/jquery.dynatable.css">
+<link rel="stylesheet" type="text/css" href="../../css/menu.css">
 </head>
 
 <script src="../../js/jquery-2.2.3.min.js"></script>
@@ -22,6 +25,7 @@
 <script src="../../js/jquery.json.min.js"></script>
 <script src="../../js/dataTables.jqueryui.min.js"> </script>
 <script src="../js/controller/ReportProfessorController.js"></script>
+<script src="../js/controller/ScreenController.js"></script>
 <script src="../js/controller/CalculoController.js"></script>
 <script src="../js/controller/GraficoController.js"></script>
 <script src="../js/model/MockDataModel.js"></script>
@@ -31,117 +35,187 @@
 <script src="../js/model/PrepareArrayDataModel.js"></script>
 <script src="../js/model/LogConversaModel.js"></script>
 
-<script type="text/javascript" 
-             src="https://www.gstatic.com/charts/loader.js"></script>
-             
+<script type="text/javascript"
+	src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script>
 /** 
  * Carrega a controller do relatorio
  */
 
  $(function() {
-	 
-	 $("#selectGraficoDiv").hide();
-	 $("#graficoBolha").hide();
-	 $("#graficoColuna").hide();
-	 $("#graficoCandelabro").hide();
-	 $("#graficoEntradaSaida").hide();
+     /**
+	  * Carrega o DOM do google chart.
+      * ==============================
+	  **/
+	  
+	 if ((typeof google === 'undefined') || (typeof google.visualization === 'undefined')) {
+			google.charts.load('current', {'packages':['corechart','bar']});			 
+	 }
 
-	 reportProfessorController = new ReportProfessorController();;
-	 
+	 /*
+	   Executa a chamada do objeto principai.
+      ======================================
+	 */
+	 reportProfessorController = new ReportProfessorController();
+	  
 	 doChangeGrafico= function(e){
 	 	reportProfessorController.doShowGrafico(e.value);
 	 }
 
-	 doExecute= function (){
-	   console.log("==========================================" );
-	   console.log("Executando ReportProfessorController");
-	   console.log("===========================================" );
-
-       var arquivo = $( "#selectLog :selected" ).val();
-
-       console.log("Arquivo Selecionado...."+arquivo);
-       
-       if (typeof(arquivo) === 'undefined' || arquivo ===''){
-    	   alert("Informe o arquivo de log desejado.");
-           return;
-       }
-	  
-	   $("#selectGraficoDiv").hide();
-	   
-	   /*
-	   Executa a chamada do objeto principai.
-       ======================================
-	   */
-	   reportProfessorController.doMainAction();
-	   $("#selectGraficoDiv").show();
-	 }
+     /* limpa a tela de mensagem antes de continuar e carrega a tela de processamento */
+     new ScreenController().hideAll();
+     $("#divProcessamento").show();
+	 $("#msgProcessamento").hide();
 });
 
-</script>
+ jQuery(document).ready(function() {
+	    jQuery('.toggle-nav').click(function(e) {
+	        jQuery(this).toggleClass('active');
+	        jQuery('.menu ul').toggleClass('active');
+	 
+	        e.preventDefault();
+	    });
+});
+
+ </script>
+
 <body>
-<table>
-<tr>
-    <td>Informe o arquivo de Log desejado: </td>
-    <td>
-        <select id="selectLog">
-            <option default value="">Selecione</option>
-            <option value="">==========</option>
-            <option value="cderj01">CDERJ01</option>
-            <option value="cderj02">CDERJ02</option>
-            <option value="cderj03">CDERJ03</option>
-            <option value="cderj04">CDERJ04</option>
-            <option value="cderj05">CDERJ05</option>
-        </select>
-    </td>
-</tr>
-</table>
 
-<button id="doExecuteRelatorio" 
-	onclick="javascript:doExecute();">
-Executar Relatorio
-</button>
-<div id="divMain">
-</div>
-<div id="tableResultado">
-	<table id="example" class="display" cellspacing="0" width="100%">
-    </table>
-</div>
-<div id="resumo"></div>
-<div id="selectGraficoDiv">
-<br/>
-<table>
-<tr>
-    <td>Informe o Grafico Desejado.: </td>
-    <td>
-        <select id="selectGrafico" onchange="doChangeGrafico(this);" name="selectGrafico">
-            <option default value="-1">Selecione</option>
-            <option value="0">==========</option>
-            <option value="1">Bolha</option>
-            <option value="2">Colunas</option>
-            <option value="3">Candelabro</option>
-            <option value="4">Pizza</option>
-        </select>
-    </td>
-</tr>
-</table>
-<br/>
-</div>
-<div id="graficoBolha" style="border: 1px solid #ccc">
-</div>
-<div id="graficoColuna" style="border: 1px solid #ccc">
-</div>
-<div id="graficoCandelabro" style="border: 1px solid #ccc">
-</div>
-<div id="graficoEntradaSaida">
-	<table class="columns">
-      <tr>
-        <td><div id="graficoEntrada" style="border: 1px solid #ccc"></div></td>
-        <td><div id="graficoSaida"   style="border: 1px solid #ccc"></div></td>
-      </tr>
-	</table>
-</div>
+	<nav class="menu">
+		<ul class="active">
+			<li><a href="#" id="telaInicial">Tela Inicial</a></li>
+			<li><a href="#" id="processamento">Processamento</a></li>
+			<li><a href="#" id="resultado">Resultados </a></li>
+			<li><a href="#" id="analise">Analise da Produção de
+					Mensagens </a></li>
+			<li><a href="#" id="graficos">Gráficos</a></li>
+		</ul>
 
-<div id="mensagens"></div>
+		<a class="toggle-nav" href="#">&#9776;</a>
+<!--  
+    <form class="search-form">
+        <input type="text">
+        <button>Search</button>
+    </form>\
+ -->
+	</nav>
+	<p></p>
+
+	<div id="divProcessamento">
+		<h3>Informe para iniciar o processamento:</h3>
+		<div id="msgProcessamento">
+			<font color="green">Processamento concluido. As demais opções
+				foram liberadas.</font>
+		</div>
+		<br />
+
+		<table>
+			<tr>
+				<td>Informe o arquivo conversa desejado:</td>
+				<td width="200px"><select id="selectLog">
+						<option default value="">Selecione</option>
+						<option value="">==========</option>
+						<option value="cderj01">CDERJ01</option>
+						<option value="cderj02">CDERJ02</option>
+						<option value="cderj03">CDERJ03</option>
+						<option value="cderj04">CDERJ04</option>
+						<option value="cderj05">CDERJ05</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>Tema da Aula:</td>
+				<td><input type="text" size="50px" id="temaAula" /></td>
+			</tr>
+
+			<tr>
+				<td>Data:</td>
+				<td><input type="date" id="diaAula" /></td>
+			</tr>
+
+			<tr>
+				<td>Tutor Moderador:</td>
+				<td><input type="text" size="50px" id="tutor" /></td>
+			</tr>
+
+			<tr>
+				<td>Alunos Participantes:</td>
+				<td><input type="number" id="participantes" /></td>
+			</tr>
+
+
+		</table>
+
+		<p></p>
+
+	<input type="button"  value="Processar dados da conversa" id="doExecuteRelatorio" name="doExecuteRelatorio" />
+
+	</div>
+
+	<div id="divResultado">
+		<h3>Tabulação de Resultados</h3>
+		<table id="example" class="display" cellspacing="0" width="100%">
+		</table>
+		<div id="resumo"></div>
+	</div>
+
+	<div id="divAnalise">
+		<h3>Análise da Produção de Mensagens</h3>
+		<div id="titMensagens">Os participantes da sessão de bate-papo
+			trocaram um total de xxx mensagens</div>
+		<br />
+		<table id="Resumo">
+			<tr>
+				<td width="50%">Cada Participante enviou a seguinte quantidade
+					de mensagens:</td>
+				<td width="50%">Cada Participante recebeu a seguinte quantidade
+					de mensagens:</td>
+			</tr>
+			<tr>
+				<td>
+					<table id="entradas" class="display" cellspacing="0" width="100%">
+					</table>
+				</td>
+				<td>
+					<table id="saidas" class="display" cellspacing="0" width="100%">
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="divGrafico">
+		<h3>Graficos</h3>
+		<table>
+			<tr>
+				<td>Informe o Grafico Desejado.:</td>
+				<td><select id="selectGrafico"
+					onchange="doChangeGrafico(this);" name="selectGrafico">
+						<option default value="-1">Selecione</option>
+						<option value="0">==========</option>
+						<option value="1">Bolha</option>
+						<option value="2">Colunas</option>
+						<option value="3">Candelabro</option>
+						<option value="4">Pizza</option>
+				</select></td>
+			</tr>
+		</table>
+		<br />
+		<div id="graficoBolha" style="border: 1px solid #ccc"></div>
+		<div id="graficoColuna" style="border: 1px solid #ccc"></div>
+		<div id="graficoCandelabro" style="border: 1px solid #ccc"></div>
+		<div id="graficoEntradaSaida">
+			<table class="columns">
+				<tr>
+					<td><div id="graficoEntrada" style="border: 1px solid #ccc"></div></td>
+					<td><div id="graficoSaida" style="border: 1px solid #ccc"></div></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+
 </body>
 </html>

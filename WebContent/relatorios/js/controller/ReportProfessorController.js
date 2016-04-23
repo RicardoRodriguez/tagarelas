@@ -145,10 +145,9 @@ $(function() {
 			},
 
 			/**
-			 * Mostra o resumo após de montado a tabela
-			 * rpm = ReportProfessorModel
+			 * Monta o resumo após de montado a tabela
 			 */
-			doShowResumo: function(element){
+			doPrepareResumo: function(element){
 				console.log("executando doShowResumo... element:"+element);
 				this.doClearElement(element);
                 var cc = new CalculoController();
@@ -184,26 +183,6 @@ $(function() {
 			},
 
 			/**
-			 * Cria o cabecalho do relatório
-			 */
-			doLoadCabecalho: function (element){
-				this.doClearElement(element);
-				console.log("executando doLoadCabecalho..."+element);
-				/*
-				 * Titulo do Relatorio
-				 */
-				var h = "<H1>Relatório de Análise</H1>";
-				/*
-				 * Aviso fornecido para informar qur o programa começa aqui
-				 */
-				var p = "<p>Aqui temos que produzir informações compreensíveis " +
-				"para tutores e alunos do ensino superior</p>";
-				
-				$(element).append( h +p );
-			},
-
-
-			/**
 			 * Executa a rotina principal do projeto
 			 */
 			doMainAction: function() {
@@ -221,21 +200,18 @@ $(function() {
 				this.turma =logConversaModel.getTurma();	
 				
 				/* Prepara as conversas */
+	
 				logConversaModel.doPrepareConversas(this.logData);
 				this.conversas = logConversaModel.getConversas();
-				
-				/* Carrega o cabecalho */
-				this.doLoadCabecalho("#divMain")
 				
 				/* Gerar matriz Adjacencia */
 				this.doCreateMatrizAdjacencia("#tableResultado");
 				this.doShowMatrixAdjacente();
 			
 				/* Apresenta resumo da Matriz */
-				this.doShowResumo("#resumo");
+				this.doPrepareResumo("#resumo");
 				
 				/* Apresenta Grafico da Matrix */
-				 $("#selectGrafico").show();
 			    this.doPrepareGrafico();
 				/*this.doShowMensagens(relatorio,rpm);*/
 			}	
