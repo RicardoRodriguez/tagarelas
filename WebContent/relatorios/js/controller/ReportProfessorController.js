@@ -31,6 +31,8 @@ $(function() {
 				this.titLinha  = new Array();
 				this.doLaadVetorLinhaColuna(turma);
 				this.doCreateMatrizResultado();
+				var endLine =  this.titLinha.length-1;
+				console.log("Ultima Linha da Matriz:"+ endLine + " Titulo:" + this.titLinha[endLine]);
 				for (var i=0; i < conversas.length ; ++i){
 					var pessoas =  conversas[i].split("|");
 					this.doAddElementos(pessoas);
@@ -43,18 +45,18 @@ $(function() {
 			doAddElementos: function(pessoas){
 				var myX = this.doCheckPosicaoVetor(this.titLinha,pessoas[0]);
 				var myY = this.doCheckPosicaoVetor(this.titColuna,pessoas[1]);
-			    var myEndLine = this.titLinha.length-1;
+			    var endLine = this.titLinha.length-1;
 				this.matrix[myX][myY] = this.matrix[myX][myY] + 1;
-				this.matrix[myEndLine][myY] = this.matrix[myEndLine][myY] + 1;
-				
+				this.matrix[endLine][myY] = this.matrix[endLine][myY] + 1;
 			},
-
+			
 			/**
 			 * Encontra o elemento na linha ou coluna
 			 */
 			doCheckPosicaoVetor: function(tituloVetor,pessoa){
 				for (var pos = 0; pos < tituloVetor.length; ++pos ){
-					if (tituloVetor[pos]==pessoa){
+					var titulo = tituloVetor[pos];
+					if (titulo.isEqualIgnoreCase(pessoa)){
 						return pos;
 					}
 				}	
@@ -137,6 +139,15 @@ $(function() {
 			     } );
 			},
 
+			copyMatrix: function(){
+				var result = new Array();
+				for(var linha = 0; linha < this.matrix.length-1; ++linha){
+					result.push(this.matrix[linha]);
+				}
+				return result;
+			},
+
+			
 			/**
 			 * Monta o resumo após de montado a tabela
 			 */
@@ -144,7 +155,7 @@ $(function() {
 				console.log("executando doShowResumo... element:"+element);
 				window.doClearElement(element);
 				this.cc = new CalculoController();
-				matriz = this.matrix
+				var matriz = this.copyMatrix();
 				this.cc.doInit(matriz);
 				var txt = "<div id='listAnalise'><ol><li><p><em>Grau de Entrada: Valor fora da curva - " + "Mínimo:" + 
 				this.cc.inLow + "; " + "Máximo:" + this.cc.inHigh +"</p></em></li>\n" + 
@@ -161,11 +172,6 @@ $(function() {
 				console.log("executando doPrepareGrafico...");
 				this.gc = new GraficoController();
 				this.gc.doInit(this.titLinha,this.matrix);
-			},
-			
-			doShowGrafico: function(opcao){
-				opcao = opcao - 0;
-				this.gc.doShowGraficoSelecionado(opcao);
 			},
 			
 			/**

@@ -107,6 +107,7 @@ $(function() {
 			 * @param theMatrix
 			 */
 		   	doInit: function (theMatrix){
+		   		console.log("Inicio do Calculo Controller");
 				var arrayInDegree = theMatrix[theMatrix.length-1];
 				arrayInDegree.sort();
 				this.doCalcElementosLinha(arrayInDegree);
