@@ -141,7 +141,7 @@ $(function() {
 
 			copyMatrix: function(){
 				var result = new Array();
-				for(var linha = 0; linha < this.matrix.length-1; ++linha){
+				for(var linha = 0; linha < this.matrix.length; ++linha){
 					result.push(this.matrix[linha]);
 				}
 				return result;
@@ -171,7 +171,8 @@ $(function() {
 			doPrepareGrafico: function(){
 				console.log("executando doPrepareGrafico...");
 				this.gc = new GraficoController();
-				this.gc.doInit(this.titLinha,this.matrix);
+				var matriz = this.copyMatrix();
+				this.gc.doInit(this.titLinha,matriz);
 			},
 			
 			/**
@@ -180,7 +181,8 @@ $(function() {
 			doPrepareAnaliseMensagens: function(){
 				console.log("executando ReportProfessorController >> doProcessaAnaliseMensagens...");
 				var msg = new MessageController();
-				msg.doProcessAllMessages(this.titLinha,this.matrix, this.cc);
+				var matriz = this.copyMatrix();
+				msg.doProcessAllMessages(this.titLinha,matriz, this.cc);
 			},
 
 			/**
@@ -207,6 +209,9 @@ $(function() {
 				
 				/* Gerar matriz Adjacencia */
 				this.doCreateMatrizAdjacencia("#tableResultado");
+				
+			    /*Carrega a matriz de resultados */
+				this.doShowMatrixAdjacente();
 
 				/* Gerar resumo da Matriz */
 				this.doPrepareResumo("#resumo");
@@ -214,11 +219,7 @@ $(function() {
 				/* Gerar Analise de Mensagens */
 			    this.doPrepareAnaliseMensagens();
 			    
-			    /*Carrega a matriz de resultados */
-				this.doShowMatrixAdjacente();
-			
-
-				/* Gerar Grafico da Matrix */
+			    /* Gerar Grafico da Matrix */
 			    this.doPrepareGrafico();
 			}	
 

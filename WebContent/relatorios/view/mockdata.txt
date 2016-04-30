@@ -1,202 +1,524 @@
-Gracy Keyer	Todos
-Danielli Medeiros	Gracy Keyer
-Lorrana Vermelho	Gracy Keyer
-Viviane Azevedo	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Cristiana Pereira de Almeida	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Marceli Ninise Garcia Escamilha
-Cristiana Pereira de Almeida	Marceli Ninise Garcia Escamilha
-Marceli Ninise Garcia Escamilha	Todos
-Arlecia Cardoso	Marceli Ninise Garcia Escamilha
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Gracy Keyer	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Arlecia Cardoso	Todos
-Arlecia Cardoso	Todos
-Lorrana Vermelho	Todos
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Cristiana Pereira de Almeida	Danielli Medeiros
-Yasmim Alam Bouchorny	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Marceli Ninise Garcia Escamilha
-Danielli Medeiros	Marceli Ninise Garcia Escamilha
-Cristiana Pereira de Almeida	Todos
-Gracy Keyer	Todos
-Lorrana Vermelho	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Cristiana Pereira de Almeida
-Arlecia Cardoso	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Danielli Medeiros
-Lorrana Vermelho	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Lorrana Vermelho
-Lorrana Vermelho	Todos
-Danielli Medeiros	Cristiana Pereira de Almeida
-Marceli Ninise Garcia Escamilha	Todos
-Danielli Medeiros	Todos
-Lorrana Vermelho	Danielli Medeiros
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Danielli Medeiros
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Lorrana Vermelho	Todos
-Gracy Keyer	Todos
-Gracy Keyer	Todos
-Gracy Keyer	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Arlecia Cardoso	Gracy Keyer
-Danielli Medeiros	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Lorrana Vermelho	Gracy Keyer
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Arlecia Cardoso	Todos
-Lorrana Vermelho	Arlecia Cardoso
-Cristiana Pereira de Almeida	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Marceli Ninise Garcia Escamilha
-Marceli Ninise Garcia Escamilha	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Todos
-Cristiana Pereira de Almeida	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Danielli Medeiros
-Gracy Keyer	Todos
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Danielli Medeiros	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Gracy Keyer
-Cristiana Pereira de Almeida	Gracy Keyer
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Lorrana Vermelho	Todos
-Danielli Medeiros	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Arlecia Cardoso	Danielli Medeiros
-Danielli Medeiros	Todos
-Danielli Medeiros	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Arlecia Cardoso	Todos
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Lorrana Vermelho	Todos
-Cristiana Pereira de Almeida	Todos
-Cristiana Pereira de Almeida	Danielli Medeiros
-Gracy Keyer	Todos
-Gracy Keyer	Todos
-Danielli Medeiros	Lorrana Vermelho
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Lorrana Vermelho	Gracy Keyer
-Danielli Medeiros	Gracy Keyer
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Todos
-Arlecia Cardoso	Todos
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Danielli Medeiros	Lorrana Vermelho
-Cristiana Pereira de Almeida	Lorrana Vermelho
-Cristiana Pereira de Almeida	Lorrana Vermelho
-Cristiana Pereira de Almeida	Lorrana Vermelho
-Danielli Medeiros	Todos
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Todos
-Cristiana Pereira de Almeida	Todos
-Cristiana Pereira de Almeida	Todos
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Danielli Medeiros	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Sarah Moraes	Todos
-Lorrana Vermelho	Todos
-Sarah Moraes	Todos
-Gracy Keyer	Sarah Moraes
-Danielli Medeiros	Todos
-Gracy Keyer	Todos
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Gracy Keyer
-Sarah Moraes	Gracy Keyer
-Lorrana Vermelho	Gracy Keyer
-Marceli Ninise Garcia Escamilha	Lorrana Vermelho
-Gracy Keyer	Todos
-Danielli Medeiros	Gracy Keyer
-Gracy Keyer	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Cristiana Pereira de Almeida	Gracy Keyer
-Cristiana Pereira de Almeida	Gracy Keyer
-Danielli Medeiros	Cristiana Pereira de Almeida
-Lorrana Vermelho	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Danielli Medeiros	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Todos
-Gracy Keyer	Todos
-Gracy Keyer	Todos
-Lorrana Vermelho	Gracy Keyer
-Gracy Keyer	Todos
-Danielli Medeiros	Gracy Keyer
-Cristiana Pereira de Almeida	Gracy Keyer
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Danielli Medeiros
-Lorrana Vermelho	Todos
-Gracy Keyer	Todos
-Gracy Keyer	Todos
-Cristiana Pereira de Almeida	Gracy Keyer
-Gracy Keyer	Cristiana Pereira de Almeida
-Cristiana Pereira de Almeida	Gracy Keyer
-Cristiana Pereira de Almeida	Gracy Keyer
-Danielli Medeiros	Todos
-Cristiana Pereira de Almeida	Todos
-Cristiana Pereira de Almeida	Todos
-Marceli Ninise Garcia Escamilha	Todos
-Arlecia Cardoso	Todos
-Joelma Amaral França	Todos
+Simone Fernandes	 Todos
+Gleice Guimaraes	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Rejane Soares	Simone Fernandes
+Rejane Soares	Simone Fernandes
+Rachel da Silva	Rejane Soares
+Rejane Soares	Rachel da Silva
+Rejane Soares	Rachel da Silva
+Rachel da Silva	Rejane Soares
+Rachel da Silva	Rachel da Silva
+Rejane Soares	Rachel da Silva
+Rosilane Adriano	Rejane Soares
+Simone Fernandes	Rejane Soares
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Rachel da Silva	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Simone Fernandes	Glaucia Ferraz
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Glaucia Ferraz
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Glaucia Ferraz	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Simone Fernandes	Glaucia Ferraz
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Renata Ferreira
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Renata Ferreira
+Rachel da Silva	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Tatiane Hernandes	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Rachel da Silva
+Tatiane Hernandes	Simone Fernandes
+Simone Fernandes	Todos
+Rachel da Silva	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Simone Fernandes	Todos
+Rachel da Silva	Simone Fernandes
+Rosilane Adriano	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Rosilane Adriano	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Tatiane Hernandes	Rachel da Silva
+Glaucia Ferraz	Simone Fernandes
+Josiane Moura	Simone Fernandes
+Rachel da Silva	Josiane Moura
+Rosilane Adriano	Rachel da Silva
+Simone Fernandes	Todos
+Rosilane Adriano	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Josiane Moura	Simone Fernandes
+Josiane Moura	Simone Fernandes
+Simone Fernandes	Todos
+Rachel da Silva	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Glaucia Ferraz	Josiane Moura
+Tatiane Hernandes	Josiane Moura
+Rachel da Silva	Simone Fernandes
+Rosilane Adriano	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Patricia Oliveira	Simone Fernandes
+Simone Fernandes	Todos
+Gleice Guimaraes	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Tati Taveira	Simone Fernandes
+Josiane Moura	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Tatiane Hernandes	Gleice Guimaraes
+Tati Taveira	Tatiane Hernandes
+Rachel da Silva	Tatiane Hernandes
+Renata Ferreira	Simone Fernandes
+Simone Fernandes	Todos
+Gleice Guimaraes	Rachel da Silva
+Rachel da Silva	Gleice Guimaraes
+Gleice Guimaraes	Simone Fernandes
+Rachel da Silva	Gleice Guimaraes
+Josiane Moura	Simone Fernandes
+Tati Taveira	Simone Fernandes
+Tati Taveira	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Rachel da Silva	Josiane Moura
+Gleice Guimaraes	Renata Ferreira
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Tati Taveira	Simone Fernandes
+Rosilane Adriano	Rachel da Silva
+Renata Ferreira	Tati Taveira
+Rachel da Silva	Simone Fernandes
+Rosilane Adriano	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Glaucia Ferraz	Simone Fernandes
+Tatiane Hernandes	Gleice Guimaraes
+Gleice Guimaraes	Rachel da Silva
+Rachel da Silva	Gleice Guimaraes
+Eliane de Oliveira	Todos
+Tatiane Hernandes	Rachel da Silva
+Eliane de Oliveira	Todos
+Josiane Moura	Gleice Guimaraes
+Gleice Guimaraes	Simone Fernandes
+Renata Ferreira	Rachel da Silva
+Rachel da Silva	Josiane Moura
+Simone Fernandes	Todos
+Tati Taveira	Simone Fernandes
+Rachel da Silva	Eliane de Oliveira
+Eliane de Oliveira	Simone Fernandes
+Simone Fernandes	Todos
+Patricia Oliveira	Simone Fernandes
+Simone Fernandes	Todos
+Rosilane Adriano	Eliane de Oliveira
+Tati Taveira	Todos
+Rachel da Silva	Tati Taveira
+Renata Ferreira	Tati Taveira
+Rachel da Silva	Tati Taveira
+Tatiane Hernandes	Patricia Oliveira
+Simone Fernandes	Todos
+Patricia Oliveira	Todos
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Rosilane Adriano	Todos
+Eliane de Oliveira	Todos
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Todos
+Tati Taveira	Rosilane Adriano
+Tati Taveira	Rosilane Adriano
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Todos
+Rosilane Adriano	Tatiane Hernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Simone Fernandes
+Eliane de Oliveira	Todos
+Rosilane Adriano	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Rachel da Silva	Todos
+Tati Taveira	Todos
+Simone Fernandes	Tati Taveira
+Josiane Moura	Tati Taveira
+Eliane de Oliveira	Todos
+Gleice Guimaraes	Todos
+Renata Ferreira	Eliane de Oliveira
+Tatiane Hernandes	Todos
+Rachel da Silva	Todos
+Rosilane Adriano	Todos
+Eliane de Oliveira	Todos
+Glaucia Ferraz	Todos
+Simone Fernandes	Todos
+Patricia Oliveira	Todos
+Josiane Moura	Todos
+Rosilane Adriano	Simone Fernandes
+Rachel da Silva	Todos
+Tatiane Hernandes	Simone Fernandes
+Gleice Guimaraes	Rachel da Silva
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Todos
+Tati Taveira	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Tati Taveira	Todos
+Tatiane Hernandes	Simone Fernandes
+Simone Fernandes	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Simone Fernandes
+Renata Ferreira	Todos
+Patricia Oliveira	Todos
+Rosilane Adriano	Todos
+Tati Taveira	Todos
+Patricia Oliveira	Todos
+Simone Fernandes	Patricia Oliveira
+Eliane de Oliveira	Todos
+Gleice Guimaraes	Renata Ferreira
+Rachel da Silva	Todos
+Glaucia Ferraz	Todos
+Tati Taveira	Todos
+Tati Taveira	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Todos
+Josiane Moura	Todos
+Renata Ferreira	Todos
+Rachel da Silva	Josiane Moura
+Rosilane Adriano	Josiane Moura
+Rachel da Silva	Todos
+Eliane de Oliveira	Todos
+Josiane Moura	Rachel da Silva
+Rachel da Silva	Todos
+Glaucia Ferraz	Todos
+Renata Ferreira	Rachel da Silva
+Rachel da Silva	Glaucia Ferraz
+Patricia Oliveira	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Patricia Oliveira
+Rosilane Adriano	Todos
+Patricia Oliveira	Todos
+Rachel da Silva	Rosilane Adriano
+Simone Fernandes	Todos
+Josiane Moura	Todos
+Patricia Oliveira	Simone Fernandes
+Rosilane Adriano	Josiane Moura
+Rachel da Silva	Simone Fernandes
+Tati Taveira	Todos
+Rachel da Silva	Todos
+Glaucia Ferraz	Todos
+Gleice Guimaraes	Simone Fernandes
+Rachel da Silva	Tati Taveira
+Rejane Soares	Todos
+Eliane de Oliveira	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Gleice Guimaraes
+Josiane Moura	Gleice Guimaraes
+Eliane de Oliveira	Todos
+Rejane Soares	Todos
+Tati Taveira	Todos
+Tati Taveira	Todos
+Rachel da Silva	Todos
+Eliane de Oliveira	Todos
+Eliane de Oliveira	Simone Fernandes
+Renata Ferreira	Patricia Oliveira
+Rejane Soares	Todos
+Glaucia Ferraz	Todos
+Eliane de Oliveira	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Simone Fernandes
+Eliane de Oliveira	Todos
+Gleice Guimaraes	Glaucia Ferraz
+Rachel da Silva	Todos
+Eliane de Oliveira	Todos
+Rejane Soares	Todos
+Rachel da Silva	Todos
+Josiane Moura	Rachel da Silva
+Rachel da Silva	Todos
+Rosilane Adriano	Todos
+Eliane de Oliveira	Todos
+Tati Taveira	Todos
+Tati Taveira	Todos
+Rachel da Silva	Tati Taveira
+Tati Taveira	Todos
+Rachel da Silva	Tati Taveira
+Rachel da Silva	Tati Taveira
+Tati Taveira	Rachel da Silva
+Rachel da Silva	Tati Taveira
+Rachel da Silva	Tati Taveira
+Rejane Soares	Todos
+Eliane de Oliveira	Todos
+Márcia Martins	Todos
+Renata Ferreira	Todos
+Rachel da Silva	Márcia Martins
+Josiane Moura	Todos
+Rosilane Adriano	Todos
+Simone Fernandes	Rejane Soares
+Tati Taveira	Todos
+Márcia Martins	Todos
+Rejane Soares	Todos
+Patricia Oliveira	Todos
+Rachel da Silva	Rosilane Adriano
+Tati Taveira	Todos
+Rejane Soares	Simone Fernandes
+Simone Fernandes	Patricia Oliveira
+Rejane Soares	Todos
+Renata Ferreira	Todos
+Rejane Soares	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Patricia Oliveira
+Renata Ferreira	Simone Fernandes
+Rachel da Silva	Todos
+Tatiane Hernandes	Rachel da Silva
+Patricia Oliveira	Todos
+Rachel da Silva	Patricia Oliveira
+Renata Ferreira	Todos
+Rachel da Silva	Todos
+Simone Fernandes	Todos
+Josiane Moura	Rachel da Silva
+Josiane Moura	Rachel da Silva
+Eliane de Oliveira	Renata Ferreira
+Tati Taveira	Todos
+Tati Taveira	Todos
+Rachel da Silva	Todos
+Gleice Guimaraes	Todos
+Tatiane Hernandes	Todos
+Rejane Soares	Todos
+Eliane de Oliveira	Todos
+Tatiane Hernandes	Todos
+Patricia Oliveira	Todos
+Rachel da Silva	Todos
+Rachel da Silva	Todos
+Tatiane Hernandes	Todos
+Renata Ferreira	Todos
+Tatiane Hernandes	Todos
+Rachel da Silva	Todos
+Rejane Soares	Todos
+Rejane Soares	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Tati Taveira
+Rachel da Silva	Todos
+Glaucia Ferraz	Todos
+Rosilane Adriano	Todos
+Simone Fernandes	Todos
+Renata Ferreira	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Simone Fernandes	Todos
+Márcia Martins	Eliane de Oliveira
+Rachel da Silva	Simone Fernandes
+Josiane Moura	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Rachel da Silva	Simone Fernandes
+Eliane de Oliveira	Todos
+Rejane Soares	Todos
+Rejane Soares	Todos
+Rejane Soares	Todos
+Rejane Soares	Rachel da Silva
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Rachel da Silva	Todos
+Rachel da Silva	Rejane Soares
+Josiane Moura	Todos
+Rejane Soares	Todos
+Simone Fernandes	Todos
+Eliane de Oliveira	Todos
+Glaucia Ferraz	Eliane de Oliveira
+Patricia Oliveira	Simone Fernandes
+Rosilane Adriano	Glaucia Ferraz
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Todos
+Tati Taveira	Simone Fernandes
+Eliane de Oliveira	Simone Fernandes
+Tati Taveira	Todos
+Rachel da Silva	Simone Fernandes
+Rejane Soares	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Todos
+Tati Taveira	Todos
+Rachel da Silva	Todos
+Josiane Moura	Todos
+Rachel da Silva	Todos
+Tatiane Hernandes	Rachel da Silva
+Eliane de Oliveira	Todos
+Renata Ferreira	Rachel da Silva
+Patricia Oliveira	Todos
+Rachel da Silva	Patricia Oliveira
+Simone Fernandes	Todos
+Rachel da Silva	Todos
+Tatiane Hernandes	Tati Taveira
+Rachel da Silva	Tatiane Hernandes
+Renata Ferreira	Tatiane Hernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Todos
+Rachel da Silva	Todos
+Rachel da Silva	Todos
+Rachel da Silva	Todos
+Josiane Moura	Todos
+Gleice Guimaraes	Patricia Oliveira
+Tati Taveira	Todos
+Rachel da Silva	Tati Taveira
+Patricia Oliveira	Todos
+Renata Ferreira	Todos
+Josiane Moura	Tati Taveira
+Tati Taveira	Todos
+Simone Fernandes	Josiane Moura
+Patricia Oliveira	Todos
+Rosilane Adriano	Todos
+Rachel da Silva	Simone Fernandes
+Rejane Soares	Todos
+Renata Ferreira	Todos
+Simone Fernandes	Rejane Soares
+Rosilane Adriano	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Rachel da Silva	Rejane Soares
+Eliane de Oliveira	Todos
+Rejane Soares	Todos
+Patricia Oliveira	Todos
+Josiane Moura	Todos
+Tati Taveira	Patricia Oliveira
+Tati Taveira	Patricia Oliveira
+Simone Fernandes	Todos
+Gleice Guimaraes	Todos
+Patricia Oliveira	Todos
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Todos
+Eliane de Oliveira	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Renata Ferreira	Todos
+Simone Fernandes	Todos
+Eliane de Oliveira	Todos
+Gleice Guimaraes	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Todos
+Simone Fernandes	Eliane de Oliveira
+Tatiane Hernandes	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Simone Fernandes
+Josiane Moura	Todos
+Tati Taveira	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Rejane Soares	Todos
+Josiane Moura	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Tatiane Hernandes	Simone Fernandes
+Tati Taveira	Simone Fernandes
+Rosilane Adriano	Todos
+Rejane Soares	Patricia Oliveira
+Josiane Moura	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Patricia Oliveira	Todos
+Tati Taveira	Todos
+Glaucia Ferraz	Simone Fernandes
+Tatiane Hernandes	Patricia Oliveira
+Patricia Oliveira	Todos
+Tatiane Hernandes	Simone Fernandes
+Patricia Oliveira	Todos
+Simone Fernandes	Patricia Oliveira
+Glaucia Ferraz	Todos
+Gleice Guimaraes	Todos
+Rosilane Adriano	Todos
+Eliane de Oliveira	Todos
+Josiane Moura	Todos
+Rachel da Silva	Gleice Guimaraes
+Rosilane Adriano	Gleice Guimaraes
+Tatiane Hernandes	Todos
+Rachel da Silva	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Tatiane Hernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Simone Fernandes
+Gleice Guimaraes	Todos
+Rosilane Adriano	Simone Fernandes
+Renata Ferreira	Todos
+Simone Fernandes	Todos
+Josiane Moura	Simone Fernandes
+Rachel da Silva	Todos
+Rejane Soares	Todos
+Josiane Moura	Todos
+Simone Fernandes	Renata Ferreira
+Rachel da Silva	Todos
+Gleice Guimaraes	Todos
+Gleice Guimaraes	Rachel da Silva
+Patricia Oliveira	Todos
+Eliane de Oliveira	Todos
+Simone Fernandes	Todos
+Rachel da Silva	Simone Fernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Rejane Soares	Todos
+Rachel da Silva	Todos
+Simone Fernandes	Todos
+Josiane Moura	Todos
+Rachel da Silva	Simone Fernandes
+Rejane Soares	Todos
+Rosilane Adriano	Todos
+Patricia Oliveira	Josiane Moura
+Simone Fernandes	Todos
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Eliane de Oliveira	Simone Fernandes
+Eliane de Oliveira	Simone Fernandes
+Patricia Oliveira	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Todos
+Simone Fernandes	Rachel da Silva
+Josiane Moura	Simone Fernandes
+Renata Ferreira	Simone Fernandes
+Eliane de Oliveira	Simone Fernandes
+Gleice Guimaraes	Simone Fernandes
+Rejane Soares	Todos
+Patricia Oliveira	Simone Fernandes
+Eliane de Oliveira	Todos
+Rachel da Silva	Todos
+Simone Fernandes	Eliane de Oliveira
+Rachel da Silva	Todos
+Patricia Oliveira	Todos
+Eliane de Oliveira	Todos
+Patricia Oliveira	Todos
+Rosilane Adriano	Simone Fernandes
+Rachel da Silva	Eliane de Oliveira
+Josiane Moura	Todos
+Eliane de Oliveira	Todos
+Renata Ferreira	Todos
+Simone Fernandes	Todos
+Eliane de Oliveira	Simone Fernandes
+Patricia Oliveira	Todos
+Rachel da Silva	Simone Fernandes
+Rejane Soares	Todos
+Eliane de Oliveira	Todos
+Simone Fernandes	Todos
+Patricia Oliveira	Todos
+Simone Fernandes	Todos
+Rosilane Adriano	Todos
+Glaucia Ferraz	Rosilane Adriano
+Rejane Soares	Rosilane Adriano
+Simone Fernandes	Todos
+Rejane Soares	Simone Fernandes
+Josiane Moura	Todos
+Rejane Soares	Todos
+Patricia Oliveira	Todos
+Rejane Soares	Todos
+Patricia Oliveira	Todos
+Simone Fernandes	Patricia Oliveira
+Simone Fernandes	Todos
+Patricia Oliveira	Todos
+Márcia Martins	Todos
+Liliane Mariano	Todos

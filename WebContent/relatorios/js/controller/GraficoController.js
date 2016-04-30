@@ -51,11 +51,11 @@ $(function() {
 				data.addRows(theMatrix.length-2);
 				for (var linha=0; linha < theMatrix.length-2; ++linha){
 					var participante = titLinha[linha];
-					var entrada      = myEntr[linha];
+					var entrada      = myEntr[linha]-0;
 					var saida= 0;
 					var myLinha = theMatrix[linha]
 					for (var col=0; col < myLinha.length; ++col){
-						saida += myLinha[coluna];
+						saida += myLinha[col]-0;
 					} 
 					data.setCell(linha,0,participante);
 					data.setCell(linha,1,entrada);
@@ -65,7 +65,7 @@ $(function() {
 				 var options = {
 					        title: "Entradas e Saidas por participante",
 					        width: 600,
-					        height: 400,
+					        height: 800,
 					        bar: {groupWidth: "95%"},
 					        //legend: { position: "none" },
 					      };
