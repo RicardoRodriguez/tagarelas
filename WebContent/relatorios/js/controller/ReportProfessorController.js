@@ -142,7 +142,7 @@ $(function() {
 			copyMatrix: function(){
 				var result = new Array();
 				for(var linha = 0; linha < this.matrix.length; ++linha){
-					result.push(this.matrix[linha]);
+					result.push(this.matrix[linha].slice());
 				}
 				return result;
 			},
