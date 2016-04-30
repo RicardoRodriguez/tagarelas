@@ -4,52 +4,56 @@
  */
 
 $(function() {
+	
+	$('#processamento').click(function(e) {
+		sc = new ScreenController();
+		sc.hideAll();
+		$("#divProcessamento").show();
+		$("#divProcessamento").hide();
+		$("#msgProcessamento").hide();
+	});
 
-	 $('#processamento').click(function(e) {
-		 	sc = new ScreenController();
-	        sc.hideAll();
-	        $("#divProcessamento").show();
-	 	    $("#msgProcessamento").hide();
-	  });
+	$('#resultado').click(function(e) {
+		sc = new ScreenController();
+		sc.hideAll();
+		$("#divResultado").show();
+	});
 
-	 $('#resultado').click(function(e) {
-		 	sc = new ScreenController();
-	        sc.hideAll();
-	        $("#divResultado").show();
-	  });
-	  
-	 $('#analise').click(function(e) {
-		 	sc = new ScreenController();
-	        sc.hideAll();
-	        $("#divAnalise").show();
-	  });
+	$('#analise').click(function(e) {
+		sc = new ScreenController();
+		sc.hideAll();
+		$("#divAnalise").show();
+	});
 
-	 $('#graficos').click(function(e) {
-		 	sc = new ScreenController();
-	        sc.hideAll();
-	        $("#divGrafico").show();
-	 });
+	$('#doSimulaDados').click(function(e) {
+		md =  new MockDataModel();
+		md.getMockData();
+	});
 
-	 $('#doExecuteRelatorio').click(function(e) {
-		   console.log("==========================================" );
-		   console.log("Executando ReportProfessorController");
-		   console.log("===========================================" );
+	$('#doClearData').click(function(e) {
+	     window.screenController.clearScreen();
+	});
+	
+	$('#doExecuteRelatorio').click(function(e) {
+		console.log("==========================================" );
+		console.log("Executando ReportProfessorController");
+		console.log("===========================================" );
 
-	       var arquivo = $( "#selectLog :selected" ).val();
+		var arquivo = $( "textarea#cvs" ).val();
 
-	       console.log("Arquivo Selecionado...."+arquivo);
-	       
-	       if (typeof(arquivo) === 'undefined' || arquivo ===''){
-	    	   alert("Informe o arquivo de log desejado.");
-	           return;
-	       }
-		  
-		   $("#msgProcessamento").hide();
+		if (typeof(arquivo) === 'undefined' || arquivo ===''){
+			alert("Conteúdo da conversa inválido. Preencha corretametne o conteúdo da planilha.");
+			return;
+		}
 
-		   reportProfessorController.doMainAction();
+		$("#msgProcessamento").hide();
 
-		   $("#msgProcessamento").show();
-	 });
+		reportProfessorController.doMainAction();
+
+		$("#mw-panel").show();
+		$("#msgProcessamento").show();
+		$("#divResultado").show();
+	});
 
 	ScreenController = function(){
 
@@ -57,16 +61,23 @@ $(function() {
 
 	ScreenController.prototype = {
 			hideAll: function(){
-		    	 $("#graficoBolha").hide();
-		    	 $("#graficoColuna").hide();
-		    	 $("#graficoCandelabro").hide();
-		    	 $("#graficoEntradaSaida").hide();
-		    	 
-		    	 $("#divResultado").hide();
-		    	 $("#divAnalise").hide();
-		    	 
-		    	 $("#divProcessamento").hide();
-		    	 $("#divGrafico").hide();
-		     },	
+				$("#divResultado").hide();
+			},	
+			/*
+			 * Limpa a tela quando carrega o sistema
+			 * =====================================
+			 */ 
+			clearScreen: function(){
+				$('#myForm').trigger("reset");
+				$(':input').not(':button, :submit, :reset, :hidden, :checkbox, :radio').val('');
+				$("#msgProcessamento").hide();
+				$("#divResultado").hide();
+				$("#divProcessamento").show();
+				$("#msgProcessamento").hide();
+				$("#mw-panel").show();
+		    /*
+		     * Tela carregada.
+		     */
+			},
 	}
 })

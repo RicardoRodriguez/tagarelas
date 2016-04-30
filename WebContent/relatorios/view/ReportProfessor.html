@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <title>Relatorio de Bate-Papo Professor</title>
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+<link rel="stylesheet" type="text/css" href="../../css/wiki.css">
 <link rel="stylesheet" type="text/css" href="../../css/jquery-ui.css">
 <link rel="stylesheet" type="text/css"
 	href="../../css/dataTables.jqueryui.min.css">
 <link rel="stylesheet" type="text/css"
 	href="../../css/jquery.dynatable.css">
-<link rel="stylesheet" type="text/css" href="../../css/menu.css">
-<link rel="stylesheet" type="text/css" href="../css/list.css">
+
+
 </head>
 
 <!--  API's Globais -->
@@ -51,7 +52,7 @@
 	  **/
 	  
 	 if ((typeof google === 'undefined') || (typeof google.visualization === 'undefined')) {
-			google.charts.load('current', {'packages':['corechart','bar']});			 
+		  google.charts.load("current", {packages:["corechart"]});		 
 	 }
 
 	 /*
@@ -65,163 +66,160 @@
 	 }
 
      /* limpa a tela de mensagem antes de continuar e carrega a tela de processamento */
-     new ScreenController().hideAll();
-     $("#divProcessamento").show();
-	 $("#msgProcessamento").hide();
+     window.screenController = new ScreenController();
+     window.screenController.clearScreen();
 });
 
- jQuery(document).ready(function() {
-	    jQuery('.toggle-nav').click(function(e) {
-	        jQuery(this).toggleClass('active');
-	        jQuery('.menu ul').toggleClass('active');
-	 
-	        e.preventDefault();
-	    });
-});
 
  </script>
 
 <body>
-
-	<nav class="menu">
-		<ul class="active">
-			<li><a href="#" id="telaInicial"   title="Retorna a tela Inicial">Tela Inicial</a></li>
-			<li><a href="#" id="processamento" title="Processamento de arquivos de conversas">Processamento</a></li>
-			<li><a href="#" id="resultado"     title="Apresenta a planilha de resultados">Resultados </a></li>
-			<li><a href="#" id="analise"       title="Apresenta a análise de produção de resultados">Analise da Produção de
-					Mensagens </a></li>
-			<li><a href="#" id="graficos"      title="Gráficos de Resultados">Gráficos</a></li>
-			<li><a href="#" id="gerarPdf"      title="Gerar PDF com o relatório completo dos arquivos de conversas">Gerar PDF</a></li>
-		</ul>
-
-		<a class="toggle-nav" href="#">&#9776;</a>
-<!--  
-    <form class="search-form">
-        <input type="text">
-        <button>Search</button>
-    </form>\
- -->
-	</nav>
-	<p></p>
-
-	<div id="divProcessamento">
-		<h3>Informe para iniciar o processamento:</h3>
-		<div id="msgProcessamento">
-			<font color="green">Processamento concluido. As demais opções
-				foram liberadas.</font>
+    <a name="topo" id="topo"></a>
+	<form id="myForm">
+	    <div id="mw-panel">
+	        <img id="topTagarelas" alt="Relatorio de bate-papo"  width='100px' height='100px' src="../imagens/tagarelas.png"/>
+			<h3 id="p-interaction-label">Atalhos</h3>
+			<div class="body">
+				<ul>
+				    <li id="n-welcome"><a href="#topo" title="Topo da página">Topo</a></li>
+					<li id="n-welcome"><a href="#resultado" title="Resultados da Análise">Resultados
+							das Análises</a></li>
+					<li id="n-help"><a href="#grafico"
+						title="Gráfico">Gráfico</a></li>
+					<li id="n-testpage"><a
+						href="#tab1" > tabela
+							Quantidade de Mensagens enviadas e recebidas por participante</a></li>
+					<li id="n-portal"><a
+						href="#tab2"
+						title="">Tabela de quantidades enviadas e
+							recebidas por partiipante</a></li>
+				</ul>
+			</div>
 		</div>
-		<br />
+		<div id="content" class="mw-body" role="main">
+		  <!--   <div align="center">
+		   	 <img id="conversas" alt="Relatorio de bate-papo"  src="../imagens/conversa.png"/>
+		    </div>  -->
+			<div id="msgProcessamento">
+				<div class="alert alert-success">
+					<h4 class="alert-heading">Aviso</h4>
+					<p>Processamento concluido. O relatório está liberado. Role a tela para baixo ou clique em uma das opções ao lado.</p>
+				</div>
+			</div>
+			<div id="divProcessamento">
+				<table>
+					<tr>
+						<td valign="top" width=30%'>
+							<h3>Por favor, informe para iniciar o processamento:</h3> <br />
+							<br /> Copie as linhas da sua planilha nesta área: <br /> <br />
+							<b>Procedimento:</b> marque as linhas e colunas, copie. No campo
+							ao lado cole o conteudo da planilha ou<BR /> <BR />
+						<a href="#" id="doSimulaDados">clique aqui para gerar dados
+								simulados</a>
+						</td>
+						<td valign="top"><textarea rows="12" cols="80" id="cvs"
+								name="cvs"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan=2 height="18px"></td>
+					</tr>
+					<tr>
+						<td>Tema da Aula:</td>
+						<td><input type="text" size="50px" id="temaAula" /></td>
+					</tr>
 
-		<table>
-			<tr>
-				<td>Informe o arquivo conversa desejado:</td>
-				<td width="200px"><select id="selectLog">
-						<option default value="">Selecione</option>
-						<option value="">==========</option>
-						<option value="cderj01">CDERJ01</option>
-						<option value="cderj02">CDERJ02</option>
-						<option value="cderj03">CDERJ03</option>
-						<option value="cderj04">CDERJ04</option>
-						<option value="cderj05">CDERJ05</option>
-				</select></td>
-			</tr>
+					<tr>
+						<td>Data:</td>
+						<td><input type="date" id="diaAula" /></td>
+					</tr>
 
-			<tr>
-				<td>Tema da Aula:</td>
-				<td><input type="text" size="50px" id="temaAula" /></td>
-			</tr>
+					<tr>
+						<td>Tutor Moderador:</td>
+						<td><input type="text" size="50px" id="tutor" /></td>
+					</tr>
 
-			<tr>
-				<td>Data:</td>
-				<td><input type="date" id="diaAula" /></td>
-			</tr>
-
-			<tr>
-				<td>Tutor Moderador:</td>
-				<td><input type="text" size="50px" id="tutor" /></td>
-			</tr>
-
-			<tr>
-				<td>Alunos Participantes:</td>
-				<td><input type="number" id="participantes" /></td>
-			</tr>
+					<tr>
+						<td>Alunos Participantes:</td>
+						<td><input type="number" id="participantes" /></td>
+					</tr>
 
 
-		</table>
+				</table>
 
-		<p></p>
+				<p></p>
+				<table>
+					<tr>
+						<td width="40%"><input type="button"
+							value="Analisar a conversa"
+							id="doExecuteRelatorio" name="doExecuteRelatorio" /></td>
+						<td width="20%"></td>
+						<td width="40%"><input type="button" value="Limpar a tela"
+					id="doClearData" name="doClearData" /></td>
+					</tr>
+				</table>
 
-	<input type="button"  value="Processar dados da conversa" id="doExecuteRelatorio" name="doExecuteRelatorio" />
-
-	</div>
-
-	<div id="divResultado">
-		<h3>Tabulação de Resultados</h3>
-		<table id="example" class="display" cellspacing="0" width="100%">
-		</table>
-		<div id="resumo"></div>
-	</div>
-
-	<div id="divAnalise">
-		<h3>Análise da Produção de Mensagens</h3>
-		<br/>
-		<table id="tableResumoEntradasSaidas">
-			<tr>
-				<td width="45%">Cada Participante enviou a seguinte quantidade
-					de mensagens:</td>
-				<td width="10%"></td>	
-				<td width="45%">Cada Participante recebeu a seguinte quantidade
-					de mensagens:</td>
-			</tr>
-			<tr>
-				<td>
-					<table id="tableEntradas" class="display" cellspacing="0" width="100%">
+			</div>
+			<BR />
+			<br />
+			<a name="resultado" id="resultado"></a>
+			<div id="divResultado">
+				<h3>Resultados das Análises</h3>
+				<div id="mensagensAnalise">Os participantes da sessão de
+					bate-papo trocaram um total de xxx mensagens</div>
+				<br />
+				<div align="right"><a href="#topo"
+						title="top"><h4>Topo</h4></a>
+				</div>
+				<a name="grafico" id="grafico"></a>
+				<div id="divGrafico">
+					<div id="graficoColuna" style="border: 1px solid #ccc"></div>
+				</div>
+				<br />
+				<div align="right"><a href="#topo"
+						title="top"><h4>Topo</h4></a>
+				</div>
+				<a name="tab1" id="tab1"></a>
+				<div id="divAnalise">
+					<h3>Análise da Produção de Mensagens</h3>
+					<br />
+					<table id="tableResumoEntradasSaidas">
+						<tr>
+							<td width="45%">Cada Participante enviou a seguinte
+								quantidade de mensagens:</td>
+							<td width="10%"></td>
+							<td width="45%">Cada Participante recebeu a seguinte
+								quantidade de mensagens:</td>
+						</tr>
+						<tr>
+							<td>
+								<table id="tableEntradas" class="display" cellspacing="0"
+									width="100%">
+								</table>
+							</td>
+							<td width="10%"></td>
+							<td>
+								<table id="tableSaidas" class="display" cellspacing="0"
+									width="100%">
+								</table>
+							</td>
+						</tr>
 					</table>
-				</td>
-				<td width="10%"></td>	
-				<td>
-					<table id="tableSaidas" class="display" cellspacing="0" width="100%">
-					</table>
-				</td>
-			</tr>
-		</table>
-		<br/>
-	   <div id="mensagensAnalise">Os participantes da sessão de bate-papo
-			trocaram um total de xxx mensagens</div>
-		<br />  
-	</div>
+					<br />
+				</div>
+				<div align="right"><a href="#topo"
+						title="top"><h4>Topo</h4></a>
+				</div>
+				<a name="tab2" id="tab1"></a>
+				<h3>Tabulação de Resultados</h3>
+				<table id="example" class="display" cellspacing="0" width="100%">
+				</table>
+				<div id="resumo"></div>
+				<div align="right"><a href="#topo"
+						title="top"><h4>Topo</h4></a>
+				</div>
 
-	<div id="divGrafico">
-		<h3>Graficos</h3>
-		<table>
-			<tr>
-				<td>Informe o Grafico Desejado.:</td>
-				<td><select id="selectGrafico"
-					onchange="doChangeGrafico(this);" name="selectGrafico">
-						<option default value="-1">Selecione</option>
-						<option value="0">==========</option>
-						<option value="1">Bolha</option>
-						<option value="2">Colunas</option>
-						<option value="3">Candelabro</option>
-						<option value="4">Pizza</option>
-				</select></td>
-			</tr>
-		</table>
-		<br />
-		<div id="graficoBolha" style="border: 1px solid #ccc"></div>
-		<div id="graficoColuna" style="border: 1px solid #ccc"></div>
-		<div id="graficoCandelabro" style="border: 1px solid #ccc"></div>
-		<div id="graficoEntradaSaida">
-			<table class="columns">
-				<tr>
-					<td><div id="graficoEntrada" style="border: 1px solid #ccc"></div></td>
-					<td><div id="graficoSaida" style="border: 1px solid #ccc"></div></td>
-				</tr>
-			</table>
+			</div>
 		</div>
-	</div>
-
-
-
+	</form>
 </body>
 </html>

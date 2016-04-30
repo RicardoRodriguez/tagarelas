@@ -34,12 +34,12 @@ $(function() {
 		 			       
 		 	acimaDaMedia: function() { return "O(s) participante(s) {$1} foram os que mais falaram nessa sessão." +
 		 			      " Encontram-se acima da média ({$2})";},
-		 			      
+		 	/* ponto discrepante acima do valor maximo fora da curva */		      
 		 	monopolioDeMensagens: function() { return "Verificamos um monopólio na conversa! " +
 		 						  "O {$1} dominou a conversa enviando muito mais " +
 		 						  "mensagens que o restante da turma.";},
-
-		 	quaseMonopoliodeMensagens: function() { return "Apesar de {$1} ter sido o que mais falou na sessão, " +
+            /** Valor maximo que nAo ocorre discrepancia */
+		 	peMensagens: function() { return "Apesar de {$1} ter sido o que mais falou na sessão, " +
 		 			                   "esta quantidade de mensagens ({$2}) não chega a ser " +
 		 			                   "discrepante da produção de mensagens dos demais " +
 		 			                   "participantes da Sessão. Assim concluimos que {$1} " +
@@ -67,7 +67,60 @@ $(function() {
 		    		          "Assim, as análises desse relatório concluem que essa conversação " +
 		    		          "foi focado em {$1}";},
 		    		          
-		    agradecimento:  function() { return "Agradecemos!";} ,		          
+		    agradecimento:  function() { return "Agradecemos!";} ,
+		    
+		    language: {
+    		    "sEmptyTable": "Nenhuma conversa encontrada",
+    		    "sInfo": "_TOTAL_ pessoas participaram desta sessão",
+    		    "sInfoEmpty": "Ninguém participou desta sessãp",
+    		    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+    		    "sInfoPostFix": "",
+    		    "sInfoThousands": ".",
+    		    "sLengthMenu": "_MENU_ resultados por página",
+    		    "sLoadingRecords": "Carregando...",
+    		    "sProcessing": "Processando...",
+    		    "sZeroRecords": "Nenhum registro encontrado",
+    		    "sSearch": "Pesquisar",
+    		    "oPaginate": {
+    		        "sNext": "Próximo",
+    		        "sPrevious": "Anterior",
+    		        "sFirst": "Primeiro",
+    		        "sLast": "Último"
+    		    }, 
+    		    "oAria": {
+    		        "sSortAscending": ": Ordenar colunas de forma ascendente",
+    		        "sSortDescending": ": Ordenar colunas de forma descendente"
+    		    },
 
-	}
+     }
+
+	};
+	
+	/** 
+	 * Linguagem utilizada nas tabelas
+	 */
+	tableLanguage = {
+	    "sEmptyTable": "Nenhuma conversa encontrada",
+	    "sInfo": "_TOTAL_ pessoas participaram desta sessão",
+	    "sInfoEmpty": "Ninguém participou desta sessãp",
+	    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+	    "sInfoPostFix": "",
+	    "sInfoThousands": ".",
+	    "sLengthMenu": "_MENU_ resultados por página",
+	    "sLoadingRecords": "Carregando...",
+	    "sProcessing": "Processando...",
+	    "sZeroRecords": "Nenhum registro encontrado",
+	    "sSearch": "Pesquisar",
+	    "oPaginate": {
+	        "sNext": "Próximo",
+	        "sPrevious": "Anterior",
+	        "sFirst": "Primeiro",
+	        "sLast": "Último"
+	    }, 
+	    "oAria": {
+	        "sSortAscending": ": Ordenar colunas de forma ascendente",
+	        "sSortDescending": ": Ordenar colunas de forma descendente"
+	    },
+	};
+
 });

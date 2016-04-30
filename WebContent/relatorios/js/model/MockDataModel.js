@@ -5,15 +5,15 @@
 $(function() {
 
 	Array.prototype.contains = function(obj) {
-	    var i = this.length;
-	    while (i--) {
-	        if (this[i] == obj) {
-	            return true;
-	        }
-	    }
-	    return false;
+		var i = this.length;
+		while (i--) {
+			if (this[i] == obj) {
+				return true;
+			}
+		}
+		return false;
 	};
-	
+
 	MockDataModel = function(){
 
 	};
@@ -73,7 +73,7 @@ $(function() {
 			            	  this.turma.push(this.getProfessorAleatorio());
 			            	  this.getAlunosAleatorios(numeroAlunos);
 			              },
-			              
+
 			              /**
 			               * Seleciona um professor e inclui em turma
 			               */
@@ -127,7 +127,19 @@ $(function() {
 
 			              getRandom: function(max) {
 			            	  return Math.floor(Math.random() * max );//+ 1)
-			              }
+			              },
+
+
+			              getMockData: function(){
+			            	  var xhttp = new XMLHttpRequest();
+			            	  xhttp.onreadystatechange = function() {
+			            	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+			            	      $("textarea#cvs").val(xhttp.responseText);
+			            	    }
+			            	  };
+			            	  xhttp.open("GET", "mockdata.txt", true);
+			            	  xhttp.send();
+			              },
 	}});
 
 

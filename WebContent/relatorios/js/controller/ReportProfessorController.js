@@ -128,8 +128,11 @@ $(function() {
 			                        { className: "dt-body-center dt-body-center" }
 			                      ],
 			         destroy: true,   
-			         paging: false,
-			         sorting:false,
+			         paging:  false,
+			         sorting: false,
+			         language: tableLanguage,
+			         bFilter: false,
+			         info: false,
 			         columns: myColumns
 			     } );
 			},
@@ -181,11 +184,11 @@ $(function() {
 				console.log("ReportProfessorController>>doMainAction" );
 				
 				/* Carrega o arquivo de Log */
-				console.log("ReportProfessorController>>doMainAction>>Carregando arquivo de log...." );
+				console.log("ReportProfessorController>>doMainAction>>Carregando texto de log...." );
 				
 				logConversaModel = new LogConversaModel();
-				var arquivoLog = "logConversaModel."+$( "#selectLog :selected" ).val();
-				this.logData = eval(arquivoLog);
+				var textLog =  $( "textarea#cvs" ).val();
+				this.logData = eval(logConversaModel.csvToJSON(textLog));
 				
 				/* Prepara as turmas  */
 				logConversaModel.doPrepareTurma(this.logData);
@@ -211,7 +214,6 @@ $(function() {
 
 				/* Gerar Grafico da Matrix */
 			    this.doPrepareGrafico();
-				/*this.doShowMensagens(relatorio,rpm);*/
 			}	
 
 

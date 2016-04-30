@@ -115,6 +115,8 @@ $(function() {
 			         destroy: true,   
 			         paging: false,
 			         sorting:false,
+			         bFilter: false,
+			         language: tableLanguage,
 			         columns:myColumns
 			     } );
 		  },
