@@ -6,13 +6,8 @@ $(function() {
 	
 	ReportProfessorMessagesModel.prototype = {
 		 	
-			totalMensagens: function() { return "Os participantes da sessão de bate-papo trocaram um total de {$1} mensagens";},
-
-		 	enviadasParticipante: function() { return "{$1} enviou {$2} mensagens";},
-		 	
-		 	recebidasParticipante: function() { return "{$1} recebeu {$2} mensagens";},
-		 	
-		 	media: function() { return "A média de mensagens foi de {$1} mensagens";},
+			totalMensagens: function() { return "Nesta sessão de bate-papo participaram {$1} pessoas e trocaram {$2} mensagens," +
+					                            " resultando em uma <i>mediana</i> de {$3} mensagens por participante.";},
 		 	
 		 	menorParticipante: function() { return "O(s) aluno(s) {$1} obtiveram baixa participação na aula";},
 		 		
@@ -27,18 +22,48 @@ $(function() {
 		    		             "O(s) participante(s) {$1} apresenta(m) " +
 		 			             "um envio de mensagens muito inferior ao " +
 		 			             "da turma, esse valor está discrepante";},
-		 			      
-		 	abaixoDaMedia: function() { return "Apesar de {$1} ter(em) sido o(s) que menos falou (aram) na sessão, " +
-		 			       "ele(s) não é (são) um ponto isolado no grupo, pois sua(s) produção " +
-		 			       "de mensagem não é discrepante dos demais";},
+		 	
+		 	abaixoDaMedia: function() { return "{$1} foram os que menos falaram (1o.Quartil: {$2}) {$3}" ;},
+		 	
+		 	abaixoDaMediaComplementar: function() { 
+		 		       return ". <b>Atenção:</b> {$1} não enviou(aram) nenhuma mensagem. Não participou(aram) da conversa !!!" ; },
 		 			       
-		 	acimaDaMedia: function() { return "O(s) participante(s) {$1} foram os que mais falaram nessa sessão." +
-		 			      " Encontram-se acima da média ({$2})";},
+		 	acimaDaMedia: function() { return "O grupo que mais enviou mensagens foi {$1} (3o. Quertil: {$2})";},
+		 	
 		 	/* ponto discrepante acima do valor maximo fora da curva */		      
-		 	monopolioDeMensagens: function() { return "Verificamos um monopólio na conversa! " +
-		 						  "O {$1} dominou a conversa enviando muito mais " +
-		 						  "mensagens que o restante da turma.";},
-            /** Valor maximo que nAo ocorre discrepancia */
+		 	monopolioDeMensagens: function() { return "Dentre eles, {$1} enviou um número muito maior de  " +
+		 						  "mensagens ({$2}) que o restante do grupo, <i>verificamos um monopólio na conversa!</i> ";},
+            
+		 	semMonopolioDeMensagens: function() { return "Entre os que enviaram mais mensagens {$1}" +
+		 											" foi quem enviou mais mensagens ({$2})" ;},
+		 											
+		 	saidaPrimeiroQuartil: function(){ return "{$1} foram os que menos falaram nesta sessão. (1o. Quartil: {$2})"  
+		 								},										
+		 	saidaNaoParticipou: function(){
+		 		        return "Atenção! Observamos que ninguém se dirigiu à {$1} " +
+		 		        		"provavelmente ele(a)(s) não se engajou(aram) na conversa!"; 
+		 	},	
+		 	saidaComTodosPartiparam: function(){
+		 		 return " Observamos que nenhum participante deixou de receber mensagens." +
+		 		 		" Excelente! Não houve participantes isolados da turma nesta sessão."
+		 	},
+		 	saidaTerceiroQuartil: function(){
+		 		return "O grupo que mais teve mensagens endereças a si foi: {$1} " +
+		 				"(3o. Quartil: {$2}).";
+		 	},
+		 	saidaMonopolio: function(){
+		 		return "Entre esses, observamos que foi enviado um número discrepante de mensagens para {$1} ({$2} mensagens)," +
+		 				" de fato, ele foi o foco de atenção da turma.<br/> " +
+		 				"Assim, com base nas análises desse relatório conclui-se  que a conversação foi centrada em {$1}";
+		 	},
+		 	
+		 	saidaSemMonopolio: function(){
+		 		return " Entretanto, observamos que ninguém recebeu um número discrepante de mensagens," +
+		 			   " o que indica que a atenção da turma não estava focada em uma única pessoa, isto é," +
+		 			   " alguém sendo o centro da conversa. Assim, com base nas análises desse relatório" +
+		 			   " conclui-se que a conversação não foi centrada no tutor-moderador.";
+		 	},
+		 	/* Valor maximo que nAo ocorre discrepancia */
 		 	peMensagens: function() { return "Apesar de {$1} ter sido o que mais falou na sessão, " +
 		 			                   "esta quantidade de mensagens ({$2}) não chega a ser " +
 		 			                   "discrepante da produção de mensagens dos demais " +

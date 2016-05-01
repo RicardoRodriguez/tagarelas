@@ -131,7 +131,7 @@ $(function() {
 			                      ],
 			         destroy: true,   
 			         paging:  false,
-			         sorting: false,
+			         sorting: true,
 			         language: tableLanguage,
 			         bFilter: false,
 			         info: false,

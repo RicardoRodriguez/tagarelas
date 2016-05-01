@@ -9,16 +9,23 @@
 <link rel="stylesheet" type="text/css"
 	href="../../css/dataTables.jqueryui.min.css">
 <link rel="stylesheet" type="text/css"
-	href="../../css/jquery.dynatable.css">
+	href="http://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 
 
 </head>
 
 <!--  API's Globais -->
 <script src="../../js/jquery-2.2.3.min.js"></script>
-<script src="../../js/jquery.dataTables.min.js"></script>
-<script src="../../js/jquery.json.min.js"></script>
-<script src="../../js/dataTables.jqueryui.min.js"> </script>
+
+<script
+	src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+
+<script
+	src="https://cdn.datatables.net/1.10.11/js/dataTables.uikit.min.js"></script>
+
+<script 
+    src="../../js/jquery.bpopup.min.js"></script>
+    
 <script src="../../js/TagarelasPrototype.js"> </script>
 
 <!-- Controllers -->
@@ -74,36 +81,36 @@
  </script>
 
 <body>
-    <a name="topo" id="topo"></a>
+	<a name="topo" id="topo"></a>
 	<form id="myForm">
-	    <div id="mw-panel">
-	        <img id="topTagarelas" alt="Relatorio de bate-papo"  width='100px' height='100px' src="../imagens/tagarelas.png"/>
+		<div id="mw-panel">
+			<img id="topTagarelas" alt="Relatorio de bate-papo" width='100px'
+				height='100px' src="../imagens/tagarelas.png" />
 			<h3 id="p-interaction-label">Atalhos</h3>
 			<div class="body">
 				<ul>
-				<!--      <li id="n-welcome"><a href="#topo" title="Topo da página">Topo</a></li> -->
-					<li id="n-welcome"><a href="#resultado" title="Resultados da Análise">Resultados
-							das Análises</a></li>
-					<li id="n-help"><a href="#grafico"
-						title="Gráfico">Gráfico</a></li>
-					<li id="n-testpage"><a
-						href="#tab1" > tabela
-							Quantidade de Mensagens enviadas e recebidas por participante</a></li>
-					<li id="n-portal"><a
-						href="#tab2"
-						title="">Tabela de quantidades enviadas e
-							recebidas por partiipante</a></li>
+					<!--      <li id="n-welcome"><a href="#topo" title="Topo da página">Topo</a></li> -->
+					<li id="n-welcome"><a href="#resultado"
+						title="Resultados da Análise">Resultados das Análises</a></li>
+					<li id="n-help"><a href="#grafico" title="Gráfico">Gráfico</a></li>
+					<li id="n-testpage"><a href="#tab1"> tabela Quantidade de
+							Mensagens enviadas e recebidas por participante</a></li>
+					<li id="n-portal"><a href="#tab2" title="">Tabela de
+							quantidades enviadas e recebidas por partiipante</a></li>
+					<li id="call"><a href="#"><span class="call-popup">Rascunho
+								de cálculos</span></a></li>
 				</ul>
 			</div>
 		</div>
 		<div id="content" class="mw-body" role="main">
-		  <!--   <div align="center">
+			<!--   <div align="center">
 		   	 <img id="conversas" alt="Relatorio de bate-papo"  src="../imagens/conversa.png"/>
 		    </div>  -->
 			<div id="msgProcessamento">
 				<div class="alert alert-success">
 					<h4 class="alert-heading">Aviso</h4>
-					<p>Processamento concluido. O relatório está liberado. Role a tela para baixo ou clique em uma das opções ao lado.</p>
+					<p>Processamento concluido. O relatório está liberado. Role a
+						tela para baixo ou clique em uma das opções ao lado.</p>
 				</div>
 			</div>
 			<div id="divProcessamento">
@@ -113,9 +120,8 @@
 							<h3>Por favor, informe para iniciar o processamento:</h3> <br />
 							<br /> Copie as linhas da sua planilha nesta área: <br /> <br />
 							<b>Procedimento:</b> marque as linhas e colunas, copie. No campo
-							ao lado cole o conteudo da planilha ou<BR /> <BR />
-						<a href="#" id="doSimulaDados">clique aqui para gerar dados
-								simulados</a>
+							ao lado cole o conteudo da planilha ou<BR /> <BR /> <a href="#"
+							id="doSimulaDados">clique aqui para gerar dados simulados</a>
 						</td>
 						<td valign="top"><textarea rows="12" cols="80" id="cvs"
 								name="cvs"></textarea></td>
@@ -150,33 +156,31 @@
 				<table>
 					<tr>
 						<td width="40%"><input type="button"
-							value="Analisar as conversas"
-							id="doExecuteRelatorio" name="doExecuteRelatorio" /></td>
+							value="Analisar as conversas" id="doExecuteRelatorio"
+							name="doExecuteRelatorio" /></td>
 						<td width="20%"></td>
 						<td width="40%"><input type="button" value="Limpar a tela"
-					id="doClearData" name="doClearData" /></td>
+							id="doClearData" name="doClearData" /></td>
 					</tr>
 				</table>
 
 			</div>
-			<BR />
-			<br />
-			<a name="resultado" id="resultado"></a>
+			<BR /> <br /> <a name="resultado" id="resultado"></a>
 			<div id="divResultado">
 				<h3>Resultados das Análises</h3>
 				<div id="mensagensAnalise">Os participantes da sessão de
 					bate-papo trocaram um total de xxx mensagens</div>
 				<br />
-				<div align="right"><a href="#topo"
-						title="top"><h4>Topo</h4></a>
+				<div align="right">
+					<a href="#topo" title="top"><h4>Topo</h4></a>
 				</div>
 				<a name="grafico" id="grafico"></a>
 				<div id="divGrafico">
 					<div id="graficoColuna" style="border: 1px solid #ccc"></div>
 				</div>
 				<br />
-				<div align="right"><a href="#topo"
-						title="top"><h4>Topo</h4></a>
+				<div align="right">
+					<a href="#topo" title="top"><h4>Topo</h4></a>
 				</div>
 				<a name="tab1" id="tab1"></a>
 				<div id="divAnalise">
@@ -206,20 +210,24 @@
 					</table>
 					<br />
 				</div>
-				<div align="right"><a href="#topo"
-						title="top"><h4>Topo</h4></a>
+				<div align="right">
+					<a href="#topo" title="top"><h4>Topo</h4></a>
 				</div>
 				<a name="tab2" id="tab1"></a>
 				<h3>Tabulação de Resultados</h3>
 				<table id="example" class="display" cellspacing="0" width="100%">
 				</table>
 				<div id="resumo"></div>
-				<div align="right"><a href="#topo"
-						title="top"><h4>Topo</h4></a>
+				<div align="right">
+					<a href="#topo" title="top"><h4>Topo</h4></a>
 				</div>
 
 			</div>
 		</div>
 	</form>
+	<div class="popup-window">
+		<h2>Rascunho dos cálculos</h2>
+		<p><div id="rascunhoCalculos"></div></p>
+	</div>
 </body>
 </html>

@@ -2629,3 +2629,10 @@ body.ltr div#footer #footer-places {
 .alert-block p + p {
 	margin-top: 5px;
 }
+.popup-window{
+  display: none;
+  width: 30%;
+  text-align: left;
+  padding: 15px;
+  background: white;
+  }

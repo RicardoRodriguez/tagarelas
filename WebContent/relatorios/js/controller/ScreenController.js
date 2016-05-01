@@ -4,7 +4,20 @@
  */
 
 $(function() {
-	
+
+	/*
+	 * Executa a tela de popup
+	 */
+	$('.call-popup').on('click', function ( e ) {
+		e.preventDefault();
+		$(".popup-window").bPopup({ 
+			speed: 850,
+			transition: 'slideDown', 
+			modalColor: '#000000',
+			opacity: 0.7
+		});
+	});
+
 	$('#processamento').click(function(e) {
 		sc = new ScreenController();
 		sc.hideAll();
@@ -31,9 +44,9 @@ $(function() {
 	});
 
 	$('#doClearData').click(function(e) {
-	     window.screenController.clearScreen();
+		window.screenController.clearScreen();
 	});
-	
+
 	$('#doExecuteRelatorio').click(function(e) {
 		console.log("==========================================" );
 		console.log("Executando ReportProfessorController");
@@ -75,9 +88,9 @@ $(function() {
 				$("#divProcessamento").show();
 				$("#msgProcessamento").hide();
 				$("#mw-panel").show();
-		    /*
-		     * Tela carregada.
-		     */
+				/*
+				 * Tela carregada.
+				 */
 			},
 	}
 })
