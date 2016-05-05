@@ -156,7 +156,7 @@ $(function() {
 				window.doClearElement(element);
 				this.cc = new CalculoController();
 				var matriz = this.copyMatrix();
-				this.cc.doInit(matriz);
+				this.cc.doInit(this.titLinha,matriz);
 				var txt = "<div id='listAnalise'><ol><li><p><em>Grau de Entrada: Valor fora da curva - " + "Mínimo:" + 
 				this.cc.inLow + "; " + "Máximo:" + this.cc.inHigh +"</p></em></li>\n" + 
 				"<li><p><em>Grau de Saída: Valor fora da curva - " + "Mínimo:" + 

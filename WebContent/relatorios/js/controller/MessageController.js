@@ -18,20 +18,20 @@ $(function() {
 			entradasAcimaMaximo: "",
 			entradasAbaixoMinimo: "",
 			entradasAcimaQ3: "",
-	        entradaMonopolio:"",
-	        totalMensagensMonopolio:0,
-	        entradaMaisFalante:"",
-	        totalMensagensMaisFalante:0,
-			
-	        saidasAcimaMaximo: "",
+			entradaMonopolio:"",
+			totalMensagensMonopolio:0,
+			entradaMaisFalante:"",
+			totalMensagensMaisFalante:0,
+
+			saidasAcimaMaximo: "",
 			saidasAbaixoQ1: "",
 			saidasAcimaQ3: "",
 			saidaMonopolio:"",
 			totalMensagensSaidaMonopolio: 0,
 			saidaMaisOuvinte:"",
 			totalMensagensMaisOuvinte:0,
-			
-			
+
+
 
 			allMessages: null,
 			cc: null,
@@ -65,7 +65,7 @@ $(function() {
 				if (total > this.cc.inQ3){
 					this.entradasAcimaQ3 += participante + ", ";
 				}
-				
+
 				if (total > this.cc.inHigh){
 					this.entradasAcimaMaximo += participante + ", ";
 				}
@@ -75,7 +75,7 @@ $(function() {
 					this.totalMensagensMaisFalante= total;
 					this.entradaMaisFalante = participante;
 				}
-				
+
 				// Monopolio da conversa
 				//----------------------
 				if (total > this.cc.inHigh && 
@@ -83,7 +83,7 @@ $(function() {
 					this.totalMensagensMonopolio = total;
 					this.entradaMonopolio = participante;
 				}
-				
+
 			},
 
 			/**
@@ -123,7 +123,7 @@ $(function() {
 					this.totalMensagensMaisOuvinte= total;
 					this.saidaMaisOuvinte = participante;
 				}
-	
+
 			},
 
 			processaParticipantesEntrada:function (titLinhas, theMatrix){
@@ -147,16 +147,17 @@ $(function() {
 				for (var linha=0; linha < theMatrix.length-1; ++linha){
 					var myLinha = theMatrix[linha]
 					var totalColuna = 0;
-					for (coluna=0; coluna < myLinha.length; ++coluna){
+					for (coluna=0; coluna < myLinha.length-1; ++coluna){
 						totalColuna += myLinha[coluna];
 					} 
-					if (titLinhas[linha] !== "Todos") {
-						var l = [ titLinhas[linha],totalColuna];
+					if (titLinhas[linha] != 'Todos') {
+					   var l = [ titLinhas[linha],totalColuna];
 						this.verificaSaidas(l[0],l[1]);
 						myRecords.push(l);
 					}
+
 				}
-				
+
 				this.doShowTable("Mensagens Recebidas","#tableSaidas",myRecords);
 			},
 
@@ -201,23 +202,23 @@ $(function() {
 				}
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
-			
+
 			saidaPrimeiroQuartil: function(){
 				var myMsg = this.messagesModel.saidaPrimeiroQuartil();
 				result = this.changeParameters(myMsg,this.saidasAbaixoQ1 ,this.cc.outQ1);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
-			
+
 			saidaNaoParticipou: function(){
 				var myMsg;	
 				if (this.naoRecebeuMensagens.isEmpty()) 
 					myMsg = this.messagesModel.saidaComTodosPartiparam();
 				else
-				    myMsg = this.messagesModel.saidaNaoParticipou();
+					myMsg = this.messagesModel.saidaNaoParticipou();
 				result = this.changeParameters(myMsg,this.naoRecebeuMensagens);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
-			
+
 			saidaTerceiroQuartil: function(){
 				var myMsg;	
 				if (this.saidasAcimaQ3.isEmpty() ) 
@@ -226,7 +227,7 @@ $(function() {
 				result = this.changeParameters(myMsg,this.saidasAcimaQ3, this.cc.outQ3);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
-			
+
 			doSaidaMonopolio: function(){
 				var result="";
 				var myMsg ="";
@@ -239,7 +240,7 @@ $(function() {
 				}
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
-			
+
 			todosParticiparam: function(naoParticiparam){
 				if (naoParticiparam) return; 
 				var result = this.messagesModel.todosParticiparam();
@@ -303,7 +304,7 @@ $(function() {
 				 */
 				this.processaParticipantesEntrada(titLinhas,theMatrix);
 				this.processaParticipantesSaida(titLinhas,theMatrix);
-				
+
 				/**
 				 * Todos enviaram ou receberam mensagens na aula
 				 * =============================================
@@ -322,40 +323,40 @@ $(function() {
 				 * ==============
 				 */
 				this.participaramAcimaMedia();
-				
+
 				/**
 				 * Monopolio das mensagens
 				 * =======================
 				 */
 				this.monopolioConversas();
-				
+
 				/**
 				 * Saida de mensagens
 				 * ===================
 				 */
 				this.allMessages  += 
 					'</ul><br/><br/><h5>Análise do endereçamento de mensagens</h5><br/><ul>';
-				
+
 				/**
 				 * Conversas abaixo do primeiro quartil
 				 */
 				this.saidaPrimeiroQuartil();
-				
+
 				/**
 				 * Ninguem falou comigo
 				 */
 				this.saidaNaoParticipou();
-				
+
 				/**
 				 * Saidas acima do Q3
 				 */
 				this.saidaTerceiroQuartil();
-				
+
 				/**
 				 * Saidas Monopolio
 				 */
 				this.doSaidaMonopolio();
-				
+
 				/**
 				 * Fim das mensagens
 				 * =================

@@ -40,8 +40,8 @@ $(function() {
 			doBarChart: function (titLinha,theMatrix) {
 				var data = new google.visualization.DataTable();
 				data.addColumn('string', 'Participantes');
-				data.addColumn('number', 'Entradas');
-				data.addColumn('number', 'Saidas');
+				data.addColumn('number', 'Enviadas');
+				data.addColumn('number', 'Recebidas');
 				//-------------------------------
 				// MyEntry é minha linha de total 
 				//-------------------------------
@@ -63,7 +63,7 @@ $(function() {
 				}
 
 				 var options = {
-					        title: "Entradas e Saidas por participante",
+					        title: "Mensagens Enviadas e Recebidas por participante",
 					        width: 600,
 					        height: 800,
 					        bar: {groupWidth: "95%"},

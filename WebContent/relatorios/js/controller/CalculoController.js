@@ -50,11 +50,14 @@ $(function() {
 			 */
 			medianX: function(medianArr){
 				var count = medianArr.length;
-				var medianaX =   (count % 2 === 0) ? 
-						         (medianArr[(medianArr.length/2) - 1] + 
-							  	  medianArr[(medianArr.length / 2)]) / 2:
+				/*var medianaX =   (count % 2 === 0) ? 
+						          
+						          Math.floor((medianArr[(medianArr.length/2) - 1] + 
+							  	  medianArr[(medianArr.length / 2)]) / 2):
+							  		  
 								  medianArr[Math.floor(medianArr.length / 2)];
-				return medianaX;
+				*/
+				return math.median(medianArr);
 			},
 			
 			
@@ -67,15 +70,13 @@ $(function() {
 	            /**
 	             * Montar o vetor do primeiro 
 	             */
-				var q1Arr  = values.slice(0, posicaoMediana);
-				var q3Arr  = values.slice(posicaoMediana, tamTotalVetor);
-				var q1   = this.medianX(q1Arr);
-				var q3   = this.medianX(q3Arr);
+				var q1     = math.quantileSeq(values,0.25);
+				var q3     = math.quantileSeq(values,0.75);
 				
 				console.log("Calculo Controller>>doCalcElementFor>>Quartis--->>>",q1,q2,q3);		
 				var iqr   = q3 - q1;
 				var z  = 1.5 * iqr;
-				var pontoInferior = z-q1;
+				var pontoInferior = q1-z;
 				var pontoSuperior = q3 + z;
 				console.log("Calculo Controller>>doCalcElementFor>>iqr,z,pontoInferior,pontoSuperior--->>>",iqr,z,pontoInferior,pontoSuperior);	
 				return [q1,q2,q3,pontoInferior,pontoSuperior];
@@ -113,18 +114,19 @@ $(function() {
 			/**
 			 * Monta o vetor de total de colunas
 			 */
-			doPrepareArrayOutDegree: function(theMatrix){
+			doPrepareArrayOutDegree: function(titLinhas,theMatrix){
 				console.log("CalculoController >> doPrepareArrayOutDegree");
-				var arrayOutDegree = new Array();
-				for (var linha=0;linha < theMatrix.length-1; ++linha){
-					myArray = theMatrix[linha];
-					var totalColuna=0;
-					for(var coluna=0; coluna < myArray.length; ++coluna){
-						totalColuna += myArray[coluna];
-					}
-					arrayOutDegree.push(totalColuna);
+				var array = new Array();
+				for (var linha=0; linha < theMatrix.length-1; ++linha){
+					var myLinha = theMatrix[linha]
+					var totalColuna = 0;
+					for (coluna=0; coluna < myLinha.length-1; ++coluna){
+						totalColuna += myLinha[coluna];
+					} 
+					if (titLinhas[linha] !== 'Todos')
+					   array.push(totalColuna);
 				}
-				return arrayOutDegree;
+				return array;
 			}, 
 			
 			doSortArray: function (myArray){
@@ -155,7 +157,7 @@ $(function() {
 				var z  = 1.5 * iqr;
 				linhas.push("z (1.5 * iqr): "+ z);
 				
-				var pontoInferior = z-(t==0?this.inQ1:this.outQ1);
+				var pontoInferior = (t==0?this.inQ1:this.outQ1) - z;
 				var pontoSuperior = (t==0?this.inQ3:this.outQ3) + z;
 				linhas.push("Ponto Superior: "+ pontoSuperior);
 				linhas.push("Ponto Inferior: "+ pontoInferior);
@@ -172,7 +174,7 @@ $(function() {
 			 * Prepara os valores para a matriz
 			 * @param theMatrix
 			 */
-		   	doInit: function (theMatrix){
+		   	doInit: function (titLinhas,theMatrix){
 		   		console.log("Inicio do Calculo Controller");
 		   		$("#rascunhoCalculos").empty();
                 /*
@@ -182,13 +184,15 @@ $(function() {
 		   		this.arrayInDegree = this.doSortArray(
 						theMatrix[theMatrix.length-1].slice());
 				console.log("arrayInDegree Organizado", this.arrayInDegree);
+				this.arrayInDegree = this.arrayInDegree.slice(0, -1);
 				this.doCalcElementosLinha(this.arrayInDegree);
 				/*
                  * Prepara e calcula o array de saida.
                  * =====================================
                  */				
-				var arrayOut= this.doPrepareArrayOutDegree(theMatrix);
+				var arrayOut= this.doPrepareArrayOutDegree(titLinhas,theMatrix);
 				this.arrayOutDegree =  this.doSortArray(arrayOut);
+				//this.arrayOutDegree =  this.arrayOutDegree.slice(0, -1);
 				this.doCalcElementosColuna(this.arrayOutDegree);
 				console.log("Termino de Calculo Controller");
 			}

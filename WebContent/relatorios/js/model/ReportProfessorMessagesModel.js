@@ -52,7 +52,7 @@ $(function() {
 		 				"(3o. Quartil: {$2}).";
 		 	},
 		 	saidaMonopolio: function(){
-		 		return "Entre esses, observamos que foi enviado um número discrepante de mensagens para {$1} ({$2} mensagens)," +
+		 		return "Dentre esses, observamos que foi enviado um número discrepante de mensagens para {$1} ({$2} mensagens)," +
 		 				" de fato, ele foi o foco de atenção da turma.<br/> " +
 		 				"Assim, com base nas análises desse relatório conclui-se  que a conversação foi centrada em {$1}";
 		 	},
