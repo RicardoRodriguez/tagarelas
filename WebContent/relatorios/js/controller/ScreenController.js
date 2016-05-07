@@ -38,23 +38,53 @@ $(function() {
 		$("#divAnalise").show();
 	});
 
-	$('#doSimulaDados').click(function(e) {
+	$('#doLoadLog1').click(function(e) {
 		md =  new MockDataModel();
-		md.getMockData();
+		md.getMockData(1);
 	});
 
+
+	$('#doLoadLog2').click(function(e) {
+		md =  new MockDataModel();
+		md.getMockData(2);
+
+	});
+
+
+	$('#doLoadLog3').click(function(e) {
+		md =  new MockDataModel();
+		md.getMockData(3);
+	});
+
+
+	$('#doLoadLog4').click(function(e) {
+		md =  new MockDataModel();
+		md.getMockData(4);
+	});
+
+
+	$('#doLoadLog5').click(function(e) {
+		md =  new MockDataModel();
+		md.getMockData(5);
+	});
+	
+	
 	$('#doClearData').click(function(e) {
 		window.screenController.clearScreen();
 	});
-
+	
 	$('#doExecuteRelatorio').click(function(e) {
+		window.doExecuteRelatorio();
+	});
+	
+	window.doExecuteRelatorio = function() {
 		console.log("==========================================" );
 		console.log("Executando ReportProfessorController");
 		console.log("===========================================" );
 
 		var arquivo = $( "textarea#cvs" ).val();
 
-		if (typeof(arquivo) === 'undefined' || arquivo ===''){
+		if (typeof(arquivo) === 'undefined' || arquivo ==='' || arquivo.indexOf('\t') < 0){
 			alert("Conteúdo da conversa inválido. Preencha corretametne o conteúdo da planilha.");
 			return;
 		}
@@ -63,10 +93,9 @@ $(function() {
 
 		reportProfessorController.doMainAction();
 
-		$("#mw-panel").show();
 		$("#msgProcessamento").show();
 		$("#divResultado").show();
-	});
+	};
 
 	ScreenController = function(){
 

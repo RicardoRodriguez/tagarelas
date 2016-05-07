@@ -42,35 +42,16 @@ $(function() {
             outQ3:    0,
             arrayInDegree: null,
             arrayOutDegree: null,
-            
-			/**
-			 * Calcua a mediana de um vetor
-			 * @param medianArr
-			 * @returns {___anonymous_median}
-			 */
-			medianX: function(medianArr){
-				var count = medianArr.length;
-				/*var medianaX =   (count % 2 === 0) ? 
-						          
-						          Math.floor((medianArr[(medianArr.length/2) - 1] + 
-							  	  medianArr[(medianArr.length / 2)]) / 2):
-							  		  
-								  medianArr[Math.floor(medianArr.length / 2)];
-				*/
-				return math.median(medianArr);
-			},
-			
 			
 			doCalcElementsFor: function(values){
 				console.log("CalculoController >> doCalcElementFor");
 				var tamTotalVetor  = values.length;
 				var posicaoMediana =  Math.trunc(tamTotalVetor/ 2);
-				var q2Arr  = values.slice();
-				var q2   = this.medianX(q2Arr);
 	            /**
 	             * Montar o vetor do primeiro 
 	             */
 				var q1     = math.quantileSeq(values,0.25);
+				var q2     =  math.median(values);
 				var q3     = math.quantileSeq(values,0.75);
 				
 				console.log("Calculo Controller>>doCalcElementFor>>Quartis--->>>",q1,q2,q3);		

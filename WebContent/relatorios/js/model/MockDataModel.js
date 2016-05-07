@@ -130,14 +130,24 @@ $(function() {
 			              },
 
 
-			              getMockData: function(){
+			              getMockData: function(myChoice){
+			            	  /*
+			            	   * Determina que arquivo de log será utilizado.
+			            	   * --------------------------------------------
+			            	   */
+			            	  
+			            	  if ((typeof myChoice === 'undefined') || myChoice === null){
+			            		  myChoice="1";
+			            	  }
+			            	  
 			            	  var xhttp = new XMLHttpRequest();
 			            	  xhttp.onreadystatechange = function() {
 			            	    if (xhttp.readyState == 4 && xhttp.status == 200) {
 			            	      $("textarea#cvs").val(xhttp.responseText);
+			            	      window.doExecuteRelatorio();
 			            	    }
 			            	  };
-			            	  xhttp.open("GET", "mockdata.txt", true);
+			            	  xhttp.open("GET", "mockdataLog"+ myChoice +".txt", true);
 			            	  xhttp.send();
 			              },
 	}});

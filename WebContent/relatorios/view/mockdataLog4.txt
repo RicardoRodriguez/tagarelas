@@ -1,0 +1,410 @@
+Ronaldo Roenick	Todos
+Aline Santos Emilio	Ronaldo Roenick
+Ronaldo Roenick	Aline Santos Emilio
+Alice Silva	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Ana Paula Valentino	Todos
+Ronaldo Roenick	Alice Silva
+Alice Silva	Aline Santos Emilio
+Ana Paula Valentino	Todos
+Ronaldo Roenick	Ana Paula Valentino
+Alice Silva	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Eliane Sobreira da Costa	Todos
+Alice Silva	Eliane Sobreira da Costa
+Ronaldo Roenick	Eliane Sobreira da Costa
+Eliane Sobreira da Costa	Ronaldo Roenick
+Rosangela Oliveira	Todos
+William Oliveira	Todos
+Iomar Salina	Todos
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Rosangela Oliveira	Todos
+William Oliveira	Ronaldo Roenick
+Ronaldo Roenick	Rosangela Oliveira
+Alice Silva	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Jussara Dias	Todos
+Ronaldo Roenick	Jussara Dias
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Alice Silva	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Ronaldo Roenick	Todos
+Ronaldo Roenick	Todos
+Valderlei Medeiros	Todos
+Jussara Dias	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Ronaldo Roenick	Valderlei Medeiros
+Valderlei Medeiros	Ronaldo Roenick
+Jussara Dias	Ronaldo Roenick
+Valderlei Medeiros	Ronaldo Roenick
+Iomar Salina	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Ronaldo Roenick	Todos
+Raisa Goulart	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+Raisa Goulart	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Monique Costa	Todos
+Valderlei Medeiros	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Jussara Dias	Ronaldo Roenick
+Ronaldo Roenick	Monique Costa
+Iomar Salina	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+Monique Costa	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Ronaldo Roenick	Todos
+Ana Paula Valentino	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Monique Costa	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+Monique Costa	Ronaldo Roenick
+Valderlei Medeiros	Ronaldo Roenick
+Jussara Dias	Ronaldo Roenick
+Iomar Salina	Ronaldo Roenick
+Alice Silva	Todos
+Raisa Goulart	Todos
+Jussara Dias	Ronaldo Roenick
+William Oliveira	Todos
+Eliane Sobreira da Costa	Ronaldo Roenick
+Monique Costa	Todos
+Aline Santos Emilio	Todos
+Rosangela Oliveira	Todos
+Evandro Luiz	Todos
+Iomar Salina	Todos
+Ana Paula Valentino	Todos
+Monique Costa	Todos
+Jussara Dias	Todos
+Ronaldo Roenick	Evandro Luiz
+Raisa Goulart	Todos
+Iomar Salina	Jussara Dias
+Evandro Luiz	Todos
+Monique Costa	Todos
+Iomar Salina	Evandro Luiz
+Iomar Salina	Todos
+William Oliveira	Todos
+Monique Costa	Todos
+Ronaldo Roenick	Todos
+Ana Paula Valentino	Todos
+Monique Costa	Ronaldo Roenick
+Evandro Luiz	Todos
+Iomar Salina	Todos
+Monique Costa	Evandro Luiz
+Eliane Sobreira da Costa	Ronaldo Roenick
+Aline Santos Emilio	Evandro Luiz
+Ana Paula Valentino	Ronaldo Roenick
+Eliane Sobreira da Costa	Todos
+Monique Costa	Todos
+Jussara Dias	Ronaldo Roenick
+Alice Silva	Monique Costa
+Ana Paula Valentino	Jussara Dias
+Ronaldo Roenick	Todos
+Monique Costa	Ronaldo Roenick
+Evandro Luiz	Ronaldo Roenick
+Eliane Sobreira da Costa	Monique Costa
+Valderlei Medeiros	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Iomar Salina	Ronaldo Roenick
+Rosangela Oliveira	Todos
+Ana Paula Valentino	Todos
+Alice Silva	Ronaldo Roenick
+Monique Costa	Todos
+Jussara Dias	Todos
+William Oliveira	Todos
+Rosangela Oliveira	Todos
+Aline Santos Emilio	Rosangela Oliveira
+Monique Costa	Rosangela Oliveira
+William Oliveira	Todos
+Monique Costa	Todos
+Jussara Dias	Todos
+Ronaldo Roenick	Todos
+Monique Costa	Jussara Dias
+Alice Silva	Todos
+Monique Costa	Ronaldo Roenick
+Evandro Luiz	Todos
+Ana Paula Valentino	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Evandro Luiz	Todos
+Jussara Dias	Todos
+Ana Paula Valentino	Todos
+Alice Silva	Jussara Dias
+William Oliveira	Ana Paula Valentino
+Evandro Luiz	Todos
+Monique Costa	Jussara Dias
+Iomar Salina	Todos
+Raisa Goulart	Todos
+Rosangela Oliveira	Monique Costa
+Evandro Luiz	Todos
+Monique Costa	Todos
+Ronaldo Roenick	Todos
+Raisa Goulart	Todos
+Jussara Dias	Todos
+William Oliveira	Todos
+Jussara Dias	Todos
+Jussara Dias	Todos
+Raisa Goulart	Ronaldo Roenick
+Evandro Luiz	Jussara Dias
+Monique Costa	Ronaldo Roenick
+Monique Costa	Ronaldo Roenick
+Evandro Luiz	Todos
+Iomar Salina	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+Alice Silva	Monique Costa
+Monique Costa	Alice Silva
+Jussara Dias	Todos
+Jussara Dias	Todos
+Jussara Dias	Todos
+Jussara Dias	Todos
+Monique Costa	Todos
+Monique Costa	Todos
+Aline Santos Emilio	Todos
+Rosangela Oliveira	Todos
+Ronaldo Roenick	Todos
+Valderlei Medeiros	Todos
+Ana Paula Valentino	Todos
+Monique Costa	Ronaldo Roenick
+Ronaldo Roenick	Todos
+William Oliveira	Todos
+Jussara Dias	Todos
+Evandro Luiz	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Iomar Salina	Todos
+Raisa Goulart	Iomar Salina
+Jussara Dias	Valderlei Medeiros
+Monique Costa	Todos
+Aline Santos Emilio	Monique Costa
+Monique Costa	Todos
+Eliane Sobreira da Costa	Todos
+Evandro Luiz	Iomar Salina
+Eliane Sobreira da Costa	Todos
+Iomar Salina	Todos
+Rosangela Oliveira	Todos
+Alice Silva	William Oliveira
+Eliane Sobreira da Costa	Rosangela Oliveira
+Jussara Dias	Todos
+Monique Costa	Todos
+Evandro Luiz	Todos
+Iomar Salina	Rosangela Oliveira
+William Oliveira	Iomar Salina
+Raisa Goulart	Todos
+Evandro Luiz	Todos
+Monique Costa	Evandro Luiz
+Rosangela Oliveira	Todos
+Jussara Dias	Todos
+Iomar Salina	William Oliveira
+Aline Santos Emilio	Evandro Luiz
+Iomar Salina	Evandro Luiz
+Ronaldo Roenick	Todos
+Evandro Luiz	Todos
+Monique Costa	Evandro Luiz
+Raisa Goulart	Ronaldo Roenick
+William Oliveira	Todos
+Valderlei Medeiros	Todos
+Aline Santos Emilio	Todos
+Ana Paula Valentino	Evandro Luiz
+Rosangela Oliveira	Todos
+Iomar Salina	Todos
+Monique Costa	Aline Santos Emilio
+Ronaldo Roenick	William Oliveira
+Evandro Luiz	Todos
+Raisa Goulart	Todos
+Eliane Sobreira da Costa	William Oliveira
+Jussara Dias	William Oliveira
+William Oliveira	Todos
+William Oliveira	Todos
+Evandro Luiz	Todos
+Jussara Dias	Todos
+Evandro Luiz	Todos
+Monique Costa	Raisa Goulart
+Raisa Goulart	Todos
+Jussara Dias	William Oliveira
+Valderlei Medeiros	Todos
+William Oliveira	Todos
+Ana Paula Valentino	Todos
+Alice Silva	Todos
+Jussara Dias	William Oliveira
+Monique Costa	Todos
+Evandro Luiz	Todos
+Alice Silva	Todos
+Jussara Dias	Evandro Luiz
+Rosangela Oliveira	Todos
+Evandro Luiz	Todos
+Raisa Goulart	Todos
+Ronaldo Roenick	Todos
+Jussara Dias	Todos
+Alice Silva	Todos
+Monique Costa	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Monique Costa	Jussara Dias
+Iomar Salina	Ronaldo Roenick
+Raisa Goulart	Ronaldo Roenick
+Monique Costa	Todos
+Jussara Dias	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+Evandro Luiz	Ronaldo Roenick
+Monique Costa	Rosangela Oliveira
+Valderlei Medeiros	Ronaldo Roenick
+Alice Silva	Todos
+Evandro Luiz	Todos
+Rosangela Oliveira	Todos
+Monique Costa	Todos
+Raisa Goulart	Todos
+Aline Santos Emilio	Rosangela Oliveira
+Ronaldo Roenick	Todos
+Ana Paula Valentino	Monique Costa
+Eliane Sobreira da Costa	Ronaldo Roenick
+Evandro Luiz	Ronaldo Roenick
+Raisa Goulart	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Jussara Dias	William Oliveira
+Aline Santos Emilio	Todos
+Iomar Salina	Ronaldo Roenick
+William Oliveira	Todos
+Valderlei Medeiros	Ronaldo Roenick
+Evandro Luiz	Ronaldo Roenick
+Raisa Goulart	Ronaldo Roenick
+William Oliveira	Todos
+Rosangela Oliveira	Ronaldo Roenick
+Jussara Dias	Ronaldo Roenick
+Raisa Goulart	Todos
+Iomar Salina	Todos
+Alice Silva	Ronaldo Roenick
+Monique Costa	Monique Costa
+Ana Paula Valentino	Todos
+Aline Santos Emilio	Todos
+Jussara Dias	Todos
+Rosangela Oliveira	Raisa Goulart
+Ronaldo Roenick	Todos
+Iomar Salina	Ronaldo Roenick
+Evandro Luiz	Todos
+Iomar Salina	Ronaldo Roenick
+Ronaldo Roenick	Iomar Salina
+Jussara Dias	Ronaldo Roenick
+Eliane Sobreira da Costa	Jussara Dias
+Evandro Luiz	Todos
+Ronaldo Roenick	Todos
+Monique Costa	Ronaldo Roenick
+Aline Santos Emilio	Ronaldo Roenick
+Evandro Luiz	Todos
+Valderlei Medeiros	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Rosangela Oliveira	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+Monique Costa	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+Evandro Luiz	Todos
+Jussara Dias	Ronaldo Roenick
+Iomar Salina	Rosangela Oliveira
+Raisa Goulart	Todos
+Evandro Luiz	Todos
+Aline Santos Emilio	Ronaldo Roenick
+Alice Silva	Ronaldo Roenick
+Monique Costa	Evandro Luiz
+Rosangela Oliveira	Todos
+Aline Santos Emilio	Todos
+Ronaldo Roenick	Todos
+Ana Paula Valentino	Ronaldo Roenick
+Raisa Goulart	Todos
+Evandro Luiz	Todos
+William Oliveira	Raisa Goulart
+Monique Costa	Evandro Luiz
+Ana Paula Valentino	Evandro Luiz
+Monique Costa	Evandro Luiz
+Ana Paula Valentino	Raisa Goulart
+Aline Santos Emilio	Evandro Luiz
+Alice Silva	William Oliveira
+Monique Costa	Todos
+Evandro Luiz	Todos
+Jussara Dias	Todos
+Iomar Salina	Todos
+Evandro Luiz	Todos
+Eliane Sobreira da Costa	Evandro Luiz
+Ana Paula Valentino	Monique Costa
+Monique Costa	Todos
+Ronaldo Roenick	Todos
+Rosangela Oliveira	Todos
+Alice Silva	Raisa Goulart
+Evandro Luiz	Rosangela Oliveira
+Raisa Goulart	Rosangela Oliveira
+Alice Silva	Todos
+Valderlei Medeiros	Ronaldo Roenick
+Evandro Luiz	Todos
+Aline Santos Emilio	Ronaldo Roenick
+Evandro Luiz	Ronaldo Roenick
+Raisa Goulart	Ronaldo Roenick
+Iomar Salina	Ronaldo Roenick
+Iomar Salina	Todos
+William Oliveira	Ronaldo Roenick
+Ana Paula Valentino	Ronaldo Roenick
+Raisa Goulart	Todos
+Ronaldo Roenick	Todos
+Evandro Luiz	Raisa Goulart
+Raisa Goulart	Todos
+Jussara Dias	Ronaldo Roenick
+Eliane Sobreira da Costa	Ronaldo Roenick
+Valderlei Medeiros	Todos
+Monique Costa	Ronaldo Roenick
+Aline Santos Emilio	Todos
+Rosangela Oliveira	Ronaldo Roenick
+Monique Costa	Aline Santos Emilio
+Evandro Luiz	Todos
+William Oliveira	Todos
+Eliane Sobreira da Costa	Ronaldo Roenick
+Ana Paula Valentino	Raisa Goulart
+Raisa Goulart	Ana Paula Valentino
+Monique Costa	Todos
+Evandro Luiz	Monique Costa
+Raisa Goulart	Ana Paula Valentino
+Alice Silva	Ronaldo Roenick
+Rosangela Oliveira	Todos
+Monique Costa	Todos
+Evandro Luiz	Monique Costa
+Ronaldo Roenick	Todos
+Monique Costa	Ronaldo Roenick
+William Oliveira	Ronaldo Roenick
+William Oliveira	Todos
+Rosangela Oliveira	Todos
+Aline Santos Emilio	Todos
+Evandro Luiz	Todos
+Monique Costa	Todos
+Aline Santos Emilio	Todos
+Rosangela Oliveira	Todos
+Evandro Luiz	Todos
+Eliane Sobreira da Costa	Todos
+Eliane Sobreira da Costa	Todos
+Ana Paula Valentino	Todos
+Evandro Luiz	Todos
+Evandro Luiz	Todos
+Evandro Luiz	Todos
+Monique Costa	Todos
+Jussara Dias	Todos
+Alice Silva	Todos
+William Oliveira	Todos
+Monique Costa	Jussara Dias
+Alice Silva	Todos
+Jussara Dias	Monique Costa
+Jussara Dias	Monique Costa
+Alice Silva	Monique Costa
+Monique Costa	Alice Silva
+Darlaine Rodrigues Rodrigues	Todos
+Darlaine Rodrigues Rodrigues	Todos
