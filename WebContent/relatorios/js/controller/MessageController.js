@@ -137,7 +137,7 @@ $(function() {
 						this.verificaEntradas(titLinhas[i],entradas[i]);
 					}	 
 				}
-				this.doShowTable("Mensagens Enviadas","#tableEntradas",myRecords);
+				return myRecords;
 			},
 
 
@@ -157,14 +157,17 @@ $(function() {
 					}
 
 				}
-
-				this.doShowTable("Mensagens Recebidas","#tableSaidas",myRecords);
+				return myRecords;
 			},
 
-			doShowTable: function(titMensagem,element,myRecords) {
-				window.doClearElement(element);
-				var myColumns = [{title:"Nome"},{title:titMensagem}];
-				$(element).DataTable( {
+			doShowTable: function(enviadas, recebidas) {
+				window.doClearElement("#tableEntradas");
+				var myRecords = new Array();
+				for (var i=0; i < enviadas.length; ++i){
+					myRecords.push ([enviadas[i][0],enviadas[i][1],recebidas[i][1]]);
+				}
+				var myColumns = [{title:"Nome"},{title:"Mensagens Enviadas"},{title: "Mensagens Recebidas"}];
+				$("#tableEntradas").DataTable( {
 					data: myRecords,
 					columnDefs: [
 					             { className: "dt-body-center dt-body-center" },
@@ -280,7 +283,7 @@ $(function() {
 			 */
 			totalMensagensEnviadas: function(titLinhas,theMatrix){
 				var entradas     = theMatrix[theMatrix.length -1];
-				var totalPessoas = titLinhas.length-1;
+				var totalPessoas = titLinhas.length-2;
 				var totalMens    = 0;
 				for (var i=0; i < entradas.length-1; ++i){
 					totalMens += entradas[i];
@@ -302,9 +305,9 @@ $(function() {
 				 * Processa a matriz de total de Entradas e Saidas
 				 * ===============================================
 				 */
-				this.processaParticipantesEntrada(titLinhas,theMatrix);
-				this.processaParticipantesSaida(titLinhas,theMatrix);
-
+				var enviadas  = this.processaParticipantesEntrada(titLinhas,theMatrix);
+				var recebidas = this.processaParticipantesSaida(titLinhas,theMatrix);
+				this.doShowTable(enviadas, recebidas)
 				/**
 				 * Todos enviaram ou receberam mensagens na aula
 				 * =============================================

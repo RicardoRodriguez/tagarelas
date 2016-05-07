@@ -1,6 +1,8 @@
-body {
-	margin: 0;
-	background: #eee;
+
+html,body {
+    margin: 15px !important;
+    padding: 15px !important;
+	background: #fff !important;
 	font-family: Verdana;
 	color: #333;
 	font-size:11px

@@ -26,12 +26,11 @@
 <!-- Biblioteca matemática para calculo da mediana e quartil -->
 
 <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.min.js" >
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.min.js">
 </script>
 
-<script 
-    src="../../js/jquery.bpopup.min.js"></script>
-    
+<script src="../../js/jquery.bpopup.min.js"></script>
+
 <script src="../../js/TagarelasPrototype.js"> </script>
 
 <!-- Controllers -->
@@ -73,167 +72,185 @@
       ======================================
 	 */
 	 reportProfessorController = new ReportProfessorController();
-	  
-	 doChangeGrafico= function(e){
-	 	reportProfessorController.doShowGrafico(e.value);
-	 }
-
+	 
      /* limpa a tela de mensagem antes de continuar e carrega a tela de processamento */
      window.screenController = new ScreenController();
      window.screenController.clearScreen();
-});
 
+     /* insere conteudo default em cvs */
+	  $("#cvs").val(
+			    "\nCole os dados ou digite manualmente, e depois clique no botão 'Analisar as conversas'. "+ 
+				"Cada linha representa uma associação emissor --> receptor, separados por tabulação (obs.:para digitar tabulação, tecle: ALT+0+9)."+ 
+				"Para indicar o tutor-professor, prefixe o nome com o símbolo @. Por exemplo, '@Felipe	Vânia' significa que o professor-tutor Felipe enviou uma mensagem para Vânia."+
+				"Se alguém não enviou mensagem alguma, apenas registre o nome sem um destinatário." + 
+				"Se alguém enviou para todos, sem um destinatário específico, registre destinatário como 0 (zero). Para ver um exemplo, clique no botão de Exemplo de dados desejado");		
+	     
 
+     });
  </script>
 
-<body>
+<body style="margin: 15px !important; padding: 0 !important;">
 	<a name="topo" id="topo"></a>
+	<p align="center">
+		<img src="../imagens/analise.jpg" width="567" height="400"
+			alt="Análise da Conversação e da Rede Social">
+	</p>
+	<h1>Análise da Conversação e da Rede Social</h1>
 	<form id="myForm">
-		<div id="mw-panel">
-			<img id="topTagarelas" alt="Relatorio de bate-papo" width='100px'
-				height='100px' src="../imagens/tagarelas.png" />
-			<h3 id="p-interaction-label">Atalhos</h3>
-			<div class="body">
-				<ul>
-					<!--      <li id="n-welcome"><a href="#topo" title="Topo da página">Topo</a></li> -->
-					<li id="n-welcome"><a href="#resultado"
-						title="Resultados da Análise">Resultados das Análises</a></li>
-					<li id="n-help"><a href="#grafico" title="Gráfico">Gráfico</a></li>
-					<li id="n-testpage"><a href="#tab1"> tabela Quantidade de
-							Mensagens enviadas e recebidas por participante</a></li>
-					<li id="n-portal"><a href="#tab2" title="">Tabela de
-							quantidades enviadas e recebidas por partiipante</a></li>
-					<li id="call"><a href="#"><span class="call-popup">Rascunho
-								de cálculos</span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div id="content" class="mw-body" role="main">
-			<!--   <div align="center">
+		<table>
+			<tr>
+				<td height='10px'></td>
+			</tr>
+		</table>
+
+		<!--   <div align="center">
 		   	 <img id="conversas" alt="Relatorio de bate-papo"  src="../imagens/conversa.png"/>
 		    </div>  -->
-			<div id="msgProcessamento">
-				<div class="alert alert-success">
-					<h4 class="alert-heading">Aviso</h4>
-					<p>Processamento concluido. O relatório está liberado. Role a
-						tela para baixo ou clique em uma das opções ao lado.</p>
-				</div>
-			</div>
-			<div id="divProcessamento">
-				<table>
-					<tr>
-						<td valign="top" width=30%'>
-							<h3>Por favor, informe para iniciar o processamento:</h3> <br />
-							<br /> Copie as linhas da sua planilha nesta área: <br /> <br />
-							<b>Procedimento:</b> marque as linhas e colunas, copie. No campo
-							ao lado cole o conteudo da planilha ou<BR /> <BR /> <a href="#"
-							id="doSimulaDados">clique aqui para gerar dados simulados</a>
-						</td>
-						<td valign="top"><textarea rows="12" cols="80" id="cvs"
-								name="cvs"></textarea></td>
-					</tr>
-					<tr>
-						<td colspan=2 height="18px"></td>
-					</tr>
-					<tr>
-						<td>Tema da Aula:</td>
-						<td><input type="text" size="50px" id="temaAula" /></td>
-					</tr>
 
-					<tr>
-						<td>Data:</td>
-						<td><input type="date" id="diaAula" /></td>
-					</tr>
-
-					<tr>
-						<td>Tutor Moderador:</td>
-						<td><input type="text" size="50px" id="tutor" /></td>
-					</tr>
-
-					<tr>
-						<td>Alunos Participantes:</td>
-						<td><input type="number" id="participantes" /></td>
-					</tr>
-
-
-				</table>
-
-				<p></p>
-				<table>
-					<tr>
-						<td width="40%"><input type="button"
+		<div id="divProcessamento" align="center">
+			<table>
+				<tr>
+					<td valign="top">
+					<textarea rows="12" cols="80" id="cvs">
+										</textarea></td>
+					<td width="2%"></td>
+					<td valign="top" align="left">
+						<p>
+							<input style="width: 130px;" type="button" value="Exemplo 1"
+								id="doLoadLog1" name="doLoadLog1" />
+						</p>
+						<p>
+							<input style="width: 130px;" type="button" value="Exemplo 2"
+								id="doLoadLog2" name="doLoadLog2" />
+						</p>
+						<p>
+							<input style="width: 130px;" type="button" value="Exemplo 3"
+								id="doLoadLog3" name="doLoadLog3" />
+						</p>
+						<p>
+							<input style="width: 130px;" type="button" value="Exemplo 4"
+								id="doLoadLog4" name="doLoadLog4" />
+						</p>
+						<p>
+							<input style="width: 130px;" type="button" value="Exemplo 5"
+								id="doLoadLog5" name="doLoadLog5" />
+						</p>
+						<p>&nbsp;</p>
+						<p><input type="button" style="width: 130px;"
 							value="Analisar as conversas" id="doExecuteRelatorio"
-							name="doExecuteRelatorio" /></td>
-						<td width="20%"></td>
-						<td width="40%"><input type="button" value="Limpar a tela"
-							id="doClearData" name="doClearData" /></td>
-					</tr>
-				</table>
+							name="doExecuteRelatorio" /></p>
 
-			</div>
-			<BR /> <br /> <a name="resultado" id="resultado"></a>
-			<div id="divResultado">
-				<h3>Resultados das Análises</h3>
-				<div id="mensagensAnalise">Os participantes da sessão de
-					bate-papo trocaram um total de xxx mensagens</div>
-				<br />
-				<div align="right">
-					<a href="#topo" title="top"><h4>Topo</h4></a>
-				</div>
-				<a name="grafico" id="grafico"></a>
-				<div id="divGrafico">
-					<div id="graficoColuna" style="border: 1px solid #ccc"></div>
-				</div>
-				<br />
-				<div align="right">
-					<a href="#topo" title="top"><h4>Topo</h4></a>
-				</div>
-				<a name="tab1" id="tab1"></a>
-				<div id="divAnalise">
-					<h3>Análise da Produção de Mensagens</h3>
-					<br />
-					<table id="tableResumoEntradasSaidas">
-						<tr>
-							<td width="45%">Cada Participante enviou a seguinte
-								quantidade de mensagens:</td>
-							<td width="10%"></td>
-							<td width="45%">Cada Participante recebeu a seguinte
-								quantidade de mensagens:</td>
-						</tr>
-						<tr>
-							<td>
-								<table id="tableEntradas" class="display" cellspacing="0"
-									width="100%">
-								</table>
-							</td>
-							<td width="10%"></td>
-							<td>
-								<table id="tableSaidas" class="display" cellspacing="0"
-									width="100%">
-								</table>
-							</td>
-						</tr>
-					</table>
-					<br />
-				</div>
-				<div align="right">
-					<a href="#topo" title="top"><h4>Topo</h4></a>
-				</div>
-				<a name="tab2" id="tab1"></a>
-				<h3>Tabulação de Resultados</h3>
-				<table id="example" class="display" cellspacing="0" width="100%">
-				</table>
-				<div id="resumo"></div>
-				<div align="right">
-					<a href="#topo" title="top"><h4>Topo</h4></a>
-				</div>
+						<p>
+							<input style="width: 130px;" type="button" value="Limpar a tela"
+								id="doClearData" name="doClearData" />
+						</p>
+					</td>
 
+				</tr>
+			</table>
+		</div>
+		<div id="msgProcessamento">
+			<div class="alert alert-success">
+				<h4 class="alert-heading">Aviso</h4>
+				<p>Processamento concluido. O relatório está liberado. Role a
+					tela para baixo ou clique em uma das opções ao lado.</p>
 			</div>
 		</div>
+		 <br /> <a name="resultado" id="resultado"></a>
+		<div id="divResultado">
+			<table>
+				<tr>
+					<td height="2px"></td>
+				</tr>
+			</table>
+		<table>
+				<tr>
+					<td>
+						<ul>
+							<li id="n-welcome"><a href="#resultado"
+								title="Resultados da Análise">Resultados das Análises</a></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li id="n-help"><a href="#grafico" title="Gráfico">Gráfico</a></li>
+						</ul>
+					</td>
+					<td>
+						<ul>
+							<li id="n-testpage"><a href="#tab1"> tabela Quantidade
+									de Mensagens enviadas e recebidas por participante</a></li>
+						</ul>
+					</td>
+					<td><ul>
+							<li id="n-portal"><a href="#tab2" title="">Tabela de
+									quantidades enviadas e recebidas por partiipante</a></li>
+						</ul></td>
+					<td><ul>
+							<li id="call"><a href="#"><span class="call-popup">Rascunho
+										de cálculos</span></a></li>
+						</ul></td>
+				</tr>
+			</table>
+
+
+			<h3>Resultados das Análises</h3>
+			<div id="mensagensAnalise">Os participantes da sessão de
+				bate-papo trocaram um total de xxx mensagens</div>
+			<br />
+			<div align="right">
+				<a href="#topo" title="top"><h4>Topo</h4></a>
+			</div>
+			<a name="grafico" id="grafico"></a>
+			<div id="divGrafico">
+				<div id="graficoColuna" style="border: 1px solid #ccc"></div>
+			</div>
+			<br />
+			<div align="right">
+				<a href="#topo" title="top"><h4>Topo</h4></a>
+			</div>
+			<a name="tab1" id="tab1"></a>
+			<div id="divAnalise">
+				<h3>Análise da Produção de Mensagens</h3>
+				<br />
+				<table id="tableResumoEntradasSaidas" width="40%">
+					<tr>
+						<td width="100%">Cada Participante enviou e recebeu a
+							seguinte quantidade de mensagens:</td>
+					</tr>
+					<tr>
+						<td>
+							<table id="tableEntradas" class="display" cellspacing="0"
+								width="100%">
+							</table>
+						</td>
+					</tr>
+				</table>
+				<br />
+			</div>
+			<div align="right">
+				<a href="#topo" title="top"><h4>Topo</h4></a>
+			</div>
+			<a name="tab2" id="tab1"></a>
+			<h3>Tabulação de Resultados</h3>
+			<table id="example" class="display" cellspacing="0" width="100%">
+			</table>
+			<div id="resumo"></div>
+			<div align="right">
+				<a href="#topo" title="top"><h4>Topo</h4></a>
+			</div>
+
+		</div>
 	</form>
+
+
+
 	<div class="popup-window">
 		<h2>Rascunho dos cálculos</h2>
-		<p><div id="rascunhoCalculos"></div></p>
+		<p>
+		<div id="rascunhoCalculos"></div>
+		</p>
 	</div>
+
 </body>
 </html>
