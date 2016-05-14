@@ -12,8 +12,8 @@ $(function() {
 	MessageController.prototype = {
 
 			messagesModel:       null,
-			naoEnviouMensagens:  null,
-			naoRecebeuMensagens: null,
+			naoEnviouMensagens:  "",
+			naoRecebeuMensagens: "",
 
 			entradasAcimaMaximo: "",
 			entradasAbaixoMinimo: "",
@@ -49,17 +49,39 @@ $(function() {
 				}
 				return result;
 			},
+			
+			/**
+			 * Processa a entrada de mensagens.
+			 * @param titLinhas
+			 * @param theMatrix
+			 * @returns {Array}
+			 */
+			processaParticipantesEntrada:function (titLinhas, theMatrix){
+				var entradas = theMatrix[theMatrix.length -1];
+				var myRecords = new Array(); 
+				this.naoEnvouMensagens = "";
+				for(var i=0; i < titLinhas.length-1; ++i){
+					linha = [ titLinhas[i],entradas[i]];
+					if (titLinhas[i] !== "Todos"){
+						myRecords.push(linha);
+						this.verificaEntradas(titLinhas[i],entradas[i]);
+					}	 
+				}
+				return myRecords;
+			},
+
 			/**
 			 * Compara as entradas com as regras de negocio
 			 * @param participante - nome do participante
-			 * @param total - totam de mensagens enviadas.
+			 * @param total - totam de mensagens recebidas.
 			 */
 			verificaEntradas: function(participante,total,isFinal){
 				if (total == 0){
-					this.naoEnviouMensagens  += participante + ", ";
+					this.naoRecebeuMensagens  += participante + ", ";
 				}
 				if (total < this.cc.inQ1){
-					this.entradasAbaixoMinimo += participante + ", ";
+					this.entradasAbaixoMinimo          
+					+= participante + ", ";
 				}
 
 				if (total > this.cc.inQ3){
@@ -89,14 +111,14 @@ $(function() {
 			/**
 			 * Compara as saidas om as regras de negócio
 			 * @param participante - nome do participante
-			 * @param total - total de mensagens recebeidas
+			 * @param total - total de mensagens eniadas
 			 */
 			verificaSaidas: function(participante,total){
 				/*
 				 * Nao recebeu mensagens
 				 */
 				if (total == 0){
-					this.naoRecebeuMensagens  += participante + ", ";
+					this.naoRecebeuEnviouMensagens  += participante + ", ";
 				}
 				/*
 				 * Menor que primeiro quartil
@@ -126,24 +148,9 @@ $(function() {
 
 			},
 
-			processaParticipantesEntrada:function (titLinhas, theMatrix){
-				var entradas = theMatrix[theMatrix.length -1];
-				var myRecords = new Array(); 
-				this.naoEnviouMensagens = "";
-				for(var i=0; i < titLinhas.length-1; ++i){
-					linha = [ titLinhas[i],entradas[i]];
-					if (titLinhas[i] !== "Todos"){
-						myRecords.push(linha);
-						this.verificaEntradas(titLinhas[i],entradas[i]);
-					}	 
-				}
-				return myRecords;
-			},
-
 
 			processaParticipantesSaida:function (titLinhas, theMatrix){
 				var myRecords = new Array(); 
-				this.naoRecebeuMensagens = "";
 				for (var linha=0; linha < theMatrix.length-1; ++linha){
 					var myLinha = theMatrix[linha]
 					var totalColuna = 0;
@@ -160,11 +167,11 @@ $(function() {
 				return myRecords;
 			},
 
-			doShowTable: function(enviadas, recebidas) {
+			doShowTable: function(entradas, saidas) {
 				window.doClearElement("#tableEntradas");
 				var myRecords = new Array();
-				for (var i=0; i < enviadas.length; ++i){
-					myRecords.push ([enviadas[i][0],enviadas[i][1],recebidas[i][1]]);
+				for (var i=0; i < entradas.length; ++i){
+					myRecords.push ([entradas[i][0],saidas[i][1],entradas[i][1]]);
 				}
 				var myColumns = [{title:"Nome"},{title:"Mensagens Enviadas"},{title: "Mensagens Recebidas"}];
 				$("#tableEntradas").DataTable( {
@@ -193,53 +200,53 @@ $(function() {
 				return true;
 			},
 
-			monopolioConversas: function(){
+			saidaMonopolioConversas: function(){
 				var result="";
 				var myMsg ="";
-				if (this.totalMensagensMonopolio > 0){
+				if (this.totalMensagensSaidaMonopolio > 0){
 					myMsg  = this.messagesModel.monopolioDeMensagens();
-					result = this.changeParameters(myMsg,this.entradaMonopolio,this.totalMensagensMonopolio);
+					result = this.changeParameters(myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
 				} else {
 					myMsg = this.messagesModel.semMonopolioDeMensagens();
-					result = this.changeParameters(myMsg,this.entradaMaisFalante,this.totalMensagensMaisFalante);
+					result = this.changeParameters(myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
 				}
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
 
-			saidaPrimeiroQuartil: function(){
-				var myMsg = this.messagesModel.saidaPrimeiroQuartil();
-				result = this.changeParameters(myMsg,this.saidasAbaixoQ1 ,this.cc.outQ1);
+			entradaPrimeiroQuartil: function(){
+				var myMsg = this.messagesModel.entradaPrimeiroQuartil();
+				result = this.changeParameters(myMsg,this.entradasAbaixoMinimo ,this.cc.inQ1);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
 
-			saidaNaoParticipou: function(){
+			entradaNaoParticipou: function(){
 				var myMsg;	
 				if (this.naoRecebeuMensagens.isEmpty()) 
-					myMsg = this.messagesModel.saidaComTodosPartiparam();
+					myMsg = this.messagesModel.entradaComTodosPartiparam();
 				else
-					myMsg = this.messagesModel.saidaNaoParticipou();
+					myMsg = this.messagesModel.entradaNaoParticipou();
 				result = this.changeParameters(myMsg,this.naoRecebeuMensagens);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
 
-			saidaTerceiroQuartil: function(){
+			entradaTerceiroQuartil: function(){
 				var myMsg;	
-				if (this.saidasAcimaQ3.isEmpty() ) 
+				if (this.entradasAcimaQ3.isEmpty() ) 
 					return;
-				myMsg = this.messagesModel.saidaTerceiroQuartil();
-				result = this.changeParameters(myMsg,this.saidasAcimaQ3, this.cc.outQ3);
+				myMsg = this.messagesModel.entradaTerceiroQuartil();
+				result = this.changeParameters(myMsg,this.entradasAcimaQ3, this.cc.inQ3);
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
 
-			doSaidaMonopolio: function(){
+			doEntradaMonopolio: function(){
 				var result="";
 				var myMsg ="";
-				if (this.totalMensagensSaidaMonopolio > 0){
-					myMsg  = this.messagesModel.saidaMonopolio();
+				if (this.totalMensagensMonopolio > 0){
+					myMsg  = this.messagesModel.entradaMonopolio();
 					result = this.changeParameters(
-							myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
+							myMsg,this.entradaMonopolio,this.totalMensagensMonopolio);
 				} else {
-					result = this.messagesModel.saidaSemMonopolio();
+					result = this.messagesModel.entradaSemMonopolio();
 				}
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
@@ -250,16 +257,16 @@ $(function() {
 				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
 			},
 
-			participaramAcimaMedia: function(){
+			saidaParticiparamAcimaMedia: function(){
 				var myMsg = this.messagesModel.acimaDaMedia();
-				var result = this.changeParameters(myMsg,this.entradasAcimaMaximo,this.cc.inHigh);
+				var result = this.changeParameters(myMsg,this.entradasAcimaMaximo,this.cc.outHigh);
 				if (! this.entradasAcimaMaximo.isEmpty()) {
 					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
 				}
 
 			},
 
-			participaramAbaixoMedia: function(){  
+			saidaParticiparamAbaixoMedia: function(){  
 				var myMsg = this.messagesModel.abaixoDaMedia();
 				var myMsgComplementar = this.messagesModel.abaixoDaMediaComplementar();
 				if (this.naoEnviouMensagens.isEmpty()) {
@@ -270,7 +277,7 @@ $(function() {
 				};
 				if(! this.entradasAbaixoMinimo.isEmpty()){
 					var result = 
-						this.changeParameters(myMsg,this.entradasAbaixoMinimo,this.cc.inQ1,myMsgComplementar);
+						this.changeParameters(myMsg,this.entradasAbaixoMinimo,this.cc.outQ1,myMsgComplementar);
 					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
 				}
 			},
@@ -290,7 +297,7 @@ $(function() {
 				}
 				//this.media = Math.round(totalMens/(titLinhas.length-1));
 				var myMsg = this.messagesModel.totalMensagens();
-				var result = this.changeParameters(myMsg,totalPessoas,totalMens,this.cc.inQ2);
+				var result = this.changeParameters(myMsg,totalPessoas,totalMens,this.cc.outQ2);
 				this.allMessages += "<li><p><em>"+result+"</em></p></li>";
 			},
 
@@ -305,9 +312,9 @@ $(function() {
 				 * Processa a matriz de total de Entradas e Saidas
 				 * ===============================================
 				 */
-				var enviadas  = this.processaParticipantesEntrada(titLinhas,theMatrix);
-				var recebidas = this.processaParticipantesSaida(titLinhas,theMatrix);
-				this.doShowTable(enviadas, recebidas)
+				var entradas  = this.processaParticipantesEntrada(titLinhas,theMatrix);
+				var saidas = this.processaParticipantesSaida(titLinhas,theMatrix);
+				this.doShowTable(entradas, saidas)
 				/**
 				 * Todos enviaram ou receberam mensagens na aula
 				 * =============================================
@@ -319,19 +326,19 @@ $(function() {
 				 * Abaixo da Media
 				 * ===============
 				 */
-				this.participaramAbaixoMedia();
+				this.saidaParticiparamAbaixoMedia();
 
 				/**
 				 * Acima da Media
 				 * ==============
 				 */
-				this.participaramAcimaMedia();
+				this.saidaParticiparamAcimaMedia();
 
 				/**
 				 * Monopolio das mensagens
 				 * =======================
 				 */
-				this.monopolioConversas();
+				this.saidaMonopolioConversas();
 
 				/**
 				 * Saida de mensagens
@@ -341,24 +348,24 @@ $(function() {
 					'</ul><br/><br/><h5>Análise do endereçamento de mensagens</h5><br/><ul>';
 
 				/**
-				 * Conversas abaixo do primeiro quartil
+				 * Entradas abaixo do primeiro quartil
 				 */
-				this.saidaPrimeiroQuartil();
+				this.entradaPrimeiroQuartil();
 
 				/**
 				 * Ninguem falou comigo
 				 */
-				this.saidaNaoParticipou();
+				this.entradaNaoParticipou();
 
 				/**
-				 * Saidas acima do Q3
+				 * Entrada acima do Q3
 				 */
-				this.saidaTerceiroQuartil();
+				this.entradaTerceiroQuartil();
 
 				/**
 				 * Saidas Monopolio
 				 */
-				this.doSaidaMonopolio();
+				this.doEntradaMonopolio();
 
 				/**
 				 * Fim das mensagens

@@ -6,19 +6,25 @@ $(function() {
 	
 	ReportProfessorMessagesModel.prototype = {
 		 	
-			totalMensagens: function() { return "Nesta sessão de bate-papo participaram {$1} pessoas e trocaram {$2} mensagens," +
-					                            " resultando em uma <i>mediana</i> de {$3} mensagens por participante.";},
+			totalMensagens: function() { 
+				return "Nesta sessão de bate-papo participaram {$1} pessoas e trocaram {$2} mensagens," 
+				" resultando em uma <i>mediana</i> de {$3} mensagens por participante.";},
 		 	
-		 	menorParticipante: function() { return "O(s) aluno(s) {$1} obtiveram baixa participação na aula";},
+		 	menorParticipante: function() { 
+		 		return "O(s) aluno(s) {$1} obtiveram baixa participação na aula";},
 		 		
-		 	semParticipacaoEnviadas:  function() { return "O(s) participante(s) {$1} não enviou(aram) nenhuma mensagem !!!!";},
+		 	semParticipacaoEnviadas:  function() { 
+		 		return "O(s) participante(s) {$1} não enviou(aram) nenhuma mensagem !!!!";},
 		 
-		 	semParticipacaoRecebidas:  function() { return "O(s) participante(s) {$1} não recebeu(aram) nenhuma mensagem !!!!";},
+		 	semParticipacaoRecebidas:  function() { 
+		 		return "O(s) participante(s) {$1} não recebeu(aram) nenhuma mensagem !!!!";},
 		 	
-		 	todosParticiparam: function() { return "Observamos que nenhum participante deixou de enviar mensagem na sessão." +
+		 	todosParticiparam: function() { 
+		 		return "Observamos que nenhum participante deixou de enviar mensagem na sessão." +
 		 			           " Todos participaram !!!";},
 		 			          
-		    atencaoParticipante: function() { return "Alguém (Alguns) precisa(m) de sua atenção! " +
+		    atencaoParticipante: function() { 
+		    	return "Alguém (Alguns) precisa(m) de sua atenção! " +
 		    		             "O(s) participante(s) {$1} apresenta(m) " +
 		 			             "um envio de mensagens muito inferior ao " +
 		 			             "da turma, esse valor está discrepante";},
@@ -37,27 +43,27 @@ $(function() {
 		 	semMonopolioDeMensagens: function() { return "Entre os que enviaram mais mensagens {$1}" +
 		 											" foi quem enviou mais mensagens ({$2})" ;},
 		 											
-		 	saidaPrimeiroQuartil: function(){ return "{$1} foram os que menos falaram nesta sessão. (1o. Quartil: {$2})"  
+		 	entradaPrimeiroQuartil: function(){ return "{$1} foram os que menos falaram nesta sessão. (1o. Quartil: {$2})"  
 		 								},										
-		 	saidaNaoParticipou: function(){
+		 	entradaNaoParticipou: function(){
 		 		        return "Atenção! Observamos que ninguém se dirigiu à {$1} " +
 		 		        		"provavelmente ele(a)(s) não se engajou(aram) na conversa!"; 
 		 	},	
-		 	saidaComTodosPartiparam: function(){
+		 	entradaComTodosPartiparam: function(){
 		 		 return " Observamos que nenhum participante deixou de receber mensagens." +
 		 		 		" Excelente! Não houve participantes isolados da turma nesta sessão."
 		 	},
-		 	saidaTerceiroQuartil: function(){
+		 	entradaTerceiroQuartil: function(){
 		 		return "O grupo que mais teve mensagens endereças a si foi: {$1} " +
 		 				"(3o. Quartil: {$2}).";
 		 	},
-		 	saidaMonopolio: function(){
+		 	entradaMonopolio: function(){
 		 		return "Dentre esses, observamos que foi enviado um número discrepante de mensagens para {$1} ({$2} mensagens)," +
 		 				" de fato, ele foi o foco de atenção da turma.<br/> " +
 		 				"Assim, com base nas análises desse relatório conclui-se  que a conversação foi centrada em {$1}";
 		 	},
 		 	
-		 	saidaSemMonopolio: function(){
+		 	entradaSemMonopolio: function(){
 		 		return " Entretanto, observamos que ninguém recebeu um número discrepante de mensagens," +
 		 			   " o que indica que a atenção da turma não estava focada em uma única pessoa, isto é," +
 		 			   " alguém sendo o centro da conversa. Assim, com base nas análises desse relatório" +
@@ -67,8 +73,8 @@ $(function() {
 		 	peMensagens: function() { return "Apesar de {$1} ter sido o que mais falou na sessão, " +
 		 			                   "esta quantidade de mensagens ({$2}) não chega a ser " +
 		 			                   "discrepante da produção de mensagens dos demais " +
-		 			                   "participantes da Sessão. Assim concluimos que {$1} " +
-		 			                   "não monopolizou a conversação";},
+		 			                   "participantes da Sessão. Assim <b>concluimos que {$1} " +
+		 			                   "não monopolizou a conversação</b>";},
 		 			                   
 		 	participacaoNaoOuvido: function() { return "Apesar de {$1} ser o que mais enviou mensagens, " +
 		 			               "ele é o que menos obteve mensagens endereçadas a ele, " +

@@ -58,8 +58,8 @@ $(function() {
 						saida += myLinha[col]-0;
 					} 
 					data.setCell(linha,0,participante);
-					data.setCell(linha,1,entrada);
-					data.setCell(linha,2,saida);
+					data.setCell(linha,1,saida);
+					data.setCell(linha,2,entrada);
 				}
 
 				 var options = {

@@ -75,10 +75,10 @@ $(function() {
 				this.inQ3    = result[2];
 				this.inLow   = result[3];
 				this.inHigh  = result[4];
-				this.doPrepareRascunho(0, values); 
+				this.doPrepareRascunho(1, values); 
 			},
 			/**
-			 * Calcula os resultados estatisticos do vetor coluna
+			 * Calcula os resultados estatisticos do vetor coluna (mensagens enviadas)
 			 * @param values
 			 */
 			doCalcElementosColuna: function (values){
@@ -89,7 +89,7 @@ $(function() {
 				this.outQ3    = result[2];
 				this.outLow   = result[3];
 				this.outHigh  = result[4];
-				this.doPrepareRascunho(1, values); 
+				this.doPrepareRascunho(0, values); 
 			},
 			
 			/**
@@ -128,18 +128,18 @@ $(function() {
 			
 			doPrepareRascunho: function(t,vetor){
 				var linhas = new Array();
-				$("#rascunhoCalculos").append("<h4>" + (t==0 ? ".:Entradas:.":".:Saidas:.") +"</h4><ul>");
+				$("#rascunhoCalculos").append("<h4>" + (t==0 ? ".:Mensagens Enviadas:.":".: Mensagens Recebidas:.") +"</h4><ul>");
 				linhas.push("Vetor organizado: "+vetor);
-				linhas.push("Mediana: "+ (t==0 ? this.inQ2 : this.outQ2));
-				linhas.push("Primeiro Quartil: "+ (t==0 ? this.inQ1 : this.outQ1));
-				linhas.push("Terceiro Quartil: "+ (t==0 ? this.inQ3 : this.outQ3));
-				var iqr  = (t==0)? this.inQ3 - this.inQ1:this.outQ3 - this.outQ1 ;
+				linhas.push("Mediana: "+ (t==1 ? this.inQ2 : this.outQ2));
+				linhas.push("Primeiro Quartil: "+ (t==1 ? this.inQ1 : this.outQ1));
+				linhas.push("Terceiro Quartil: "+ (t==1? this.inQ3 : this.outQ3));
+				var iqr  = (t==1)? this.inQ3 - this.inQ1:this.outQ3 - this.outQ1 ;
 				linhas.push("iqr (q3-q1): "+ iqr);
 				var z  = 1.5 * iqr;
 				linhas.push("z (1.5 * iqr): "+ z);
 				
-				var pontoInferior = (t==0?this.inQ1:this.outQ1) - z;
-				var pontoSuperior = (t==0?this.inQ3:this.outQ3) + z;
+				var pontoInferior = (t==1?this.inQ1:this.outQ1) - z;
+				var pontoSuperior = (t==1?this.inQ3:this.outQ3) + z;
 				linhas.push("Ponto Superior: "+ pontoSuperior);
 				linhas.push("Ponto Inferior: "+ pontoInferior);
 				
@@ -158,24 +158,26 @@ $(function() {
 		   	doInit: function (titLinhas,theMatrix){
 		   		console.log("Inicio do Calculo Controller");
 		   		$("#rascunhoCalculos").empty();
-                /*
-                 * Prepara e calcula o array de entrada.
-                 * =====================================
-                 */
-		   		this.arrayInDegree = this.doSortArray(
-						theMatrix[theMatrix.length-1].slice());
-				console.log("arrayInDegree Organizado", this.arrayInDegree);
-				this.arrayInDegree = this.arrayInDegree.slice(0, -1);
-				this.doCalcElementosLinha(this.arrayInDegree);
-				/*
-                 * Prepara e calcula o array de saida.
-                 * =====================================
+		   		
+		   		/*
+                 * Prepara e calcula o array de mensagens enviadas.
+                 * ===============================================
                  */				
 				var arrayOut= this.doPrepareArrayOutDegree(titLinhas,theMatrix);
 				this.arrayOutDegree =  this.doSortArray(arrayOut);
 				//this.arrayOutDegree =  this.arrayOutDegree.slice(0, -1);
 				this.doCalcElementosColuna(this.arrayOutDegree);
 				console.log("Termino de Calculo Controller");
+                /*
+                 * Prepara e calcula o array de mensagens recebidas
+                 * ================================================
+                 */
+		   		this.arrayInDegree = this.doSortArray(
+						theMatrix[theMatrix.length-1].slice());
+				console.log("arrayInDegree Organizado", this.arrayInDegree);
+				this.arrayInDegree = this.arrayInDegree.slice(0, -1);
+				this.doCalcElementosLinha(this.arrayInDegree);
+				
 			}
 			
 			
