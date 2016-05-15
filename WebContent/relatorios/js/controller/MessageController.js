@@ -118,7 +118,7 @@ $(function() {
 				 * Nao recebeu mensagens
 				 */
 				if (total == 0){
-					this.naoRecebeuEnviouMensagens  += participante + ", ";
+					this.naoEnviouMensagens  += participante + ", ";
 				}
 				/*
 				 * Menor que primeiro quartil
@@ -205,7 +205,8 @@ $(function() {
 				var myMsg ="";
 				if (this.totalMensagensSaidaMonopolio > 0){
 					myMsg  = this.messagesModel.monopolioDeMensagens();
-					result = this.changeParameters(myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
+					result = this.changeParameters(myMsg,this.saidaMonopolio,
+							this.totalMensagensSaidaMonopolio,this.cc.outHigh);
 				} else {
 					myMsg = this.messagesModel.semMonopolioDeMensagens();
 					result = this.changeParameters(myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
@@ -259,7 +260,7 @@ $(function() {
 
 			saidaParticiparamAcimaMedia: function(){
 				var myMsg = this.messagesModel.acimaDaMedia();
-				var result = this.changeParameters(myMsg,this.entradasAcimaMaximo,this.cc.outHigh);
+				var result = this.changeParameters(myMsg,this.entradasAcimaMaximo,this.cc.outQ3);
 				if (! this.entradasAcimaMaximo.isEmpty()) {
 					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
 				}
@@ -275,9 +276,9 @@ $(function() {
 					myMsgComplementar = 
 						this.changeParameters(myMsgComplementar,this.naoEnviouMensagens);
 				};
-				if(! this.entradasAbaixoMinimo.isEmpty()){
+				if(! this.saidasAbaixoQ1.isEmpty()){
 					var result = 
-						this.changeParameters(myMsg,this.entradasAbaixoMinimo,this.cc.outQ1,myMsgComplementar);
+						this.changeParameters(myMsg,this.saidasAbaixoQ1,this.cc.outQ1,myMsgComplementar);
 					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
 				}
 			},

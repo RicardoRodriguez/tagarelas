@@ -38,12 +38,12 @@ $(function() {
 		 	
 		 	/* ponto discrepante acima do valor maximo fora da curva */		      
 		 	monopolioDeMensagens: function() { return "Dentre eles, {$1} enviou um número muito maior de  " +
-		 						  "mensagens ({$2}) que o restante do grupo, <i>verificamos um monopólio na conversa!</i> ";},
+		 						  "mensagens ({$2} - acima do máximo calculado - {$3}) que o restante do grupo, <i>verificamos um monopólio na conversa!</i> ";},
             
 		 	semMonopolioDeMensagens: function() { return "Entre os que enviaram mais mensagens {$1}" +
 		 											" foi quem enviou mais mensagens ({$2})" ;},
 		 											
-		 	entradaPrimeiroQuartil: function(){ return "{$1} foram os que menos falaram nesta sessão. (1o. Quartil: {$2})"  
+		 	entradaPrimeiroQuartil: function(){ return "{$1} foram os que menos receberam nesta sessão. (1o. Quartil: {$2})"  
 		 								},										
 		 	entradaNaoParticipou: function(){
 		 		        return "Atenção! Observamos que ninguém se dirigiu à {$1} " +
@@ -59,15 +59,15 @@ $(function() {
 		 	},
 		 	entradaMonopolio: function(){
 		 		return "Dentre esses, observamos que foi enviado um número discrepante de mensagens para {$1} ({$2} mensagens)," +
-		 				" de fato, ele foi o foco de atenção da turma.<br/> " +
-		 				"Assim, com base nas análises desse relatório conclui-se  que a conversação foi centrada em {$1}";
+		 				" de fato, ele foi o foco de atenção da turma.<br/><br/> " +
+		 				"<B><i>Assim, com base nas análises desse relatório conclui-se  que a conversação foi centrada em {$1}</i></B>";
 		 	},
 		 	
 		 	entradaSemMonopolio: function(){
 		 		return " Entretanto, observamos que ninguém recebeu um número discrepante de mensagens," +
 		 			   " o que indica que a atenção da turma não estava focada em uma única pessoa, isto é," +
-		 			   " alguém sendo o centro da conversa. Assim, com base nas análises desse relatório" +
-		 			   " conclui-se que a conversação não foi centrada no tutor-moderador.";
+		 			   " alguém sendo o centro da conversa.<B><i> Assim, com base nas análises desse relatório" +
+		 			   " conclui-se que a conversação não foi centrada no tutor-moderador.</i></b>";
 		 	},
 		 	/* Valor maximo que nAo ocorre discrepancia */
 		 	peMensagens: function() { return "Apesar de {$1} ter sido o que mais falou na sessão, " +
