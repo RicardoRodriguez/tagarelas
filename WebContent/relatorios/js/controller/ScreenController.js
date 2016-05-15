@@ -47,6 +47,7 @@ $(function() {
 	$('#doLoadLog2').click(function(e) {
 		md =  new MockDataModel();
 		md.getMockData(2);
+		location.hash = "#resultado";  
 
 	});
 
@@ -54,6 +55,7 @@ $(function() {
 	$('#doLoadLog3').click(function(e) {
 		md =  new MockDataModel();
 		md.getMockData(3);
+		
 	});
 
 
@@ -65,7 +67,7 @@ $(function() {
 
 	$('#doLoadLog5').click(function(e) {
 		md =  new MockDataModel();
-		md.getMockData(5);
+		md.getMockData(5); 
 	});
 	
 	

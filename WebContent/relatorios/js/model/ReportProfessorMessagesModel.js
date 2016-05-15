@@ -43,7 +43,7 @@ $(function() {
 		 	semMonopolioDeMensagens: function() { return "Entre os que enviaram mais mensagens {$1}" +
 		 											" foi quem enviou mais mensagens ({$2})" ;},
 		 											
-		 	entradaPrimeiroQuartil: function(){ return "{$1} foram os que menos receberam nesta sessão. (1o. Quartil: {$2})"  
+		 	entradaPrimeiroQuartil: function(){ return "{$1} foram os que menos receberam mensagens nesta sessão. (1o. Quartil: {$2})"  
 		 								},										
 		 	entradaNaoParticipou: function(){
 		 		        return "Atenção! Observamos que ninguém se dirigiu à {$1} " +
@@ -89,7 +89,7 @@ $(function() {
 		    naoParticipou: function() { return "Atencão, observamos que ninguém se dirigiu a {$1}. " +
 		    		       "Parece que ele não se engajou na conversa.";},
 		    		       
-		    todosParticiaram: function() { return "Observamos que nenhum participante deixou de obtr mensagens" +
+		    todosParticiaram: function() { return "Observamos que nenhum participante deixou de obter mensagens" +
 		    		          " endereçadas a ele. Excelente! Não houve participantes isolados " +
 		    		          "da turma nesta sessão";},
 		    		          

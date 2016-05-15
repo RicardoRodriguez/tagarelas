@@ -145,6 +145,7 @@ $(function() {
 			            	    if (xhttp.readyState == 4 && xhttp.status == 200) {
 			            	      $("textarea#cvs").val(xhttp.responseText);
 			            	      window.doExecuteRelatorio();
+			            	      location.hash = "#resultado";  
 			            	    }
 			            	  };
 			            	  xhttp.open("GET", "mockdataLog"+ myChoice +".txt", true);
