@@ -221,7 +221,41 @@ $(function() {
 			    
 			    /* Gerar Grafico da Matrix */
 			    this.doPrepareGrafico();
-			}	
+			},
 
+			/**
+			 * Executa a rotina principal do projeto
+			 */
+			doMainWCAGAction: function() {
+				console.log("ReportProfessorController>>doMainAction" );
+				
+				/* Carrega o arquivo de Log */
+				console.log("ReportProfessorController>>doMainAction>>Carregando texto de log...." );
+				
+				logConversaModel = new LogConversaModel();
+				var textLog =  $( "textarea#cvs" ).val();
+				this.logData = eval(logConversaModel.csvToJSON(textLog));
+				
+				/* Prepara as turmas  */
+				logConversaModel.doPrepareTurma(this.logData);
+				this.turma =logConversaModel.getTurma();	
+				
+				/* Prepara as conversas */
+	
+				logConversaModel.doPrepareConversas(this.logData);
+				this.conversas = logConversaModel.getConversas();
+				
+				/* Gerar matriz Adjacencia */
+				this.doCreateMatrizAdjacencia("#tableResultado");
+				
+			    /*Carrega a matriz de resultados */
+				this.doShowMatrixAdjacente();
+
+				/* Gerar resumo da Matriz */
+				this.doPrepareResumo("#resumo");
+				
+				/* Gerar Analise de Mensagens */
+			    this.doPrepareAnaliseMensagens();
+			}	
 
 	}});

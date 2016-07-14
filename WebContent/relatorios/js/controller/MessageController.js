@@ -12,32 +12,33 @@ $(function() {
 	MessageController.prototype = {
 
 			messagesModel:       null,
-			naoEnviouMensagens:  "",
-			naoRecebeuMensagens: "",
+			
+			/**
+			 * Enderacamento de Mensagens
+			 */
+			
+			naoReceberam: "",
+			menosReceberam: "", 
+			maisReceberam: "",
+			discrepantesReceberam: "",
 
-			entradasAcimaMaximo: "",
-			entradasAbaixoMinimo: "",
-			entradasAcimaQ3: "",
-			entradaMonopolio:"",
-			totalMensagensMonopolio:0,
-			entradaMaisFalante:"",
-			totalMensagensMaisFalante:0,
-
-			saidasAcimaMaximo: "",
-			saidasAbaixoQ1: "",
-			saidasAcimaQ3: "",
-			saidaMonopolio:"",
-			totalMensagensSaidaMonopolio: 0,
-			saidaMaisOuvinte:"",
-			totalMensagensMaisOuvinte:0,
-
-
+			/**
+			 * Producao de mensagens
+			 */
+			
+			naoFalaram:  "",
+			menosFalaram: "",
+			maisFalaram: "",
+			discrepantesFalaram: "", 
 
 			allMessages: null,
 			cc: null,
 			media: 0,
 
-
+			/**
+			 * Preenche os dados de mensagem. Altera {$n} na mensagem fornecida
+			 * ----------------------------------------------------------------
+			 */	
 			changeParameters: function (msg, p0,p1,p2,p3,p4,p5,p6,p7,p8,p9){
 				var result = msg; 
 				for (var i=0; i < 10; ++i){
@@ -51,12 +52,12 @@ $(function() {
 			},
 			
 			/**
-			 * Processa a entrada de mensagens.
+			 * Processa a Enderecamento de mensagens.
 			 * @param titLinhas
 			 * @param theMatrix
 			 * @returns {Array}
 			 */
-			processaParticipantesEntrada:function (titLinhas, theMatrix){
+			processaParticipantesEnderecamento:function (titLinhas, theMatrix){
 				var entradas = theMatrix[theMatrix.length -1];
 				var myRecords = new Array(); 
 				this.naoEnvouMensagens = "";
@@ -64,7 +65,7 @@ $(function() {
 					linha = [ titLinhas[i],entradas[i]];
 					if (titLinhas[i] !== "Todos"){
 						myRecords.push(linha);
-						this.verificaEntradas(titLinhas[i],entradas[i]);
+						this.verificaEnderecamento(titLinhas[i],entradas[i]);
 					}	 
 				}
 				return myRecords;
@@ -75,69 +76,93 @@ $(function() {
 			 * @param participante - nome do participante
 			 * @param total - totam de mensagens recebidas.
 			 */
-			verificaEntradas: function(participante,total,isFinal){
+			verificaEnderecamento: function(participante,total,isFinal){
+				/*
+				 * Não receberam mensagens
+				 * -----------------------
+				 */
 				if (total == 0){
-					this.naoRecebeuMensagens  += participante + ", ";
+					this.naoReceberam  += participante + ", ";
 				}
+				/*
+				 * Menos receberam
+				 * ----------------
+				 */
 				if (total < this.cc.inQ1){
-					this.entradasAbaixoMinimo          
-					+= participante + ", ";
+					this.menosReceberam += 
+						participante + "(" + total + " mensagens) , ";
 				}
 
+				/*
+				 * Mais receberam
+				 * --------------
+				 */
 				if (total > this.cc.inQ3){
-					this.entradasAcimaQ3 += participante + ", ";
+					this.maisReceberam += 
+						participante + "(" + total + " mensagens) , ";
 				}
 
+				/*
+				 * Discrepantes
+				 * ------------
+				 */
 				if (total > this.cc.inHigh){
-					this.entradasAcimaMaximo += participante + ", ";
+					this.discrepantesReceberam += 
+						participante + "(" + total + " mensagens) , ";
 				}
-				// Mais Falante
-				//----------------------
-				if (total > this.totalMensagensMaisFalante){
-					this.totalMensagensMaisFalante= total;
-					this.entradaMaisFalante = participante;
-				}
-
-				// Monopolio da conversa
-				//----------------------
-				if (total > this.cc.inHigh && 
-						total > this.totalMensagensMonopolio){
-					this.totalMensagensMonopolio = total;
-					this.entradaMonopolio = participante;
-				}
-
 			},
 
 			/**
-			 * Compara as saidas om as regras de negócio
+			 * Processa a producao de mensagens
+			 */
+			processaParticipantesProducao:function (titLinhas, theMatrix){
+				var myRecords = new Array(); 
+				for (var linha=0; linha < theMatrix.length-1; ++linha){
+					var myLinha = theMatrix[linha]
+					var totalColuna = 0;
+					for (coluna=0; coluna < myLinha.length-1; ++coluna){
+						totalColuna += myLinha[coluna];
+					} 
+					if (titLinhas[linha] != 'Todos') {
+					   var l = [ titLinhas[linha],totalColuna];
+						this.verificaProducao(l[0],l[1]);
+						myRecords.push(l);
+					}
+
+				}
+				return myRecords;
+			},
+
+			
+			/**
+			 * Compara a produção om as regras de negócio
 			 * @param participante - nome do participante
 			 * @param total - total de mensagens eniadas
 			 */
-			verificaSaidas: function(participante,total){
+			verificaProducao: function(participante,total){
 				/*
-				 * Nao recebeu mensagens
+				 * Nao falaram
 				 */
 				if (total == 0){
-					this.naoEnviouMensagens  += participante + ", ";
+					this.naoFalaram  += participante + ", ";
 				}
 				/*
 				 * Menor que primeiro quartil
 				 */
 				if (total < (this.cc.outQ1-0)){
-					this.saidasAbaixoQ1 += participante + ", ";
+					this.menosFalaram += participante + "(" + total + " mensagens) , ";
 				}
 				/*
-				 * saida maior que o terceiro quartil
+				 * Saida maior que o terceiro quartil
 				 */
 				if (total > this.cc.outQ3){
-					this.saidasAcimaQ3 += participante + ", ";
+					this.maisFalaram += participante + "(" + total + " mensagens) , ";
 				}
 				// Monopolio da conversa saida
 				//----------------------------
 				if (total > this.cc.outHigh && 
 						total > this.totalMensagensSaidaMonopolio){
-					this.totalMensagensSaidaMonopolio = total;
-					this.saidaMonopolio = participante;
+					this.discrepantesFalaram += participante + "(" + total + " mensagens) , ";
 				}
 				// Mais Ouvinte
 				//----------------------
@@ -148,25 +173,86 @@ $(function() {
 
 			},
 
-
-			processaParticipantesSaida:function (titLinhas, theMatrix){
-				var myRecords = new Array(); 
-				for (var linha=0; linha < theMatrix.length-1; ++linha){
-					var myLinha = theMatrix[linha]
-					var totalColuna = 0;
-					for (coluna=0; coluna < myLinha.length-1; ++coluna){
-						totalColuna += myLinha[coluna];
-					} 
-					if (titLinhas[linha] != 'Todos') {
-					   var l = [ titLinhas[linha],totalColuna];
-						this.verificaSaidas(l[0],l[1]);
-						myRecords.push(l);
-					}
-
-				}
-				return myRecords;
+			/**
+			 * Produção de mensagens - Relatório.
+			 * ==================================
+			 */
+			
+			producaoMenosFalaram: function(){
+				var myMsg = this.messagesModel.producao.menosFalaram();
+				var result = this.changeParameters(myMsg,this.menosFalaram);
+				if (! this.menosFalaram.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			producaoNaoFalaram: function(){
+				var myMsg = this.messagesModel.producao.naoFalaram();
+				var result = this.changeParameters(myMsg,this.naoFalaram);
+				if (! this.naoFalaram.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
 			},
 
+			producaoMaisFalaram: function(){
+				var myMsg = this.messagesModel.producao.maisFalaram();
+				var result = this.changeParameters(myMsg,this.maisFalaram);
+				if (! this.maisFalaram.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			producaoDiscrepantes: function(){
+				var myMsg = this.messagesModel.producao.discrepantes();
+				var result = this.changeParameters(myMsg,this.discrepantesFalaram);
+				if (! this.discrepantesFalaram.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			producaoNaoDiscrepante: function(){
+				var myMsg = this.messagesModel.producao.naoDiscrepantes();
+				var result = this.changeParameters(myMsg,this.maisFalaram);
+				if (this.discrepantesFalaram.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+				
+			/**
+			 * Endereçamento de mensagens - Relatório.
+			 * =======================================
+			 */
+			enderecamentoMenosReceberam: function(){
+				var myMsg = this.messagesModel.enderecamento.menosReceberam();
+				var result = this.changeParameters(myMsg,this.menosReceberam);
+				if (! this.menosReceberam.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			enderecamentoNaoReceberam: function(){
+				var myMsg = this.messagesModel.enderecamento.naoReceberam();
+				var result = this.changeParameters(myMsg,this.naoReceberam);
+				if (! this.naoReceberam.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			enderecamentoMaisReceberam: function(){
+				var myMsg = this.messagesModel.enderecamento.maisReceberam();
+				var result = this.changeParameters(myMsg,this.maisReceberam);
+				if (! this.maisReceberam.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			enderecamentoDiscrepantes: function(){
+				var myMsg = this.messagesModel.enderecamento.discrepantes();
+				var result = this.changeParameters(myMsg,this.discrepantesReceberam);
+				if (! this.discrepantesReceberam.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			enderecamentoNaoDiscrepante: function(){
+				var myMsg = this.messagesModel.enderecamento.naoDiscrepantes();
+				var result = this.changeParameters(myMsg,this.maisReceberam);
+				if (this.discrepantesReceberam.isEmpty())
+				    this.allMessages += "<li><p><em>"+result+"</em></p></li>";
+			},
+			
+			
 			doShowTable: function(entradas, saidas) {
 				window.doClearElement("#tableEntradas");
 				var myRecords = new Array();
@@ -188,101 +274,6 @@ $(function() {
 				} ); 
 			},
 
-			naoEnviaramMensagem: function(){
-				if (this.naoEnviouMensagens.isEmpty()) return false;
-				return true;
-			},
-
-			naoReceberamMensagem: function(){
-				if (this.naoRecebeuMensagens.isEmpty()) {
-					return false;
-				}
-				return true;
-			},
-
-			saidaMonopolioConversas: function(){
-				var result="";
-				var myMsg ="";
-				if (this.totalMensagensSaidaMonopolio > 0){
-					myMsg  = this.messagesModel.monopolioDeMensagens();
-					result = this.changeParameters(myMsg,this.saidaMonopolio,
-							this.totalMensagensSaidaMonopolio,this.cc.outHigh);
-				} else {
-					myMsg = this.messagesModel.semMonopolioDeMensagens();
-					result = this.changeParameters(myMsg,this.saidaMonopolio,this.totalMensagensSaidaMonopolio);
-				}
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			entradaPrimeiroQuartil: function(){
-				var myMsg = this.messagesModel.entradaPrimeiroQuartil();
-				result = this.changeParameters(myMsg,this.entradasAbaixoMinimo ,this.cc.inQ1);
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			entradaNaoParticipou: function(){
-				var myMsg;	
-				if (this.naoRecebeuMensagens.isEmpty()) 
-					myMsg = this.messagesModel.entradaComTodosPartiparam();
-				else
-					myMsg = this.messagesModel.entradaNaoParticipou();
-				result = this.changeParameters(myMsg,this.naoRecebeuMensagens);
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			entradaTerceiroQuartil: function(){
-				var myMsg;	
-				if (this.entradasAcimaQ3.isEmpty() ) 
-					return;
-				myMsg = this.messagesModel.entradaTerceiroQuartil();
-				result = this.changeParameters(myMsg,this.entradasAcimaQ3, this.cc.inQ3);
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			doEntradaMonopolio: function(){
-				var result="";
-				var myMsg ="";
-				if (this.totalMensagensMonopolio > 0){
-					myMsg  = this.messagesModel.entradaMonopolio();
-					result = this.changeParameters(
-							myMsg,this.entradaMonopolio,this.totalMensagensMonopolio);
-				} else {
-					result = this.messagesModel.entradaSemMonopolio();
-				}
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			todosParticiparam: function(naoParticiparam){
-				if (naoParticiparam) return; 
-				var result = this.messagesModel.todosParticiparam();
-				this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>";
-			},
-
-			saidaParticiparamAcimaMedia: function(){
-				var myMsg = this.messagesModel.acimaDaMedia();
-				var result = this.changeParameters(myMsg,this.entradasAcimaMaximo,this.cc.outQ3);
-				if (! this.entradasAcimaMaximo.isEmpty()) {
-					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
-				}
-
-			},
-
-			saidaParticiparamAbaixoMedia: function(){  
-				var myMsg = this.messagesModel.abaixoDaMedia();
-				var myMsgComplementar = this.messagesModel.abaixoDaMediaComplementar();
-				if (this.naoEnviouMensagens.isEmpty()) {
-					myMsgComplementar = "";
-				} else {
-					myMsgComplementar = 
-						this.changeParameters(myMsgComplementar,this.naoEnviouMensagens);
-				};
-				if(! this.saidasAbaixoQ1.isEmpty()){
-					var result = 
-						this.changeParameters(myMsg,this.saidasAbaixoQ1,this.cc.outQ1,myMsgComplementar);
-					this.allMessages += result.isEmpty() ? "": "<li><p><em>"+result+"</em></p></li>"; 
-				}
-			},
-
 
 			/**
 			 * Total de mensagens enviadas.
@@ -297,7 +288,7 @@ $(function() {
 					totalMens += entradas[i];
 				}
 				//this.media = Math.round(totalMens/(titLinhas.length-1));
-				var myMsg = this.messagesModel.totalMensagens();
+				var myMsg = this.messagesModel.producao.totalParticipantes();
 				var result = this.changeParameters(myMsg,totalPessoas,totalMens,this.cc.outQ2);
 				this.allMessages += "<li><p><em>"+result+"</em></p></li>";
 			},
@@ -307,66 +298,89 @@ $(function() {
 				this.cc = theCalculoController;
 				this.allMessages   = '<div id="listAnalise"><h5>Análise de produção de mensagens</h5><br/><ul>';
 
-				this.totalMensagensEnviadas(titLinhas,theMatrix);
+				
 
 				/**
 				 * Processa a matriz de total de Entradas e Saidas
 				 * ===============================================
 				 */
-				var entradas  = this.processaParticipantesEntrada(titLinhas,theMatrix);
-				var saidas = this.processaParticipantesSaida(titLinhas,theMatrix);
-				this.doShowTable(entradas, saidas)
-				/**
-				 * Todos enviaram ou receberam mensagens na aula
-				 * =============================================
-				 */
-				var naoEnviaram    = this.naoEnviaramMensagem() ;
-				var naoReceberam   = this.naoReceberamMensagem()
+				var entradas  = this.processaParticipantesEnderecamento(titLinhas,theMatrix);
+				var saidas    = this.processaParticipantesProducao(titLinhas,theMatrix);
+				
+				this.doShowTable(entradas, saidas);
 
 				/**
-				 * Abaixo da Media
+				 *  Produção de Mensagens.
+				 */ 
+
+				/**
+			     * Total de mensagens
+			     */
+				this.totalMensagensEnviadas(titLinhas,theMatrix);
+				
+				/**
+				 * Menos Falaram
 				 * ===============
 				 */
-				this.saidaParticiparamAbaixoMedia();
+				this.producaoMenosFalaram();
 
 				/**
-				 * Acima da Media
+				 * Não Falaram
+				 * ===============
+				 */
+				this.producaoNaoFalaram();
+				
+				/**
+				 * Mais Falaram
 				 * ==============
 				 */
-				this.saidaParticiparamAcimaMedia();
+				this.producaoMaisFalaram();
 
 				/**
-				 * Monopolio das mensagens
+				 * Falaram de forma Discrepante
 				 * =======================
 				 */
-				this.saidaMonopolioConversas();
+				this.producaoDiscrepantes();
 
 				/**
-				 * Saida de mensagens
-				 * ===================
+				 * Falaram de forma nao Discrepante
+				 * ================================
+				 */
+				this.producaoNaoDiscrepante();
+
+				
+				/**
+				 *Enderecamento de mensagens
+				 * =========================
 				 */
 				this.allMessages  += 
 					'</ul><br/><br/><h5>Análise do endereçamento de mensagens</h5><br/><ul>';
 
 				/**
-				 * Entradas abaixo do primeiro quartil
+				 * Menos Receberam Mensagens
 				 */
-				this.entradaPrimeiroQuartil();
+				this.enderecamentoMenosReceberam();
 
 				/**
-				 * Ninguem falou comigo
+				 * Nao Receberam Mensagens
 				 */
-				this.entradaNaoParticipou();
+				this.enderecamentoNaoReceberam();
 
 				/**
-				 * Entrada acima do Q3
+				 * Mais receberam Mensagens
 				 */
-				this.entradaTerceiroQuartil();
+				this.enderecamentoMaisReceberam();
 
 				/**
-				 * Saidas Monopolio
+				 * Receberam de forma discrepante
 				 */
-				this.doEntradaMonopolio();
+				this.enderecamentoDiscrepantes();
+				
+				/**
+				 * Receberam de forma não discrepante
+				 */
+				this.enderecamentoNaoDiscrepante();
+				
 
 				/**
 				 * Fim das mensagens
